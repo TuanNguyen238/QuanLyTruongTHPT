@@ -1,0 +1,104 @@
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.exe
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.pdb
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.AssemblyReference.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.SuggestedBindingRedirects.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.Properties.Resources.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.GenerateResource.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CoreCompileInputs.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangNhap.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangKy.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.Form1.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.AssemblyReference.cache
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.SuggestedBindingRedirects.cache
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangKy.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangNhap.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.Properties.Resources.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.GenerateResource.cache
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CoreCompileInputs.cache
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.exe
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.pdb
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\Siticone.Desktop.UI.dll
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CopyComplete
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormHocSinh.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormTuyenSinh.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.CapNhatThongTin.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.DangKyTuyenSinh.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormGiaoVien.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.ChinhSuaThongTinHocSinh.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiemHocSinh.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemLichDay.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThiDua.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThoiKhoaBieu.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemPhanHoi.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiem.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiemHK1.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemThoiKhoaBieu.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemCaNam.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemHK2.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThongTin.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemCaNam.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK1.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK2.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.PhanHoi.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormAdmin.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormChiTietThiDua.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.ChinhSuaThongTinHS.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.DuyetHoSo.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.NoiQuy.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHS.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSCaNam.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSHK1.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSHK2.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemLichDayGV.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemThiDuaLop.resources
+D:\HK1\He quan tri co so du lieu\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemTKBLop.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.exe
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\DoAnHQTCSDL.pdb
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\bin\Debug\Siticone.Desktop.UI.dll
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.AssemblyReference.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.SuggestedBindingRedirects.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormAdmin.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormChiTietThiDua.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangKy.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormDangNhap.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormGiaoVien.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormHocSinh.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormTuyenSinh.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.Properties.Resources.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.ChinhSuaThongTinHS.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.DuyetHoSo.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.NoiQuy.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHS.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSCaNam.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSHK1.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHSHK2.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemLichDayGV.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemThiDuaLop.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemTKBLop.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemCaNam.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK1.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK2.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.PhanHoi.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemCaNam.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemHK2.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemThoiKhoaBieu.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThongTin.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.CapNhatThongTin.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.ChinhSuaThongTinHocSinh.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.DangKyTuyenSinh.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiem.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiemHK1.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiemHocSinh.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemLichDay.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemPhanHoi.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThiDua.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThoiKhoaBieu.resources
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.GenerateResource.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CoreCompileInputs.cache
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CopyComplete
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
+D:\DUYEN_HK5\HQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb

@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8C96258-C4FC-45A7-AF64-D2C516825A53}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DoAnHQTCSDL</RootNamespace>
+    <AssemblyName>DoAnHQTCSDL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Siticone.Desktop.UI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9683591576b7f0b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChiTietThiDua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiTietThiDua.Designer.cs">
+      <DependentUpon>FormChiTietThiDua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangKy.Designer.cs">
+      <DependentUpon>FormDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiaoVien.Designer.cs">
+      <DependentUpon>FormGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHocSinh.Designer.cs">
+      <DependentUpon>FormHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTuyenSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTuyenSinh.Designer.cs">
+      <DependentUpon>FormTuyenSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Admin\ChinhSuaThongTinHS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\ChinhSuaThongTinHS.Designer.cs">
+      <DependentUpon>ChinhSuaThongTinHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\DuyetHoSo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\DuyetHoSo.Designer.cs">
+      <DependentUpon>DuyetHoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\NoiQuy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\NoiQuy.Designer.cs">
+      <DependentUpon>NoiQuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHS.Designer.cs">
+      <DependentUpon>XemDiemHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSCaNam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSCaNam.Designer.cs">
+      <DependentUpon>XemDiemHSCaNam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSHK1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSHK1.Designer.cs">
+      <DependentUpon>XemDiemHSHK1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSHK2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemDiemHSHK2.Designer.cs">
+      <DependentUpon>XemDiemHSHK2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemLichDayGV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemLichDayGV.Designer.cs">
+      <DependentUpon>XemLichDayGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemThiDuaLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemThiDuaLop.Designer.cs">
+      <DependentUpon>XemThiDuaLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemTKBLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\XemTKBLop.Designer.cs">
+      <DependentUpon>XemTKBLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemCaNam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemCaNam.Designer.cs">
+      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHK1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHK1.Designer.cs">
+      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHK2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHK2.Designer.cs">
+      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\PhanHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\PhanHoi.Designer.cs">
+      <DependentUpon>PhanHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemCaNam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemCaNam.Designer.cs">
+      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemHK2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemHK2.Designer.cs">
+      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemThoiKhoaBieu.Designer.cs">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TuyenSinh\CapNhatThongTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TuyenSinh\CapNhatThongTin.Designer.cs">
+      <DependentUpon>CapNhatThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\ChinhSuaThongTinHocSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\ChinhSuaThongTinHocSinh.Designer.cs">
+      <DependentUpon>ChinhSuaThongTinHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TuyenSinh\DangKyTuyenSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TuyenSinh\DangKyTuyenSinh.Designer.cs">
+      <DependentUpon>DangKyTuyenSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiem.Designer.cs">
+      <DependentUpon>XemDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemHK1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemDiemHK1.Designer.cs">
+      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHocSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemDiemHocSinh.Designer.cs">
+      <DependentUpon>XemDiemHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemLichDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemLichDay.Designer.cs">
+      <DependentUpon>XemLichDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemPhanHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemPhanHoi.Designer.cs">
+      <DependentUpon>XemPhanHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemThiDua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemThiDua.Designer.cs">
+      <DependentUpon>XemThiDua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieu.Designer.cs">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemThongTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HocSinh\XemThongTin.Designer.cs">
+      <DependentUpon>XemThongTin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChiTietThiDua.resx">
+      <DependentUpon>FormChiTietThiDua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangKy.resx">
+      <DependentUpon>FormDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiaoVien.resx">
+      <DependentUpon>FormGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHocSinh.resx">
+      <DependentUpon>FormHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTuyenSinh.resx">
+      <DependentUpon>FormTuyenSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControls\Admin\ChinhSuaThongTinHS.resx">
+      <DependentUpon>ChinhSuaThongTinHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\DuyetHoSo.resx">
+      <DependentUpon>DuyetHoSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\NoiQuy.resx">
+      <DependentUpon>NoiQuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemDiemHS.resx">
+      <DependentUpon>XemDiemHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemDiemHSCaNam.resx">
+      <DependentUpon>XemDiemHSCaNam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemDiemHSHK1.resx">
+      <DependentUpon>XemDiemHSHK1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemDiemHSHK2.resx">
+      <DependentUpon>XemDiemHSHK2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemLichDayGV.resx">
+      <DependentUpon>XemLichDayGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemThiDuaLop.resx">
+      <DependentUpon>XemThiDuaLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\XemTKBLop.resx">
+      <DependentUpon>XemTKBLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemCaNam.resx">
+      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemHK1.resx">
+      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemHK2.resx">
+      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\PhanHoi.resx">
+      <DependentUpon>PhanHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemDiemCaNam.resx">
+      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemDiemHK2.resx">
+      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemThoiKhoaBieu.resx">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemThongTin.resx">
+      <DependentUpon>XemThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TuyenSinh\CapNhatThongTin.resx">
+      <DependentUpon>CapNhatThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\ChinhSuaThongTinHocSinh.resx">
+      <DependentUpon>ChinhSuaThongTinHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TuyenSinh\DangKyTuyenSinh.resx">
+      <DependentUpon>DangKyTuyenSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemDiem.resx">
+      <DependentUpon>XemDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HocSinh\XemDiemHK1.resx">
+      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemHocSinh.resx">
+      <DependentUpon>XemDiemHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemLichDay.resx">
+      <DependentUpon>XemLichDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemPhanHoi.resx">
+      <DependentUpon>XemPhanHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemThiDua.resx">
+      <DependentUpon>XemThiDua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemThoiKhoaBieu.resx">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-right %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-right %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-right %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %286%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d5b0b8521c25c93aa01c98d422895b871.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %285%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrows1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg-011.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invisible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\education.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alligator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\education1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper-plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weekly %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weekly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\megaphone %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\megaphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-button %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z4822050157688_0bad5101033585785f4565d9933249fa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z4822050200946_878642510a7521593287d0bef86fe389.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approve %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
