@@ -21,11 +21,13 @@ namespace DoAnHQTCSDL
         PhanHoi phanHoi = null;
         string maHS = "", tenLop = "";
         DBMain db = null;
+        BLHocSinh blHocSinh = null;
         public FormHocSinh(string username, DBMain db)
         {
             InitializeComponent();
-            this.maHS = db.ExecuteQueryString("SELECT dbo.TraMaNguoiDung('" + username + "');", CommandType.Text);
-            this.tenLop = db.ExecuteQueryString("SELECT dbo.TraLop('" + this.maHS + "');", CommandType.Text);
+            blHocSinh = new BLHocSinh(username, db);
+            this.maHS = blHocSinh.TraMaNguoiDung();
+            this.tenLop = blHocSinh.TraLop(this.maHS);
             this.db = db;
         }
 
@@ -54,7 +56,6 @@ namespace DoAnHQTCSDL
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-
             {
                 this.Hide();
                 FormDangNhap formDangNhap = new FormDangNhap();

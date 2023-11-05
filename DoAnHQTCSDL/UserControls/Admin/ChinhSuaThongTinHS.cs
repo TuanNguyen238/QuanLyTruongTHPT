@@ -106,13 +106,13 @@ namespace DoAnHQTCSDL.UserControls.Admin
                     dgvChinhSuaThongTinHS.Rows[r].Cells[6].Value.ToString();
                     this.txtDiaChi.Text =
                     dgvChinhSuaThongTinHS.Rows[r].Cells[7].Value.ToString();
-
                 }
             }
         }
 
         private void ChinhSuaThongTinHS_Load(object sender, EventArgs e)
         {
+            this.dgvChinhSuaThongTinHS.ReadOnly = true;
             this.LoadData();
         }
 

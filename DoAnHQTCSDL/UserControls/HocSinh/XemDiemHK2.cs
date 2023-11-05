@@ -44,7 +44,6 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
             this.dgvHK2.Columns[2].HeaderText = "Điểm kiểm tra giữa kỳ";
             this.dgvHK2.Columns[3].HeaderText = "Điểm kiểm tra cuối kỳ";
             this.dgvHK2.Columns[4].HeaderText = "Điểm trung bình môn";
-            this.dgvHK2.ReadOnly = true;
             ds = this.blXemDiemHK.LayDanhHieuHK();
             DataTable dtn = ds.Tables[0];
             DataRow dr = dtn.Rows[0];

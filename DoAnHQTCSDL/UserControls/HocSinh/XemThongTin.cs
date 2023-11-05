@@ -21,8 +21,6 @@ namespace DoAnHQTCSDL.UserControls
             this.blXemTT = new BLXemThongTin(maHS, db);
         }
 
-
-
         private void panelXemThongTin_Load(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();

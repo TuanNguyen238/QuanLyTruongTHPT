@@ -65,7 +65,7 @@ namespace DoAnHQTCSDL.UserControls
                 panelDiem.Controls.Add(xemDiemHK1);
                 xemDiemHK1.Visible = true;
             }
-            
+
             else if (rdHK2.Checked)
             {
                 xemDiemHK2.SetNamHoc(namHoc);

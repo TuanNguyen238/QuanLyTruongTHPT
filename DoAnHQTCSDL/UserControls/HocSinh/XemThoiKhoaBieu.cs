@@ -53,10 +53,5 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
         {
             this.LoadData();
         }
-
-        private void cbNam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.LoadData();
-        }
     }
 }

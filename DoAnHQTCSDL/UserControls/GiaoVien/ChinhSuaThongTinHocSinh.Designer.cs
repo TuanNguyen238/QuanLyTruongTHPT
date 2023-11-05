@@ -49,16 +49,10 @@
             this.txtDiaChi = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtSDT = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.dgvChinhSuaThongTin = new System.Windows.Forms.DataGridView();
-            this.MaHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelChinhSua = new System.Windows.Forms.Panel();
+            this.btnLuu = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.btnHuy = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChinhSuaThongTin)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelChinhSua.SuspendLayout();
@@ -77,7 +71,7 @@
             this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimKiem.IconLeft = global::DoAnHQTCSDL.Properties.Resources.search__3_;
             this.txtTimKiem.Location = new System.Drawing.Point(236, 10);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PasswordChar = '\0';
             this.txtTimKiem.PlaceholderText = "";
@@ -112,7 +106,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
             this.btnCapNhat.IndicateFocus = true;
-            this.btnCapNhat.Location = new System.Drawing.Point(357, 638);
+            this.btnCapNhat.Location = new System.Drawing.Point(83, 636);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(126, 28);
@@ -371,15 +365,6 @@
             // 
             this.dgvChinhSuaThongTin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChinhSuaThongTin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChinhSuaThongTin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaHS,
-            this.HoTen,
-            this.NgaySinh,
-            this.GioiTinh,
-            this.TenLop,
-            this.SoDT,
-            this.DiaChi,
-            this.NamHoc});
             this.dgvChinhSuaThongTin.Location = new System.Drawing.Point(38, 180);
             this.dgvChinhSuaThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChinhSuaThongTin.Name = "dgvChinhSuaThongTin";
@@ -387,54 +372,7 @@
             this.dgvChinhSuaThongTin.RowTemplate.Height = 28;
             this.dgvChinhSuaThongTin.Size = new System.Drawing.Size(724, 391);
             this.dgvChinhSuaThongTin.TabIndex = 69;
-            // 
-            // MaHS
-            // 
-            this.MaHS.HeaderText = "Mã Học Sinh";
-            this.MaHS.MinimumWidth = 8;
-            this.MaHS.Name = "MaHS";
-            // 
-            // HoTen
-            // 
-            this.HoTen.HeaderText = "Họ Tên";
-            this.HoTen.MinimumWidth = 8;
-            this.HoTen.Name = "HoTen";
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.MinimumWidth = 8;
-            this.NgaySinh.Name = "NgaySinh";
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.MinimumWidth = 8;
-            this.GioiTinh.Name = "GioiTinh";
-            // 
-            // TenLop
-            // 
-            this.TenLop.HeaderText = "Tên Lớp";
-            this.TenLop.MinimumWidth = 8;
-            this.TenLop.Name = "TenLop";
-            // 
-            // SoDT
-            // 
-            this.SoDT.HeaderText = "Số Điện Thoại";
-            this.SoDT.MinimumWidth = 8;
-            this.SoDT.Name = "SoDT";
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.MinimumWidth = 8;
-            this.DiaChi.Name = "DiaChi";
-            // 
-            // NamHoc
-            // 
-            this.NamHoc.HeaderText = "Năm Học";
-            this.NamHoc.MinimumWidth = 8;
-            this.NamHoc.Name = "NamHoc";
+            this.dgvChinhSuaThongTin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChinhSuaThongTin_CellClick);
             // 
             // panel1
             // 
@@ -472,18 +410,55 @@
             this.panelChinhSua.Size = new System.Drawing.Size(739, 161);
             this.panelChinhSua.TabIndex = 70;
             // 
+            // btnLuu
+            // 
+            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuu.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.IndicateFocus = true;
+            this.btnLuu.Location = new System.Drawing.Point(310, 636);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(127, 28);
+            this.btnLuu.TabIndex = 90;
+            this.btnLuu.Text = "Lưu";
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHuy.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.IndicateFocus = true;
+            this.btnHuy.Location = new System.Drawing.Point(559, 636);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(126, 29);
+            this.btnHuy.TabIndex = 91;
+            this.btnHuy.Text = "Hủy";
+            // 
             // ChinhSuaThongTinHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtTimKiem);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ChinhSuaThongTinHocSinh";
-            this.Size = new System.Drawing.Size(768, 668);
+            this.Size = new System.Drawing.Size(768, 673);
+            this.Load += new System.EventHandler(this.ChinhSuaThongTinHocSinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChinhSuaThongTin)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panelChinhSua.ResumeLayout(false);
@@ -514,15 +489,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDiaChi;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtSDT;
         private System.Windows.Forms.DataGridView dgvChinhSuaThongTin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamHoc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelChinhSua;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnLuu;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnHuy;
     }
 }

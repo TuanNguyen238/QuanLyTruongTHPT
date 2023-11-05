@@ -49,8 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BS\BLGiaoVien.cs" />
+    <Compile Include="BS\BLHocSinh.cs" />
     <Compile Include="BS\Admin\BLChinhSuaThongTinHS.cs" />
     <Compile Include="BS\BLDangNhap.cs" />
+    <Compile Include="BS\GiaoVien\BLXemThiDua.cs" />
+    <Compile Include="BS\GiaoVien\BLXemDiemLopCaNam.cs" />
+    <Compile Include="BS\GiaoVien\BLXemDiemLopHK.cs" />
+    <Compile Include="BS\GiaoVien\BLXemThongTinLop.cs" />
+    <Compile Include="BS\GiaoVien\BLXemTKBLop.cs" />
     <Compile Include="BS\HocSinh\BLPhanHoi.cs" />
     <Compile Include="BS\HocSinh\BLXemDiemCaNam.cs" />
     <Compile Include="BS\HocSinh\BLXemDiemHK.cs" />
@@ -161,23 +168,23 @@
     <Compile Include="UserControls\Admin\XemTKBLop.Designer.cs">
       <DependentUpon>XemTKBLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemCaNam.cs">
+    <Compile Include="UserControls\GiaoVien\XemDiemLopCaNam.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemCaNam.Designer.cs">
-      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    <Compile Include="UserControls\GiaoVien\XemDiemLopCaNam.Designer.cs">
+      <DependentUpon>XemDiemLopCaNam.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemHK1.cs">
+    <Compile Include="UserControls\GiaoVien\XemDiemLopHK1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemHK1.Designer.cs">
-      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    <Compile Include="UserControls\GiaoVien\XemDiemLopHK1.Designer.cs">
+      <DependentUpon>XemDiemLopHK1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemHK2.cs">
+    <Compile Include="UserControls\GiaoVien\XemDiemLopHK2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemDiemHK2.Designer.cs">
-      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    <Compile Include="UserControls\GiaoVien\XemDiemLopHK2.Designer.cs">
+      <DependentUpon>XemDiemLopHK2.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HocSinh\PhanHoi.cs">
       <SubType>UserControl</SubType>
@@ -251,11 +258,11 @@
     <Compile Include="UserControls\GiaoVien\XemThiDua.Designer.cs">
       <DependentUpon>XemThiDua.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieu.cs">
+    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieuLop.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieu.Designer.cs">
-      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    <Compile Include="UserControls\GiaoVien\XemThoiKhoaBieuLop.Designer.cs">
+      <DependentUpon>XemThoiKhoaBieuLop.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HocSinh\XemThongTin.cs">
       <SubType>UserControl</SubType>
@@ -324,14 +331,14 @@
     <EmbeddedResource Include="UserControls\Admin\XemTKBLop.resx">
       <DependentUpon>XemTKBLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemCaNam.resx">
-      <DependentUpon>XemDiemCaNam.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemLopCaNam.resx">
+      <DependentUpon>XemDiemLopCaNam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemHK1.resx">
-      <DependentUpon>XemDiemHK1.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemLopHK1.resx">
+      <DependentUpon>XemDiemLopHK1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemHK2.resx">
-      <DependentUpon>XemDiemHK2.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemDiemLopHK2.resx">
+      <DependentUpon>XemDiemLopHK2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HocSinh\PhanHoi.resx">
       <DependentUpon>PhanHoi.cs</DependentUpon>
@@ -372,8 +379,8 @@
     <EmbeddedResource Include="UserControls\GiaoVien\XemThiDua.resx">
       <DependentUpon>XemThiDua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GiaoVien\XemThoiKhoaBieu.resx">
-      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GiaoVien\XemThoiKhoaBieuLop.resx">
+      <DependentUpon>XemThoiKhoaBieuLop.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -570,8 +577,6 @@
   <ItemGroup>
     <None Include="Resources\score %281%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BS\GiaoVien\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

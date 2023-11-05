@@ -17,9 +17,9 @@ namespace DoAnHQTCSDL.UserControls
         BLXemDiemHK blXemDiemHK = null;
         public XemDiemHK1(string maHS, DBMain db)
         {
+            InitializeComponent();
             blXemDiemHK = new BLXemDiemHK(maHS, db);
             this.blXemDiemHK.SetKyHoc(1);
-            InitializeComponent();
         }
 
         public void SetNamHoc(int namHoc)
@@ -44,7 +44,6 @@ namespace DoAnHQTCSDL.UserControls
             this.dgvHK1.Columns[2].HeaderText = "Điểm kiểm tra giữa kỳ";
             this.dgvHK1.Columns[3].HeaderText = "Điểm kiểm tra cuối kỳ";
             this.dgvHK1.Columns[4].HeaderText = "Điểm trung bình môn";
-            this.dgvHK1.ReadOnly = true;
             ds = this.blXemDiemHK.LayDanhHieuHK();
             DataTable dtn = ds.Tables[0];
             DataRow dr = dtn.Rows[0];

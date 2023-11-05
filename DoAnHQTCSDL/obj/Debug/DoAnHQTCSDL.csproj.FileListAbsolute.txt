@@ -295,9 +295,6 @@ C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQ
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemPhanCong.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemThiDuaLop.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemTKBLop.resources
-C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemCaNam.resources
-C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK1.resources
-C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemHK2.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.PhanHoi.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemCaNam.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.HocSinh.XemDiemHK2.resources
@@ -311,9 +308,12 @@ C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQ
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemDiemHocSinh.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemPhanHoi.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThiDua.resources
-C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThoiKhoaBieu.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.GenerateResource.cache
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CopyComplete
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb
+C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.XemThoiKhoaBieuLop.resources
+C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemLopCaNam.resources
+C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemLopHK1.resources
+C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.XemDiemLopHK2.resources

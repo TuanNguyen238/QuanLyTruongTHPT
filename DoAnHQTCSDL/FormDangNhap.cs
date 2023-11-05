@@ -46,8 +46,8 @@ namespace DoAnHQTCSDL
                 }
                 else if (loaiNguoiDung == 2)
                 {
-                    FormGiaoVien frmAdmin = new FormGiaoVien(this.txtUsername.Text, this.blDangNhap.TraVeDB());
-                    frmAdmin.ShowDialog();
+                    FormGiaoVien frmGiaoVien = new FormGiaoVien(this.txtUsername.Text, this.blDangNhap.TraVeDB());
+                    frmGiaoVien.ShowDialog();
                 }
                 else if (loaiNguoiDung == 3)
                 {
