@@ -11,7 +11,7 @@ namespace DoAnHQTCSDL.BS.HocSinh
 {
     internal class BLPhanHoi
     {
-        string maHS = "";
+        private string maHS = "";
         DBMain db = null;
         public BLPhanHoi(string maHs, DBMain db)
         {
