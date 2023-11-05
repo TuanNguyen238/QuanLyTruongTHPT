@@ -21,10 +21,5 @@ namespace DoAnHQTCSDL.UserControls
         {
             MessageBox.Show("Cập nhật thành công");
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

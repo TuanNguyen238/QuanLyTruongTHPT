@@ -15,7 +15,6 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
     public partial class PhanHoi : UserControl
     {
         BLPhanHoi blPhanHoi = null;
-        List<string> maGV = new List<string>();
         public PhanHoi(string maHS, DBMain db)
         {
             InitializeComponent();
@@ -23,25 +22,30 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.cbMGV.ResetText();
-            this.txtPhanHoi.ResetText();
+            cbMGV.ResetText();
+            txtPhanHoi.ResetText();
         }
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-
-            this.txtPhanHoi.ResetText();
-            MessageBox.Show("Gửi phản hồi thành công!");
+            string err = "";
+            if (blPhanHoi.GuiPhanHoi(cbMGV.SelectedValue.ToString(), txtPhanHoi.Text, ref err))
+            {
+                txtPhanHoi.ResetText();
+                MessageBox.Show("Gửi phản hồi thành công!");
+            }
+            else
+                MessageBox.Show(err);
         }
 
         private void PhanHoi_Load(object sender, EventArgs e)
         {
             DataSet ds = blPhanHoi.LayMaGiaoVien();
             DataTable dt = ds.Tables[0];
-            this.cbMGV.DataSource = dt;
-            this.cbMGV.DisplayMember = "HoTen";
-            this.cbMGV.ValueMember = "MaNguoiDung";
-            this.cbMGV.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMGV.DataSource = dt;
+            cbMGV.DisplayMember = "HoTen";
+            cbMGV.ValueMember = "MaNguoiDung";
+            cbMGV.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

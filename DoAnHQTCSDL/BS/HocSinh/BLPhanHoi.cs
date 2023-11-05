@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace DoAnHQTCSDL.BS.HocSinh
 {
@@ -23,10 +24,10 @@ namespace DoAnHQTCSDL.BS.HocSinh
             return db.ExecuteQueryDataSet("SELECT * FROM TraGiaovien;", CommandType.Text);
         }
 
-        public bool GuiPhanHoi(string maGv)
+        public bool GuiPhanHoi(string maGv, string noiDung, ref string err)
         {
-            // return db.MyExecuteNonQuery("", CommandType.Text, ref err);
-            return true;
+            string SQLstr = "EXEC GuiPhanHoi '" + this.maHS + "','" + maGv + "',N'" + noiDung + "';";
+            return db.MyExecuteNonQuery(SQLstr, CommandType.Text, ref err);
         }
     }
 }
