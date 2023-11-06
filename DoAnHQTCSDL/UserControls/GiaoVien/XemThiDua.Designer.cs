@@ -56,12 +56,12 @@
             // 
             this.dgvXemThiDua.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvXemThiDua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvXemThiDua.Location = new System.Drawing.Point(27, 150);
+            this.dgvXemThiDua.Location = new System.Drawing.Point(12, 150);
             this.dgvXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvXemThiDua.Name = "dgvXemThiDua";
             this.dgvXemThiDua.RowHeadersWidth = 62;
             this.dgvXemThiDua.RowTemplate.Height = 28;
-            this.dgvXemThiDua.Size = new System.Drawing.Size(739, 242);
+            this.dgvXemThiDua.Size = new System.Drawing.Size(716, 242);
             this.dgvXemThiDua.TabIndex = 1;
             // 
             // label1
@@ -159,10 +159,10 @@
             // 
             // panelThiDua
             // 
-            this.panelThiDua.Location = new System.Drawing.Point(27, 423);
+            this.panelThiDua.Location = new System.Drawing.Point(12, 424);
             this.panelThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelThiDua.Name = "panelThiDua";
-            this.panelThiDua.Size = new System.Drawing.Size(739, 106);
+            this.panelThiDua.Size = new System.Drawing.Size(716, 106);
             this.panelThiDua.TabIndex = 92;
             // 
             // XemThiDua

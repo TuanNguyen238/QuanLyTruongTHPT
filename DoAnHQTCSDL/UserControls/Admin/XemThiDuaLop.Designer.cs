@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvXemThiDua = new System.Windows.Forms.DataGridView();
-            this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemTongKet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.XepHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnXemChiTiet = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemThiDua)).BeginInit();
@@ -41,43 +38,23 @@
             // 
             this.dgvXemThiDua.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvXemThiDua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvXemThiDua.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenLop,
-            this.DiemTongKet,
-            this.XepHang});
-            this.dgvXemThiDua.Location = new System.Drawing.Point(26, 155);
+            this.dgvXemThiDua.Location = new System.Drawing.Point(23, 124);
+            this.dgvXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvXemThiDua.Name = "dgvXemThiDua";
             this.dgvXemThiDua.RowHeadersWidth = 62;
             this.dgvXemThiDua.RowTemplate.Height = 28;
-            this.dgvXemThiDua.Size = new System.Drawing.Size(839, 466);
+            this.dgvXemThiDua.Size = new System.Drawing.Size(746, 373);
             this.dgvXemThiDua.TabIndex = 0;
-            // 
-            // TenLop
-            // 
-            this.TenLop.HeaderText = "Lớp";
-            this.TenLop.MinimumWidth = 8;
-            this.TenLop.Name = "TenLop";
-            // 
-            // DiemTongKet
-            // 
-            this.DiemTongKet.HeaderText = "Điểm Tổng Kết";
-            this.DiemTongKet.MinimumWidth = 8;
-            this.DiemTongKet.Name = "DiemTongKet";
-            // 
-            // XepHang
-            // 
-            this.XepHang.HeaderText = "Xếp Hạng";
-            this.XepHang.MinimumWidth = 8;
-            this.XepHang.Name = "XepHang";
+            this.dgvXemThiDua.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThiDua_CellClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label1.Location = new System.Drawing.Point(166, 52);
+            this.label1.Location = new System.Drawing.Point(148, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(541, 45);
+            this.label1.Size = new System.Drawing.Size(462, 37);
             this.label1.TabIndex = 66;
             this.label1.Text = "Xếp hạng thi đua của tất cả các lớp";
             // 
@@ -91,23 +68,26 @@
             this.btnXemChiTiet.FillColor = System.Drawing.Color.CadetBlue;
             this.btnXemChiTiet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemChiTiet.ForeColor = System.Drawing.Color.White;
-            this.btnXemChiTiet.Location = new System.Drawing.Point(319, 671);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(284, 537);
+            this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
-            this.btnXemChiTiet.Size = new System.Drawing.Size(204, 46);
+            this.btnXemChiTiet.Size = new System.Drawing.Size(181, 37);
             this.btnXemChiTiet.TabIndex = 97;
             this.btnXemChiTiet.Text = "Xem Chi Tiết";
             this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
             // 
             // XemThiDuaLop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnXemChiTiet);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvXemThiDua);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "XemThiDuaLop";
-            this.Size = new System.Drawing.Size(898, 821);
+            this.Size = new System.Drawing.Size(798, 657);
+            this.Load += new System.EventHandler(this.XemThiDuaLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemThiDua)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -117,9 +97,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvXemThiDua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemTongKet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn XepHang;
         private System.Windows.Forms.Label label1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnXemChiTiet;
     }

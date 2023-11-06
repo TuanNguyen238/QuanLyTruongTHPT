@@ -50,12 +50,12 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTKB.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTKB.Location = new System.Drawing.Point(33, 121);
+            this.dgvTKB.Location = new System.Drawing.Point(18, 144);
             this.dgvTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTKB.Name = "dgvTKB";
             this.dgvTKB.RowHeadersWidth = 62;
             this.dgvTKB.RowTemplate.Height = 28;
-            this.dgvTKB.Size = new System.Drawing.Size(724, 455);
+            this.dgvTKB.Size = new System.Drawing.Size(724, 451);
             this.dgvTKB.TabIndex = 0;
             // 
             // label1
@@ -79,7 +79,7 @@
             this.cbKy.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbKy.ItemHeight = 30;
-            this.cbKy.Location = new System.Drawing.Point(279, 79);
+            this.cbKy.Location = new System.Drawing.Point(276, 81);
             this.cbKy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbKy.Name = "cbKy";
             this.cbKy.Size = new System.Drawing.Size(89, 36);
@@ -92,7 +92,7 @@
             this.lbHK.AutoSize = true;
             this.lbHK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHK.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbHK.Location = new System.Drawing.Point(193, 80);
+            this.lbHK.Location = new System.Drawing.Point(190, 89);
             this.lbHK.Name = "lbHK";
             this.lbHK.Size = new System.Drawing.Size(80, 28);
             this.lbHK.TabIndex = 103;
@@ -109,7 +109,7 @@
             this.txtLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLop.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLop.Location = new System.Drawing.Point(86, 79);
+            this.txtLop.Location = new System.Drawing.Point(83, 88);
             this.txtLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLop.Name = "txtLop";
             this.txtLop.PasswordChar = '\0';
@@ -123,7 +123,7 @@
             this.lbLop.AutoSize = true;
             this.lbLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLop.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lbLop.Location = new System.Drawing.Point(28, 81);
+            this.lbLop.Location = new System.Drawing.Point(25, 90);
             this.lbLop.Name = "lbLop";
             this.lbLop.Size = new System.Drawing.Size(52, 28);
             this.lbLop.TabIndex = 105;

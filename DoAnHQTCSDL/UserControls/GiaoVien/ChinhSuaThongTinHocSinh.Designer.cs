@@ -365,7 +365,7 @@
             // 
             this.dgvChinhSuaThongTin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChinhSuaThongTin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChinhSuaThongTin.Location = new System.Drawing.Point(38, 180);
+            this.dgvChinhSuaThongTin.Location = new System.Drawing.Point(19, 172);
             this.dgvChinhSuaThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChinhSuaThongTin.Name = "dgvChinhSuaThongTin";
             this.dgvChinhSuaThongTin.RowHeadersWidth = 62;
@@ -404,7 +404,7 @@
             this.panelChinhSua.Controls.Add(this.label3);
             this.panelChinhSua.Controls.Add(this.label2);
             this.panelChinhSua.Controls.Add(this.label8);
-            this.panelChinhSua.Location = new System.Drawing.Point(22, 10);
+            this.panelChinhSua.Location = new System.Drawing.Point(3, 2);
             this.panelChinhSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelChinhSua.Name = "panelChinhSua";
             this.panelChinhSua.Size = new System.Drawing.Size(739, 161);

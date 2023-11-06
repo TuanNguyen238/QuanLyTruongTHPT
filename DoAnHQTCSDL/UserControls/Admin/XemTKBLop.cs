@@ -15,24 +15,20 @@ namespace DoAnHQTCSDL.UserControls.Admin
     public partial class XemTKBLop : UserControl
     {
         BLXemTKBTruong blXemTKBTruong = null;
+        int kyHoc = 1;
         public XemTKBLop(DBMain db)
         {
             InitializeComponent();
             blXemTKBTruong = new BLXemTKBTruong(db);
-            cbKy.Items.Clear();
-            cbKy.Items.Add("1");
-            cbKy.Items.Add("2");
-            cbKy.SelectedIndex = 0;
-            cbKy.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLop.DataSource = blXemTKBTruong.TraDanhSachLop().Tables[0];
             cbLop.DisplayMember = "TenLop";
             cbLop.ValueMember = "TenLop";
-            cbLop.SelectedIndex = 0;
-            cbLop.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void XemTKBLop_Load(object sender, EventArgs e)
         {
+            cbLop.SelectedIndex = 0;
+            cbLop.DropDownStyle = ComboBoxStyle.DropDownList;
             dgvTKB.ReadOnly = true;
             this.LoadData();
         }
@@ -40,7 +36,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
         public void LoadData()
         {
             DataSet ds = new DataSet();
-            ds = this.blXemTKBTruong.LayTKBLop(cbLop.SelectedValue.ToString(), int.Parse(cbKy.SelectedItem.ToString()));
+            ds = this.blXemTKBTruong.LayTKBLop(cbLop.SelectedValue.ToString(), this.kyHoc);
             DataTable dt = ds.Tables[0];
             this.dgvTKB.DataSource = dt;
             this.dgvTKB.Columns[0].HeaderText = "Tiết";
@@ -57,9 +53,16 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.LoadData();
         }
 
-        private void cbKy_SelectedIndexChanged(object sender, EventArgs e)
+        private void rdHK1_CheckedChanged(object sender, EventArgs e)
         {
-            //this.LoadData();
+            this.kyHoc = 1;
+            this.LoadData();
+        }
+
+        private void rdHK2_CheckedChanged(object sender, EventArgs e)
+        {
+            this.kyHoc = 2;
+            this.LoadData();
         }
     }
 }

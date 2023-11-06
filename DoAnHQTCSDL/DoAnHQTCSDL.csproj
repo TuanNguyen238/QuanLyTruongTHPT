@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BS\Admin\BLPhanCong.cs" />
+    <Compile Include="BS\Admin\BLXemDiemTruongCaNam.cs" />
+    <Compile Include="BS\Admin\BLXemDiemTruongHK.cs" />
+    <Compile Include="BS\Admin\BLXemNoiQuy.cs" />
+    <Compile Include="BS\Admin\BLXemThiDua.cs" />
     <Compile Include="BS\Admin\BLXemTKBTruong.cs" />
     <Compile Include="BS\BLAdmin.cs" />
     <Compile Include="BS\BLGiaoVien.cs" />

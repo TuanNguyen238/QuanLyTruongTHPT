@@ -127,6 +127,7 @@
             this.cbKy.Size = new System.Drawing.Size(89, 36);
             this.cbKy.Sorted = true;
             this.cbKy.TabIndex = 102;
+            this.cbKy.SelectedIndexChanged += new System.EventHandler(this.cbKy_SelectedIndexChanged);
             // 
             // XemThoiKhoaBieu
             // 
