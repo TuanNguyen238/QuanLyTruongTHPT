@@ -11,11 +11,9 @@ namespace DoAnHQTCSDL.BS
     internal class BLChinhSuaThongTinHS
     {
         DBMain db = null;
-        string username = "";
-        public BLChinhSuaThongTinHS(string username, DBMain db)
+        public BLChinhSuaThongTinHS(DBMain db)
         {
             this.db = db;
-            this.username = username;
         }
 
         public DataSet LayThongTinHocSinh()

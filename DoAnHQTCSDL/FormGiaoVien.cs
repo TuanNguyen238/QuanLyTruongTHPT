@@ -19,7 +19,7 @@ namespace DoAnHQTCSDL
         XemDiemHocSinh xemDiemHocSinh = null;
         XemThoiKhoaBieuLop xemThoiKhoaBieuLop = null;
         XemThiDua xemThiDua = null;
-        XemPhanHoi xemPhanHoi = new XemPhanHoi();
+        XemPhanHoi xemPhanHoi = null;
         BLGiaoVien blGiaoVien = null;
         string maGV = "", tenLop = "";
         DBMain db = null;
@@ -62,6 +62,7 @@ namespace DoAnHQTCSDL
 
         private void btnPhanHoi_Click(object sender, EventArgs e)
         {
+            xemPhanHoi = new XemPhanHoi(maGV, db);
             this.panelGiaoVien.Controls.Clear();
             this.panelGiaoVien.Controls.Add(xemPhanHoi);
         }

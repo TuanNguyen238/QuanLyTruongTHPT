@@ -49,10 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BS\Admin\BLXemTKBTruong.cs" />
+    <Compile Include="BS\BLAdmin.cs" />
     <Compile Include="BS\BLGiaoVien.cs" />
     <Compile Include="BS\BLHocSinh.cs" />
     <Compile Include="BS\Admin\BLChinhSuaThongTinHS.cs" />
     <Compile Include="BS\BLDangNhap.cs" />
+    <Compile Include="BS\GiaoVien\BLXemPhanHoi.cs" />
     <Compile Include="BS\GiaoVien\BLXemThiDua.cs" />
     <Compile Include="BS\GiaoVien\BLXemDiemLopCaNam.cs" />
     <Compile Include="BS\GiaoVien\BLXemDiemLopHK.cs" />

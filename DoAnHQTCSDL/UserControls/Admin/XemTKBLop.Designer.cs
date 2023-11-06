@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTKB = new System.Windows.Forms.DataGridView();
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thu2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,10 +37,10 @@
             this.Thu5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thu6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thu7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbNam = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.cbLop = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbKy = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.lbHK = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,19 +56,20 @@
             this.Thu5,
             this.Thu6,
             this.Thu7});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTKB.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTKB.Location = new System.Drawing.Point(14, 181);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTKB.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTKB.Location = new System.Drawing.Point(12, 145);
+            this.dgvTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTKB.Name = "dgvTKB";
             this.dgvTKB.RowHeadersWidth = 62;
             this.dgvTKB.RowTemplate.Height = 28;
-            this.dgvTKB.Size = new System.Drawing.Size(814, 560);
+            this.dgvTKB.Size = new System.Drawing.Size(724, 448);
             this.dgvTKB.TabIndex = 1;
             // 
             // Tiet
@@ -113,77 +114,77 @@
             this.Thu7.MinimumWidth = 8;
             this.Thu7.Name = "Thu7";
             // 
-            // cbNam
+            // cbLop
             // 
-            this.cbNam.BackColor = System.Drawing.Color.Transparent;
-            this.cbNam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNam.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbNam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbNam.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbNam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbNam.ItemHeight = 30;
-            this.cbNam.Items.AddRange(new object[] {
-            "2023"});
-            this.cbNam.Location = new System.Drawing.Point(267, 101);
-            this.cbNam.Name = "cbNam";
-            this.cbNam.Size = new System.Drawing.Size(100, 36);
-            this.cbNam.StartIndex = 0;
-            this.cbNam.TabIndex = 102;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label2.Location = new System.Drawing.Point(138, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 32);
-            this.label2.TabIndex = 101;
-            this.label2.Text = "Năm học:";
-            // 
-            // siticoneComboBox1
-            // 
-            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.ItemHeight = 30;
-            this.siticoneComboBox1.Items.AddRange(new object[] {
-            "10A1",
-            "10A2",
-            "10A3"});
-            this.siticoneComboBox1.Location = new System.Drawing.Point(267, 34);
-            this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.Size = new System.Drawing.Size(154, 36);
-            this.siticoneComboBox1.TabIndex = 103;
+            this.cbLop.BackColor = System.Drawing.Color.Transparent;
+            this.cbLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLop.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbLop.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbLop.ItemHeight = 30;
+            this.cbLop.Location = new System.Drawing.Point(209, 27);
+            this.cbLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbLop.Name = "cbLop";
+            this.cbLop.Size = new System.Drawing.Size(137, 36);
+            this.cbLop.TabIndex = 103;
+            this.cbLop.SelectedIndexChanged += new System.EventHandler(this.cbLop_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label4.Location = new System.Drawing.Point(138, 34);
+            this.label4.Location = new System.Drawing.Point(123, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 32);
+            this.label4.Size = new System.Drawing.Size(52, 28);
             this.label4.TabIndex = 94;
             this.label4.Text = "Lớp:";
             // 
+            // cbKy
+            // 
+            this.cbKy.BackColor = System.Drawing.Color.Transparent;
+            this.cbKy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKy.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbKy.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbKy.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbKy.ItemHeight = 30;
+            this.cbKy.Location = new System.Drawing.Point(209, 84);
+            this.cbKy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbKy.Name = "cbKy";
+            this.cbKy.Size = new System.Drawing.Size(89, 36);
+            this.cbKy.Sorted = true;
+            this.cbKy.TabIndex = 106;
+            this.cbKy.SelectedIndexChanged += new System.EventHandler(this.cbKy_SelectedIndexChanged);
+            // 
+            // lbHK
+            // 
+            this.lbHK.AutoSize = true;
+            this.lbHK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHK.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lbHK.Location = new System.Drawing.Point(123, 85);
+            this.lbHK.Name = "lbHK";
+            this.lbHK.Size = new System.Drawing.Size(80, 28);
+            this.lbHK.TabIndex = 105;
+            this.lbHK.Text = "Kỳ học:";
+            // 
             // XemTKBLop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.siticoneComboBox1);
-            this.Controls.Add(this.cbNam);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbKy);
+            this.Controls.Add(this.lbHK);
+            this.Controls.Add(this.cbLop);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvTKB);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "XemTKBLop";
-            this.Size = new System.Drawing.Size(843, 822);
+            this.Size = new System.Drawing.Size(749, 658);
+            this.Load += new System.EventHandler(this.XemTKBLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,9 +201,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu7;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbNam;
-        private System.Windows.Forms.Label label2;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbLop;
         private System.Windows.Forms.Label label4;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbKy;
+        private System.Windows.Forms.Label lbHK;
     }
 }

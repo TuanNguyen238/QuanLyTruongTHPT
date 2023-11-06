@@ -15,10 +15,10 @@ namespace DoAnHQTCSDL.UserControls.Admin
     public partial class ChinhSuaThongTinHS : UserControl
     {
         BLChinhSuaThongTinHS blCSTS = null;
-        public ChinhSuaThongTinHS(string username, DBMain db)
+        public ChinhSuaThongTinHS(DBMain db)
         {
             InitializeComponent();
-            blCSTS = new BLChinhSuaThongTinHS(username, db);
+            blCSTS = new BLChinhSuaThongTinHS(db);
         }
 
         public void LoadData()
@@ -40,6 +40,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvChinhSuaThongTinHS.Columns[5].HeaderText = "Lớp";
             this.dgvChinhSuaThongTinHS.Columns[6].HeaderText = "Năm Học";
             this.dgvChinhSuaThongTinHS.Columns[7].HeaderText = "Địa Chỉ";
+            this.dgvChinhSuaThongTinHS_CellClick(null, null);
         }
 
         public void ResetAllText()
@@ -57,7 +58,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
 
         public void btnCapNhat_Click(object sender, EventArgs e)
         {
-
             // Cho phép thao tác trên Panel
             this.panelThongTin.Enabled = true;
             this.btnCapNhat.Enabled = false;
@@ -65,7 +65,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.btnLuu.Enabled = true;
             this.btnHuy.Enabled = true;
-            // Đưa con trỏ đến TextField txtMaLop
             this.txtMaHS.Enabled = false;
             this.txtHoTen.Focus();
         }

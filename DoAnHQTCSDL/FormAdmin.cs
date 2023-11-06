@@ -1,4 +1,5 @@
-﻿using DoAnHQTCSDL.DB;
+﻿using DoAnHQTCSDL.BS;
+using DoAnHQTCSDL.DB;
 using DoAnHQTCSDL.UserControls;
 using DoAnHQTCSDL.UserControls.Admin;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DoAnHQTCSDL
 {
@@ -21,16 +23,17 @@ namespace DoAnHQTCSDL
         NoiQuy noiQuy = new NoiQuy();
         XemDiemHS xemDiemHS = new XemDiemHS();
         XemPhanCong xemPhanCong = new XemPhanCong();
-        XemTKBLop xemTKBLop = new XemTKBLop();
+        XemTKBLop xemTKBLop = null;
         XemThiDuaLop xemThiDuaLop = new XemThiDuaLop();
+        BLAdmin bLAdmin = null;
+        DBMain db = null;
         public FormAdmin(string username, DBMain db)
         {
             InitializeComponent();
-            chinhSuaThongTinHS = new ChinhSuaThongTinHS(username, db);
+            bLAdmin = new BLAdmin(username, db);
+            this.db = db;
         }
                        
-        public FormAdmin() { }
-
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -43,6 +46,7 @@ namespace DoAnHQTCSDL
 
         private void btnChinhSuaTT_Click(object sender, EventArgs e)
         {
+            chinhSuaThongTinHS = new ChinhSuaThongTinHS(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(chinhSuaThongTinHS);
         }
@@ -55,6 +59,7 @@ namespace DoAnHQTCSDL
 
         private void btnXemTKB_Click(object sender, EventArgs e)
         {
+            xemTKBLop = new XemTKBLop(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemTKBLop);
         }

@@ -46,6 +46,7 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
             cbMGV.DisplayMember = "HoTen";
             cbMGV.ValueMember = "MaNguoiDung";
             cbMGV.DropDownStyle = ComboBoxStyle.DropDownList;
+            MessageBox.Show(cbMGV.SelectedItem.ToString());
         }
     }
 }

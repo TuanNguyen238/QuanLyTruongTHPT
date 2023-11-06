@@ -35,13 +35,16 @@ namespace DoAnHQTCSDL.UserControls
             dgvXemThiDua.Columns[0].HeaderText = "Tổng số điểm trừ";
             ds = bLXemThiDua.TongKet_ThiDua();
             dt = ds.Tables[0];
-            DataRow dr = dt.Rows[0];
-            string diemTongKet = dr["DiemTongKet"].ToString();
-            string xephang = dr["XepHang"].ToString();
-            this.txtDiemTongKet.Text = diemTongKet;
-            this.txtDiemTongKet.ReadOnly = true;
-            this.txtXepHang.Text = xephang;
-            this.txtXepHang.ReadOnly = true;
+            if (this.txtLop.Text.Length > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                string diemTongKet = dr["DiemTongKet"].ToString();
+                string xephang = dr["XepHang"].ToString();
+                this.txtDiemTongKet.Text = diemTongKet;
+                this.txtDiemTongKet.ReadOnly = true;
+                this.txtXepHang.Text = xephang;
+                this.txtXepHang.ReadOnly = true;
+            }
         }
     }
 }
