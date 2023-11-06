@@ -30,9 +30,9 @@ namespace DoAnHQTCSDL.UserControls
             dt = ds.Tables[0];
             dgvXemThiDua.DataSource = dt;
             dgvXemThiDua.Columns[0].HeaderText = "Mã nội quy";
-            dgvXemThiDua.Columns[0].HeaderText = "Điều lệ vi phạm";
-            dgvXemThiDua.Columns[0].HeaderText = "Số lần vi phạm";
-            dgvXemThiDua.Columns[0].HeaderText = "Tổng số điểm trừ";
+            dgvXemThiDua.Columns[1].HeaderText = "Điều lệ vi phạm";
+            dgvXemThiDua.Columns[2].HeaderText = "Số lần vi phạm";
+            dgvXemThiDua.Columns[3].HeaderText = "Tổng số điểm trừ";
             ds = bLXemThiDua.TongKet_ThiDua();
             dt = ds.Tables[0];
             if (this.txtLop.Text.Length > 0)
