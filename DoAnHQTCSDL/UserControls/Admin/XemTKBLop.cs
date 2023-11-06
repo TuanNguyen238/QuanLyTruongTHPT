@@ -19,17 +19,20 @@ namespace DoAnHQTCSDL.UserControls.Admin
         {
             InitializeComponent();
             blXemTKBTruong = new BLXemTKBTruong(db);
+            cbKy.Items.Clear();
             cbKy.Items.Add("1");
             cbKy.Items.Add("2");
+            cbKy.SelectedIndex = 0;
+            cbKy.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLop.DataSource = blXemTKBTruong.TraDanhSachLop().Tables[0];
+            cbLop.DisplayMember = "TenLop";
+            cbLop.ValueMember = "TenLop";
+            cbLop.SelectedIndex = 0;
+            cbLop.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void XemTKBLop_Load(object sender, EventArgs e)
         {
-            cbKy.SelectedIndex = 0;
-            cbKy.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbLop.SelectedIndex = 0;
-            cbLop.DropDownStyle = ComboBoxStyle.DropDownList;
             dgvTKB.ReadOnly = true;
             this.LoadData();
         }
@@ -37,8 +40,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
         public void LoadData()
         {
             DataSet ds = new DataSet();
-            MessageBox.Show(cbKy.SelectedValue.ToString());
-            ds = this.blXemTKBTruong.LayTKBLop("10A1", int.Parse(cbKy.SelectedValue.ToString()));
+            ds = this.blXemTKBTruong.LayTKBLop(cbLop.SelectedValue.ToString(), int.Parse(cbKy.SelectedItem.ToString()));
             DataTable dt = ds.Tables[0];
             this.dgvTKB.DataSource = dt;
             this.dgvTKB.Columns[0].HeaderText = "Tiết";
@@ -57,7 +59,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
 
         private void cbKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.LoadData();
+            //this.LoadData();
         }
     }
 }
