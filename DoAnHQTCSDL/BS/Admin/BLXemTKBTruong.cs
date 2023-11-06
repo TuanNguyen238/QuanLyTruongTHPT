@@ -10,7 +10,7 @@ namespace DoAnHQTCSDL.BS.Admin
 {
     internal class BLXemTKBTruong
     {
-        DBMain db = null;
+        private DBMain db = null;
 
         public BLXemTKBTruong(DBMain db)
         {
