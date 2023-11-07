@@ -25,7 +25,11 @@ namespace DoAnHQTCSDL
         XemPhanCong xemPhanCong = null;
         XemTKBLop xemTKBLop = null;
         XemThiDuaLop xemThiDuaLop = null;
+<<<<<<< HEAD
         BLNguoiDung bLAdmin = null;
+=======
+        BLAdmin bLAdmin = null;
+>>>>>>> 233702d88936b669d8075c61ef05eac83fff3fc2
         DBMain db = null;
         string maNQL = "";
         public FormAdmin(string username, DBMain db)
@@ -77,7 +81,11 @@ namespace DoAnHQTCSDL
 
         private void btnNoiQuy_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             noiQuy = new NoiQuy(maNQL, db);
+=======
+            noiQuy = new NoiQuy(db);
+>>>>>>> 233702d88936b669d8075c61ef05eac83fff3fc2
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(noiQuy);
         }
