@@ -51,6 +51,7 @@
             this.panelTT = new System.Windows.Forms.Panel();
             this.panelTK = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHK2)).BeginInit();
+            this.panelTT.SuspendLayout();
             this.panelTK.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,7 +182,7 @@
             this.txtMaHS.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaHS.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaHS.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaHS.Location = new System.Drawing.Point(253, 16);
+            this.txtMaHS.Location = new System.Drawing.Point(206, 11);
             this.txtMaHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaHS.Name = "txtMaHS";
             this.txtMaHS.PasswordChar = '\0';
@@ -195,7 +196,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label10.Location = new System.Drawing.Point(52, 15);
+            this.label10.Location = new System.Drawing.Point(5, 10);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 20);
             this.label10.TabIndex = 131;
@@ -212,7 +213,7 @@
             this.txtDiemKTGK.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiemKTGK.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiemKTGK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiemKTGK.Location = new System.Drawing.Point(580, 14);
+            this.txtDiemKTGK.Location = new System.Drawing.Point(533, 9);
             this.txtDiemKTGK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiemKTGK.Name = "txtDiemKTGK";
             this.txtDiemKTGK.PasswordChar = '\0';
@@ -232,7 +233,7 @@
             this.txtDiemCK.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiemCK.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiemCK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiemCK.Location = new System.Drawing.Point(580, 42);
+            this.txtDiemCK.Location = new System.Drawing.Point(533, 37);
             this.txtDiemCK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiemCK.Name = "txtDiemCK";
             this.txtDiemCK.PasswordChar = '\0';
@@ -252,7 +253,7 @@
             this.txtTBM.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTBM.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTBM.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTBM.Location = new System.Drawing.Point(580, 69);
+            this.txtTBM.Location = new System.Drawing.Point(533, 64);
             this.txtTBM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTBM.Name = "txtTBM";
             this.txtTBM.PasswordChar = '\0';
@@ -272,7 +273,7 @@
             this.txtDiemKTTX.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiemKTTX.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiemKTTX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiemKTTX.Location = new System.Drawing.Point(253, 72);
+            this.txtDiemKTTX.Location = new System.Drawing.Point(206, 67);
             this.txtDiemKTTX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiemKTTX.Name = "txtDiemKTTX";
             this.txtDiemKTTX.PasswordChar = '\0';
@@ -292,7 +293,7 @@
             this.txtMon.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMon.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMon.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMon.Location = new System.Drawing.Point(253, 44);
+            this.txtMon.Location = new System.Drawing.Point(206, 39);
             this.txtMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMon.Name = "txtMon";
             this.txtMon.PasswordChar = '\0';
@@ -306,7 +307,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label6.Location = new System.Drawing.Point(419, 16);
+            this.label6.Location = new System.Drawing.Point(372, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 20);
             this.label6.TabIndex = 125;
@@ -317,7 +318,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label5.Location = new System.Drawing.Point(418, 44);
+            this.label5.Location = new System.Drawing.Point(371, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 20);
             this.label5.TabIndex = 124;
@@ -328,7 +329,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label4.Location = new System.Drawing.Point(418, 71);
+            this.label4.Location = new System.Drawing.Point(371, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 20);
             this.label4.TabIndex = 123;
@@ -339,7 +340,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label3.Location = new System.Drawing.Point(52, 71);
+            this.label3.Location = new System.Drawing.Point(5, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 20);
             this.label3.TabIndex = 122;
@@ -350,7 +351,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label8.Location = new System.Drawing.Point(52, 44);
+            this.label8.Location = new System.Drawing.Point(5, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 20);
             this.label8.TabIndex = 121;
@@ -358,7 +359,19 @@
             // 
             // panelTT
             // 
-            this.panelTT.Location = new System.Drawing.Point(46, 2);
+            this.panelTT.Controls.Add(this.label10);
+            this.panelTT.Controls.Add(this.txtMaHS);
+            this.panelTT.Controls.Add(this.label8);
+            this.panelTT.Controls.Add(this.label3);
+            this.panelTT.Controls.Add(this.txtDiemKTGK);
+            this.panelTT.Controls.Add(this.label4);
+            this.panelTT.Controls.Add(this.txtDiemCK);
+            this.panelTT.Controls.Add(this.label5);
+            this.panelTT.Controls.Add(this.txtTBM);
+            this.panelTT.Controls.Add(this.label6);
+            this.panelTT.Controls.Add(this.txtDiemKTTX);
+            this.panelTT.Controls.Add(this.txtMon);
+            this.panelTT.Location = new System.Drawing.Point(33, 3);
             this.panelTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTT.Name = "panelTT";
             this.panelTT.Size = new System.Drawing.Size(689, 102);
@@ -383,18 +396,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelTK);
-            this.Controls.Add(this.txtMaHS);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtDiemKTGK);
-            this.Controls.Add(this.txtDiemCK);
-            this.Controls.Add(this.txtTBM);
-            this.Controls.Add(this.txtDiemKTTX);
-            this.Controls.Add(this.txtMon);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.dgvHK2);
             this.Controls.Add(this.labelDiemHK2);
             this.Controls.Add(this.panelTT);
@@ -403,6 +404,8 @@
             this.Size = new System.Drawing.Size(738, 454);
             this.Load += new System.EventHandler(this.XemDiemLopHK2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHK2)).EndInit();
+            this.panelTT.ResumeLayout(false);
+            this.panelTT.PerformLayout();
             this.panelTK.ResumeLayout(false);
             this.panelTK.PerformLayout();
             this.ResumeLayout(false);

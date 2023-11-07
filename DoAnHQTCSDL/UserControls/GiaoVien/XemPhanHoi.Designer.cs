@@ -30,6 +30,7 @@
         {
             this.dgvPhanHoi = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnXoa = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhanHoi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,11 +57,29 @@
             this.label1.TabIndex = 95;
             this.label1.Text = "Các phản hồi đã nhận";
             // 
+            // btnXoa
+            // 
+            this.btnXoa.BorderRadius = 5;
+            this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoa.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(298, 544);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(139, 39);
+            this.btnXoa.TabIndex = 96;
+            this.btnXoa.Text = "Cập Nhật";
+            // 
             // XemPhanHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvPhanHoi);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -77,5 +96,6 @@
 
         private System.Windows.Forms.DataGridView dgvPhanHoi;
         private System.Windows.Forms.Label label1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnXoa;
     }
 }

@@ -35,8 +35,30 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
 
         private void LoadData()
         {
+            this.panelTT.Enabled = false;
+            this.panelTK.Enabled = false;
+            this.ResetAllText();
             DataSet ds = new DataSet();
             ds = this.blXemDiemLopHK.LayDiemLopHK();
+            DataTable dt = ds.Tables[0];
+            this.dgvHK2.DataSource = dt;
+            this.dgvHK2.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvHK2.Columns[1].HeaderText = "Họ tên";
+            this.dgvHK2.Columns[2].HeaderText = "Tên môn";
+            this.dgvHK2.Columns[3].HeaderText = "Điểm kiểm tra thường xuyên";
+            this.dgvHK2.Columns[4].HeaderText = "Điểm kiểm tra giữa kỳ";
+            this.dgvHK2.Columns[5].HeaderText = "Điểm kiểm tra cuối kỳ";
+            this.dgvHK2.Columns[6].HeaderText = "Điểm trung bình môn";
+            this.dgvHK2_CellClick(null, null);
+        }
+
+        public void TimKiem(string kiTu)
+        {
+            this.panelTT.Enabled = false;
+            this.panelTK.Enabled = false;
+            this.ResetAllText();
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemLopHK.TimDiemLopHocKy(kiTu);
             DataTable dt = ds.Tables[0];
             this.dgvHK2.DataSource = dt;
             this.dgvHK2.Columns[0].HeaderText = "Mã học sinh";
@@ -92,6 +114,55 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
             this.txtDiemKTGK.ResetText();
             this.txtDiemCK.ResetText();
             this.txtTBM.ResetText();
+        }
+
+        public void CapNhat()
+        {
+            panelTT.Enabled = true;
+            this.txtMaHS.Enabled = false;
+            this.txtTBM.Enabled = false;
+            this.txtMon.Enabled = false;
+            this.txtDiemKTTX.Focus();
+        }
+
+        public void Luu()
+        {
+            panelTT.Enabled = false;
+            string err = "";
+            float diemKTTX, diemKTGK, diemCK;
+            if (float.TryParse(txtDiemKTTX.Text, out diemKTTX) &&
+                float.TryParse(txtDiemKTGK.Text, out diemKTGK) &&
+                float.TryParse(txtDiemCK.Text, out diemCK))
+            {
+                if (blXemDiemLopHK.CapNhatDiem(txtMaHS.Text, txtMon.Text,
+                diemKTTX, diemKTGK, diemCK, ref err))
+                {
+                    // Load lại dữ liệu trên DataGridView
+                    LoadData();
+                    this.txtMaHS.Enabled = true;
+                    this.txtTBM.Enabled = true;
+                    this.txtMon.Enabled = true;
+                    // Thông báo
+                    MessageBox.Show("Đã sửa xong!");
+                }
+                else
+                    MessageBox.Show(err);
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ.");
+            }
+        }
+
+        public void Huy()
+        {
+            this.txtMaHS.Enabled = true;
+            this.txtTBM.Enabled = true;
+            this.txtMaHS.Enabled = true;
+            this.txtMon.Enabled = true;
+            this.ResetAllText();
+            this.panelTT.Enabled = false;
+            dgvHK2_CellClick(null, null);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace DoAnHQTCSDL.UserControls
         {
             InitializeComponent();
             this.txtLop.Text = tenLop;
+            this.txtLop.ReadOnly = true;
             bLXemThiDua = new BLXemThiDua(tenLop, db);
         }
 
@@ -33,6 +34,7 @@ namespace DoAnHQTCSDL.UserControls
             dgvXemThiDua.Columns[1].HeaderText = "Điều lệ vi phạm";
             dgvXemThiDua.Columns[2].HeaderText = "Số lần vi phạm";
             dgvXemThiDua.Columns[3].HeaderText = "Tổng số điểm trừ";
+            dgvXemThiDua.ReadOnly = true;
             ds = bLXemThiDua.TongKet_ThiDua();
             dt = ds.Tables[0];
             if (this.txtLop.Text.Length > 0)

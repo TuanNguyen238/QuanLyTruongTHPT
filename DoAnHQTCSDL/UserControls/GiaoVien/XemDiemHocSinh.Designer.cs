@@ -103,6 +103,7 @@
             this.btnCapNhat.Size = new System.Drawing.Size(139, 39);
             this.btnCapNhat.TabIndex = 12;
             this.btnCapNhat.Text = "Cập Nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnTimKiem
             // 
@@ -120,6 +121,7 @@
             this.btnTimKiem.Size = new System.Drawing.Size(132, 30);
             this.btnTimKiem.TabIndex = 15;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -236,6 +238,7 @@
             this.btnHuy.Size = new System.Drawing.Size(139, 39);
             this.btnHuy.TabIndex = 105;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
@@ -253,6 +256,7 @@
             this.btnLuu.Size = new System.Drawing.Size(139, 39);
             this.btnLuu.TabIndex = 106;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // XemDiemHocSinh
             // 

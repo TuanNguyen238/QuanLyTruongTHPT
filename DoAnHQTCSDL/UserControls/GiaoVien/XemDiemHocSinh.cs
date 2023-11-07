@@ -33,7 +33,6 @@ namespace DoAnHQTCSDL.UserControls
             this.PanelXemDiem();
         }
 
-
         private void rdHK2_CheckedChanged(object sender, EventArgs e)
         {
             this.PanelXemDiem();
@@ -81,6 +80,49 @@ namespace DoAnHQTCSDL.UserControls
                 panelDiem.Controls.Add(xemDiemLopCaNam);
                 xemDiemLopCaNam.Visible = true;
             }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if (rdHK1.Checked)
+                xemDiemLopHK1.TimKiem(this.txtTimKiem.Text);
+            else if(rdHK2.Checked)
+                xemDiemLopHK2.TimKiem(this.txtTimKiem.Text);
+            else if(rdCaNam.Checked)
+                xemDiemLopCaNam.TimKiem(this.txtTimKiem.Text);
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            btnCapNhat.Enabled = false;
+            btnLuu.Enabled = true;
+            btnHuy.Enabled = true;
+            if (rdHK1.Checked)
+                xemDiemLopHK1.CapNhat();
+            else if (rdHK2.Checked)
+                xemDiemLopHK2.CapNhat();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.btnCapNhat.Enabled = true;
+            this.btnLuu.Enabled = false;
+            this.btnHuy.Enabled = false;
+            if (rdHK1.Checked)
+                xemDiemLopHK1.Huy();
+            else if(rdHK2.Checked)
+                xemDiemLopHK2.Huy();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            this.btnCapNhat.Enabled = true;
+            this.btnHuy.Enabled = false;
+            this.btnLuu.Enabled = false;
+            if (rdHK1.Checked)
+                xemDiemLopHK1.Luu();
+            else if (rdHK2.Checked)
+                xemDiemLopHK2.Luu();
         }
     }
 }

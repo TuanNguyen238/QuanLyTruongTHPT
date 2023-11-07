@@ -33,5 +33,10 @@ namespace DoAnHQTCSDL.BS.GiaoVien
         {
             this.namHoc = namHoc;
         }
+
+        public DataSet TimDiemLopCaNam(string kiTu)
+        {
+            return this.db.ExecuteQueryDataSet("SELECT * FROM dbo.TimDiemLopCaNam('" + this.tenLop + "', " + this.namHoc + ",N'" + kiTu + "');", CommandType.Text);
+        }
     }
 }

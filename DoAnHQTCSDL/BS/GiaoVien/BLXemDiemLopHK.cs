@@ -39,5 +39,16 @@ namespace DoAnHQTCSDL.BS.GiaoVien
         {
             this.kyHoc = kyHoc;
         }
+
+        public DataSet TimDiemLopHocKy(string kiTu)
+        {
+            return this.db.ExecuteQueryDataSet("SELECT * FROM dbo.TimDiemLopHocKy('" + this.tenLop + "',N'" + kiTu + "'," + this.kyHoc + ", " + this.namHoc + ");", CommandType.Text);
+        }
+
+        public bool CapNhatDiem(string maHS, string tenMon, float thuongXuyen, float giuaKy, float cuoiKy, ref string err)
+        {
+            string sqlStr = "EXEC CapNhatDiemHocKy '" + maHS + "',N'" + tenMon + "'," + kyHoc + "," + namHoc + "," + thuongXuyen + "," + giuaKy + "," + cuoiKy + ";";
+            return db.MyExecuteNonQuery(sqlStr, CommandType.Text, ref err);
+        }
     }
 }

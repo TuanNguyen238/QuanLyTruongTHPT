@@ -76,5 +76,19 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
                 }
             }
         }
+
+        public void TimKiem(string kiTu)
+        {
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemLopCaNam.TimDiemLopCaNam(kiTu);
+            DataTable dt = ds.Tables[0];
+            this.dgvCaNam.DataSource = dt;
+            this.dgvCaNam.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvCaNam.Columns[1].HeaderText = "Họ tên";
+            this.dgvCaNam.Columns[2].HeaderText = "Tên môn học";
+            this.dgvCaNam.Columns[3].HeaderText = "Điểm trung bình môn";
+            this.dgvCaNam.ReadOnly = true;
+            this.dgvCaNam_CellClick(null, null);
+        }
     }
 }
