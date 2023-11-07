@@ -21,7 +21,8 @@ namespace DoAnHQTCSDL
 
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
-
+            this.label2.Hide();
+            this.btnClick.Hide();
         }
 
         private void btnClick_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

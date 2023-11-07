@@ -24,7 +24,7 @@ namespace DoAnHQTCSDL.BS.Admin
 
         public DataSet TraDanhSachLop()
         {
-            return db.ExecuteQueryDataSet("SELECT * FROM XemLopTrongTruong", CommandType.Text);
+            return db.ExecuteQueryDataSet("EXEC XemLopTrongTruong", CommandType.Text);
         }
     }
 }

@@ -32,6 +32,7 @@ namespace DoAnHQTCSDL
             InitializeComponent();
             bLAdmin = new BLAdmin(username, db);
             this.db = db;
+            this.btnDuyetHoSo.Hide();
         }
                        
         private void btnDangXuat_Click(object sender, EventArgs e)
