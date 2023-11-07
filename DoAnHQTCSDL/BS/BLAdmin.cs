@@ -8,20 +8,8 @@ using System.Threading.Tasks;
 
 namespace DoAnHQTCSDL.BS
 {
-    internal class BLAdmin
+    internal class BLAdmin: BLNguoiDung
     {
-        string username = "";
-        DBMain db = null;
-
-        public BLAdmin(string username, DBMain db)
-        {
-            this.username = username;
-            this.db = db;
-        }
-
-        public string TraMaNguoiDung()
-        {
-            return db.ExecuteQueryString("SELECT dbo.TraMaNguoiDung('" + username + "');", CommandType.Text);
-        }
+        public BLAdmin(string username, DBMain db) : base(username, db) { }
     }
 }

@@ -20,7 +20,7 @@ namespace DoAnHQTCSDL
         XemThoiKhoaBieuLop xemThoiKhoaBieuLop = null;
         XemThiDua xemThiDua = null;
         XemPhanHoi xemPhanHoi = null;
-        BLGiaoVien blGiaoVien = null;
+        BLNguoiDung blGiaoVien = null;
         string maGV = "", tenLop = "";
         DBMain db = null;
         public FormGiaoVien(string username, DBMain db)

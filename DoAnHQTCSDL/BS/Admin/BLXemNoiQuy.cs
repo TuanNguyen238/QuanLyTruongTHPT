@@ -10,9 +10,11 @@ namespace DoAnHQTCSDL.BS.Admin
 {
     internal class BLXemNoiQuy
     {
+        string maNQL = "";
         DBMain db = null;
-        public BLXemNoiQuy(DBMain db)
+        public BLXemNoiQuy(string maNQL, DBMain db)
         {
+            this.maNQL = maNQL;
             this.db = db;
         }
 

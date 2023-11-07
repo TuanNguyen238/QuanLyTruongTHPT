@@ -8,25 +8,13 @@ using System.Threading.Tasks;
 
 namespace DoAnHQTCSDL.BS
 {
-    internal class BLGiaoVien
+    internal class BLGiaoVien: BLNguoiDung
     {
-        string username = "";
-        DBMain db = null;
+        public BLGiaoVien(string username, DBMain db) : base(username, db) { }
 
-        public BLGiaoVien(string username, DBMain db)
+        public override string TraLop(string maNguoiDung)
         {
-            this.username = username;
-            this.db = db;
-        }
-
-        public string TraMaNguoiDung()
-        {
-            return db.ExecuteQueryString("SELECT dbo.TraMaNguoiDung('" + username + "');", CommandType.Text);
-        }
-
-        public string TraLop(string maGV)
-        {
-            return db.ExecuteQueryString("SELECT dbo.LopCuaGiaoVien('" + maGV + "');", CommandType.Text);
+            return db.ExecuteQueryString("SELECT dbo.LopCuaGiaoVien('" + maNguoiDung + "');", CommandType.Text);
         }
     }
 }

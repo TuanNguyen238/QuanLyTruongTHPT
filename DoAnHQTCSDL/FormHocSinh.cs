@@ -1,4 +1,5 @@
-﻿using DoAnHQTCSDL.DB;
+﻿using DoAnHQTCSDL.BS;
+using DoAnHQTCSDL.DB;
 using DoAnHQTCSDL.UserControls;
 using DoAnHQTCSDL.UserControls.HocSinh;
 using System;
@@ -21,7 +22,7 @@ namespace DoAnHQTCSDL
         PhanHoi phanHoi = null;
         string maHS = "", tenLop = "";
         DBMain db = null;
-        BLHocSinh blHocSinh = null;
+        BLNguoiDung blHocSinh = null;
         public FormHocSinh(string username, DBMain db)
         {
             InitializeComponent();

@@ -17,10 +17,10 @@ namespace DoAnHQTCSDL.UserControls.Admin
     {
         BLXemNoiQuy blXemNoiQuy = null;
         DBMain db = null;
-        public NoiQuy(DBMain db)
+        public NoiQuy(string maNQL, DBMain db)
         {
             InitializeComponent();
-            blXemNoiQuy = new BLXemNoiQuy(db);
+            blXemNoiQuy = new BLXemNoiQuy(maNQL, db);
             this.db = db;
         }
 

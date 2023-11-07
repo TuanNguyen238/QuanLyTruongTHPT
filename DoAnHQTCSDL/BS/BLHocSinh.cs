@@ -1,4 +1,5 @@
-﻿using DoAnHQTCSDL.DB;
+﻿using DoAnHQTCSDL.BS;
+using DoAnHQTCSDL.DB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,24 +9,13 @@ using System.Threading.Tasks;
 
 namespace DoAnHQTCSDL
 {
-    internal class BLHocSinh
+    internal class BLHocSinh: BLNguoiDung
     {
-        string username = "";
-        DBMain db = null;
-        public BLHocSinh(string username, DBMain db)
-        {
-            this.username = username;
-            this.db = db;
-        }
+        public BLHocSinh(string username, DBMain db) : base(username, db) { }
 
-        public string TraMaNguoiDung()
+        public override string TraLop(string maNguoiDung)
         {
-            return db.ExecuteQueryString("SELECT dbo.TraMaNguoiDung('" + username + "');", CommandType.Text);
-        }
-
-        public string TraLop(string maHS)
-        {
-            return db.ExecuteQueryString("SELECT dbo.TraLop('" + maHS + "');", CommandType.Text);
+            return db.ExecuteQueryString("SELECT dbo.TraLop('" + maNguoiDung + "');", CommandType.Text);
         }
     }
 }

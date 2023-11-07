@@ -25,13 +25,15 @@ namespace DoAnHQTCSDL
         XemPhanCong xemPhanCong = null;
         XemTKBLop xemTKBLop = null;
         XemThiDuaLop xemThiDuaLop = null;
-        BLAdmin bLAdmin = null;
+        BLNguoiDung bLAdmin = null;
         DBMain db = null;
+        string maNQL = "";
         public FormAdmin(string username, DBMain db)
         {
             InitializeComponent();
             bLAdmin = new BLAdmin(username, db);
             this.db = db;
+            this.maNQL = bLAdmin.TraMaNguoiDung();
             this.btnDuyetHoSo.Hide();
         }
                        
@@ -75,7 +77,7 @@ namespace DoAnHQTCSDL
 
         private void btnNoiQuy_Click(object sender, EventArgs e)
         {
-            noiQuy = new NoiQuy(db);
+            noiQuy = new NoiQuy(maNQL, db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(noiQuy);
         }
@@ -91,16 +93,6 @@ namespace DoAnHQTCSDL
             xemPhanCong = new XemPhanCong(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemPhanCong);
-        }
-
-        private void panelAdmin_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -39,7 +39,6 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
             this.dgvCaNam.DataSource = dt;
             this.dgvCaNam.Columns[0].HeaderText = "Tên môn học";
             this.dgvCaNam.Columns[1].HeaderText = "Điểm trung bình môn";
-            this.dgvCaNam.ReadOnly = true;
             ds = this.blXemDiemCaNam.LayDanhHieuCaNam();
             DataTable dtn = ds.Tables[0];
             DataRow dr = dtn.Rows[0];
