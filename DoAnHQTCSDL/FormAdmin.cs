@@ -20,11 +20,11 @@ namespace DoAnHQTCSDL
     {
         ChinhSuaThongTinHS chinhSuaThongTinHS = null;
         DuyetHoSo duyetHoSo = new DuyetHoSo();
-        NoiQuy noiQuy = new NoiQuy();
-        XemDiemHS xemDiemHS = new XemDiemHS();
-        XemPhanCong xemPhanCong = new XemPhanCong();
+        NoiQuy noiQuy = null;
+        XemDiemHS xemDiemHS = null;
+        XemPhanCong xemPhanCong = null;
         XemTKBLop xemTKBLop = null;
-        XemThiDuaLop xemThiDuaLop = new XemThiDuaLop();
+        XemThiDuaLop xemThiDuaLop = null;
         BLAdmin bLAdmin = null;
         DBMain db = null;
         public FormAdmin(string username, DBMain db)
@@ -53,6 +53,7 @@ namespace DoAnHQTCSDL
 
         private void btnXemDiemHS_Click(object sender, EventArgs e)
         {
+            xemDiemHS = new XemDiemHS(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemDiemHS);
         }
@@ -66,12 +67,14 @@ namespace DoAnHQTCSDL
 
         private void btnXemThiDua_Click(object sender, EventArgs e)
         {
+            xemThiDuaLop = new XemThiDuaLop(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemThiDuaLop);
         }
 
         private void btnNoiQuy_Click(object sender, EventArgs e)
         {
+            noiQuy = new NoiQuy(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(noiQuy);
         }
@@ -84,6 +87,7 @@ namespace DoAnHQTCSDL
 
         private void btnXemPhanCong_Click(object sender, EventArgs e)
         {
+            xemPhanCong = new XemPhanCong(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemPhanCong);
         }

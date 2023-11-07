@@ -119,7 +119,7 @@
             this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimKiem.IconLeft = global::DoAnHQTCSDL.Properties.Resources.search__3_;
             this.txtTimKiem.Location = new System.Drawing.Point(168, 37);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PasswordChar = '\0';
             this.txtTimKiem.PlaceholderText = "";
@@ -137,14 +137,13 @@
             this.cbNam.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbNam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbNam.ItemHeight = 30;
-            this.cbNam.Items.AddRange(new object[] {
-            "2023"});
             this.cbNam.Location = new System.Drawing.Point(148, 96);
             this.cbNam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNam.Name = "cbNam";
             this.cbNam.Size = new System.Drawing.Size(110, 36);
             this.cbNam.StartIndex = 0;
             this.cbNam.TabIndex = 102;
+            this.cbNam.SelectedIndexChanged += new System.EventHandler(this.cbNam_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -173,6 +172,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "XemDiemHS";
             this.Size = new System.Drawing.Size(749, 658);
+            this.Load += new System.EventHandler(this.XemDiemHS_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

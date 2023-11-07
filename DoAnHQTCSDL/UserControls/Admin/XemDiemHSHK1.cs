@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAnHQTCSDL.BS.Admin;
+using DoAnHQTCSDL.DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,37 @@ namespace DoAnHQTCSDL.UserControls.Admin
 {
     public partial class XemDiemHSHK1 : UserControl
     {
-        public XemDiemHSHK1()
+        BLXemDiemTruongHK blXemDiemTruongHK = null;
+        public XemDiemHSHK1(DBMain db)
         {
             InitializeComponent();
+            blXemDiemTruongHK = new BLXemDiemTruongHK(db);
+            this.blXemDiemTruongHK.SetKyHoc(1);
+        }
+
+        public void SetNamHoc(int namHoc)
+        {
+            this.blXemDiemTruongHK.SetNamHoc(namHoc);
+        }
+
+        private void XemDiemHSHK1_Load(object sender, EventArgs e)
+        {
+            this.dgvXemDiemHSHK1.ReadOnly = true;
+            this.LoadData();
+        }
+
+        private void LoadData()
+        {
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemTruongHK.LayDiemTruongHK();
+            DataTable dt = ds.Tables[0];
+            this.dgvXemDiemHSHK1.DataSource = dt;
+            this.dgvXemDiemHSHK1.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvXemDiemHSHK1.Columns[1].HeaderText = "Lớp";
+            this.dgvXemDiemHSHK1.Columns[2].HeaderText = "Họ tên";
+            this.dgvXemDiemHSHK1.Columns[3].HeaderText = "Trung bình môn";
+            this.dgvXemDiemHSHK1.Columns[4].HeaderText = "Hạnh kiểm";
+            this.dgvXemDiemHSHK1.Columns[5].HeaderText = "Danh hiệu";
         }
     }
 }
