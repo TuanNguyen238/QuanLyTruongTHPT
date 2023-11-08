@@ -38,11 +38,11 @@
             this.btnThem = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnSua = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnXoa = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelNQ = new System.Windows.Forms.Panel();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNoiQuy)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelNQ.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvNoiQuy
@@ -196,19 +196,19 @@
             this.btnXoa.TabIndex = 72;
             this.btnXoa.Text = "Xóa";
             // 
-            // panel1
+            // panelNQ
             // 
-            this.panel1.Controls.Add(this.txtSoDiemTru);
-            this.panel1.Controls.Add(this.txtDieuLe);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.dtNgayBanHanh);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(11, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(721, 151);
-            this.panel1.TabIndex = 73;
+            this.panelNQ.Controls.Add(this.txtSoDiemTru);
+            this.panelNQ.Controls.Add(this.txtDieuLe);
+            this.panelNQ.Controls.Add(this.label9);
+            this.panelNQ.Controls.Add(this.dtNgayBanHanh);
+            this.panelNQ.Controls.Add(this.label2);
+            this.panelNQ.Controls.Add(this.label8);
+            this.panelNQ.Location = new System.Drawing.Point(11, 20);
+            this.panelNQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelNQ.Name = "panelNQ";
+            this.panelNQ.Size = new System.Drawing.Size(721, 151);
+            this.panelNQ.TabIndex = 73;
             // 
             // siticoneButton1
             // 
@@ -253,7 +253,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.siticoneButton1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelNQ);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
@@ -263,8 +263,8 @@
             this.Size = new System.Drawing.Size(749, 658);
             this.Load += new System.EventHandler(this.NoiQuy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNoiQuy)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelNQ.ResumeLayout(false);
+            this.panelNQ.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -281,7 +281,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnThem;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnSua;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnXoa;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelNQ;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
     }

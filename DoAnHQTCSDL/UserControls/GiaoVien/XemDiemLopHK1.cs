@@ -92,16 +92,18 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
                     dgvHK1.Rows[r].Cells[5].Value.ToString();
                     this.txtTBM.Text =
                     dgvHK1.Rows[r].Cells[6].Value.ToString();
-
-                    DataSet ds = blXemDiemLopHK.LayDanhHieuHK(this.txtMaHS.Text);
-                    DataTable dtn = ds.Tables[0];
-                    DataRow dr = dtn.Rows[0];
-                    string diemTK = dr["DiemHocKy"].ToString();
-                    string hanhKiem = dr["HanhKiemHocKy"].ToString();
-                    string danhHieu = dr["DanhHieuHocSinh"].ToString();
-                    this.txtDiemTongKet.Text = diemTK;
-                    this.txtHanhKiem.Text = hanhKiem;
-                    this.txtDanhHieu.Text = danhHieu;
+                    if (txtMaHS.Text.Length > 0)
+                    {
+                        DataSet ds = blXemDiemLopHK.LayDanhHieuHK(this.txtMaHS.Text);
+                        DataTable dtn = ds.Tables[0];
+                        DataRow dr = dtn.Rows[0];
+                        string diemTK = dr["DiemHocKy"].ToString();
+                        string hanhKiem = dr["HanhKiemHocKy"].ToString();
+                        string danhHieu = dr["DanhHieuHocSinh"].ToString();
+                        this.txtDiemTongKet.Text = diemTK;
+                        this.txtHanhKiem.Text = hanhKiem;
+                        this.txtDanhHieu.Text = danhHieu;
+                    }
                 }
             }
         }

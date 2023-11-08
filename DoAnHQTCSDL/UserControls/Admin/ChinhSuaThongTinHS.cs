@@ -1,4 +1,5 @@
 ﻿using DoAnHQTCSDL.BS;
+using DoAnHQTCSDL.BS.GiaoVien;
 using DoAnHQTCSDL.DB;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.btnHuy.Enabled = false;
             this.panelThongTin.Enabled = false;
             this.btnCapNhat.Enabled = true;
+            this.ResetAllText();
             DataTable dtTTHS = new DataTable();
             dtTTHS.Clear();
             DataSet ds = blCSTS.LayThongTinHocSinh();
@@ -61,11 +63,10 @@ namespace DoAnHQTCSDL.UserControls.Admin
             // Cho phép thao tác trên Panel
             this.panelThongTin.Enabled = true;
             this.btnCapNhat.Enabled = false;
-            this.panelThongTin.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
             this.btnLuu.Enabled = true;
             this.btnHuy.Enabled = true;
             this.txtMaHS.Enabled = false;
+            this.txtLop.Enabled = false;
             this.txtHoTen.Focus();
         }
         private void dgvChinhSuaThongTinHS_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,19 +116,57 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.LoadData();
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            string gioiTinh = "Nam";
+            if (rbNu.Checked)
+                gioiTinh = "Nữ";
+            string err = "";
+            if (blCSTS.CapNhatHocSinh(txtMaHS.Text, txtHoTen.Text, dtNgaySinh.Value,
+                gioiTinh, txtSoDT.Text, txtDiaChi.Text, ref err))
+            {
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
+                this.txtMaHS.Enabled = true;
+                // Thông báo
+                MessageBox.Show("Đã sửa xong!");
+            }
+            else
+                MessageBox.Show(err);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            this.txtMaHS.Enabled = true;
+            this.ResetAllText();
+            this.btnCapNhat.Enabled = true;
+            this.btnLuu.Enabled = false;
+            this.btnHuy.Enabled = false;
+            this.panelThongTin.Enabled = false;
+            dgvChinhSuaThongTinHS_CellClick(null, null);
+        }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            this.btnLuu.Enabled = false;
+            this.btnHuy.Enabled = false;
+            this.panelThongTin.Enabled = false;
+            this.btnCapNhat.Enabled = true;
+            this.ResetAllText();
+            DataTable dtTTHS = new DataTable();
+            dtTTHS.Clear();
+            DataSet ds = blCSTS.TimHocSinh(this.txtTimKiem.Text);
+            dtTTHS = ds.Tables[0];
+            this.dgvChinhSuaThongTinHS.DataSource = dtTTHS;
+            this.dgvChinhSuaThongTinHS.Columns[0].HeaderText = "Mã Học Sinh";
+            this.dgvChinhSuaThongTinHS.Columns[1].HeaderText = "Họ Tên";
+            this.dgvChinhSuaThongTinHS.Columns[2].HeaderText = "Ngày Sinh";
+            this.dgvChinhSuaThongTinHS.Columns[3].HeaderText = "Giới Tính";
+            this.dgvChinhSuaThongTinHS.Columns[4].HeaderText = "Số Điện Thoại";
+            this.dgvChinhSuaThongTinHS.Columns[5].HeaderText = "Lớp";
+            this.dgvChinhSuaThongTinHS.Columns[6].HeaderText = "Năm Học";
+            this.dgvChinhSuaThongTinHS.Columns[7].HeaderText = "Địa Chỉ";
+            this.dgvChinhSuaThongTinHS_CellClick(null, null);
         }
     }
 }

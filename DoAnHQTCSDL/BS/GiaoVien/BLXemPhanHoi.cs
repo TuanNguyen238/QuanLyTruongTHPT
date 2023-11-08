@@ -23,5 +23,10 @@ namespace DoAnHQTCSDL.BS.GiaoVien
         {
             return db.ExecuteQueryDataSet("SELECT * FROM dbo.XemPhanHoi('" + maGV + "');", CommandType.Text);
         }
+
+        public bool XoaPhanHoi(string maHS, ref string err)
+        {
+            return db.MyExecuteNonQuery("EXEC XoaPhanHoi '" + maHS + "','" + maGV + "';", CommandType.Text, ref err);
+        }
     }
 }

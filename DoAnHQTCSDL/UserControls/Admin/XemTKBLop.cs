@@ -30,6 +30,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
             cbLop.SelectedIndex = 0;
             cbLop.DropDownStyle = ComboBoxStyle.DropDownList;
             dgvTKB.ReadOnly = true;
+            this.rdHK1.Checked = true;
             this.LoadData();
         }
 

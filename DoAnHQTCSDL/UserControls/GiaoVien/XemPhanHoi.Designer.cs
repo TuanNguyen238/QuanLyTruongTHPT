@@ -45,6 +45,7 @@
             this.dgvPhanHoi.RowTemplate.Height = 28;
             this.dgvPhanHoi.Size = new System.Drawing.Size(705, 398);
             this.dgvPhanHoi.TabIndex = 0;
+            this.dgvPhanHoi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhanHoi_CellClick);
             // 
             // label1
             // 
@@ -72,7 +73,8 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(139, 39);
             this.btnXoa.TabIndex = 96;
-            this.btnXoa.Text = "Cập Nhật";
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // XemPhanHoi
             // 

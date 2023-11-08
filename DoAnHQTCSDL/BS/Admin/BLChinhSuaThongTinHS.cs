@@ -20,5 +20,17 @@ namespace DoAnHQTCSDL.BS
         {
             return this.db.ExecuteQueryDataSet("SELECT * FROM XemHocSinh;", CommandType.Text);
         }
+
+        public bool CapNhatHocSinh(string maHS, string hoTen, DateTime ngSinh, string gioiTinh, string sdt, string diaChi, ref string err)
+        {
+            string sqlStr = "EXEC CapNhatHocSinh '" + maHS + "',N'" + hoTen + "','" + ngSinh.ToString("yyyy-MM-dd")
+                + "',N'" + gioiTinh + "','" + sdt + "',N'" + diaChi + "';";
+            return db.MyExecuteNonQuery(sqlStr, CommandType.Text, ref err);
+        }
+
+        public DataSet TimHocSinh(string kiTu)
+        {
+            return db.ExecuteQueryDataSet("SELECT * FROM dbo.TimHocSinh(N'" + kiTu + "');", CommandType.Text);
+        }
     }
 }

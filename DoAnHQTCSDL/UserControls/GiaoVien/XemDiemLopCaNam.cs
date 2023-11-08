@@ -29,6 +29,8 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
         private void XemDiemLopCaNam_Load(object sender, EventArgs e)
         {
             this.dgvCaNam.ReadOnly = true;
+            this.panelTT.Enabled = false;
+            this.panelTK.Enabled = false;
             this.LoadData();
         }
 
@@ -61,18 +63,20 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
                     dgvCaNam.Rows[r].Cells[2].Value.ToString();
                     this.txtTBM.Text =
                     dgvCaNam.Rows[r].Cells[3].Value.ToString();
-
-                    DataSet ds = blXemDiemLopCaNam.LayDanhHieuCaNam(this.txtMaHS.Text);
-                    DataTable dtn = ds.Tables[0];
-                    DataRow dr = dtn.Rows[0];
-                    string diemTK = dr["DiemCaNam"].ToString();
-                    string hanhKiem = dr["HanhKiemCaNam"].ToString();
-                    string danhHieu = dr["CaNam"].ToString();
-                    string xepHang = dr["XepHang"].ToString();
-                    this.txtDiemTongKet.Text = diemTK;
-                    this.txtHanhKiem.Text = hanhKiem;
-                    this.txtDanhHieu.Text = danhHieu;
-                    this.txtXepHang.Text = xepHang;
+                    if (txtMaHS.Text.Length > 0)
+                    {
+                        DataSet ds = blXemDiemLopCaNam.LayDanhHieuCaNam(this.txtMaHS.Text);
+                        DataTable dtn = ds.Tables[0];
+                        DataRow dr = dtn.Rows[0];
+                        string diemTK = dr["DiemCaNam"].ToString();
+                        string hanhKiem = dr["HanhKiemCaNam"].ToString();
+                        string danhHieu = dr["CaNam"].ToString();
+                        string xepHang = dr["XepHang"].ToString();
+                        this.txtDiemTongKet.Text = diemTK;
+                        this.txtHanhKiem.Text = hanhKiem;
+                        this.txtDanhHieu.Text = danhHieu;
+                        this.txtXepHang.Text = xepHang;
+                    }
                 }
             }
         }

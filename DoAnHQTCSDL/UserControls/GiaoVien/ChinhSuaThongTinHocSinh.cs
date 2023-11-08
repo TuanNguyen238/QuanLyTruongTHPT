@@ -24,6 +24,7 @@ namespace DoAnHQTCSDL.UserControls
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             panelChinhSua.Enabled = true;
+            btnCapNhat.Enabled = false;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
             txtMaHS.Enabled = false;
