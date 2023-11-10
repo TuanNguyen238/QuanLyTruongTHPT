@@ -51,5 +51,19 @@ namespace DoAnHQTCSDL.UserControls.Admin
                 dgvPhanCong.Rows[r].Cells[3].Value.ToString();
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            ds = blPhanCong.TimPhanCong(txtTimKiem.Text);
+            DataTable dt = ds.Tables[0];
+            dgvPhanCong.DataSource = dt;
+            dgvPhanCong.Columns[0].HeaderText = "Mã giáo viên";
+            dgvPhanCong.Columns[1].HeaderText = "Họ tên";
+            dgvPhanCong.Columns[2].HeaderText = "Mã môn";
+            dgvPhanCong.Columns[3].HeaderText = "Tên môn";
+            dgvPhanCong_CellClick(null, null);
+            panelDay.Enabled = false;
+        }
     }
 }

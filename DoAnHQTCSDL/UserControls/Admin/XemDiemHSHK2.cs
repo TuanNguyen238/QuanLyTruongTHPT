@@ -46,5 +46,19 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvXemDiemHSHK2.Columns[4].HeaderText = "Hạnh kiểm";
             this.dgvXemDiemHSHK2.Columns[5].HeaderText = "Danh hiệu";
         }
+
+        public void TimKiem(string kiTu)
+        {
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemTruongHK.TimDiemTruongHK(kiTu);
+            DataTable dt = ds.Tables[0];
+            this.dgvXemDiemHSHK2.DataSource = dt;
+            this.dgvXemDiemHSHK2.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvXemDiemHSHK2.Columns[1].HeaderText = "Lớp";
+            this.dgvXemDiemHSHK2.Columns[2].HeaderText = "Họ tên";
+            this.dgvXemDiemHSHK2.Columns[3].HeaderText = "Trung bình môn";
+            this.dgvXemDiemHSHK2.Columns[4].HeaderText = "Hạnh kiểm";
+            this.dgvXemDiemHSHK2.Columns[5].HeaderText = "Danh hiệu";
+        }
     }
 }

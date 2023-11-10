@@ -32,5 +32,10 @@ namespace DoAnHQTCSDL.BS
         {
             return db.ExecuteQueryDataSet("SELECT * FROM dbo.TimHocSinh(N'" + kiTu + "');", CommandType.Text);
         }
+
+        public int TinhTongHocSinh()
+        {
+            return db.ExecuteQueryInt("SELECT dbo.TinhTongHocSinh();", CommandType.Text);
+        }
     }
 }

@@ -20,12 +20,19 @@ namespace DoAnHQTCSDL.DB
         public DBMain()
         {
             ConnStr = @"Data Source=NGOCHANNE\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+        
             conn = new SqlConnection(ConnStr);
             comm = conn.CreateCommand();
         }
 
         public void KetNoiDB(int loaiNguoiDung)
         {
+            if (loaiNguoiDung == 1)
+            {
+                ConnStr = @"Data Source=NGOCHANNE\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+                conn = new SqlConnection(ConnStr);
+                comm = conn.CreateCommand();
+            }
             if (loaiNguoiDung == 2)
             {
                 ConnStr = @"Data Source=NGOCHANNE\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";

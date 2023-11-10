@@ -20,6 +20,8 @@ namespace DoAnHQTCSDL.UserControls.Admin
         {
             InitializeComponent();
             blCSTS = new BLChinhSuaThongTinHS(db);
+            this.txtTong.Text = blCSTS.TinhTongHocSinh().ToString();
+            this.txtTong.ReadOnly = true;
         }
 
         public void LoadData()
@@ -113,6 +115,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
         private void ChinhSuaThongTinHS_Load(object sender, EventArgs e)
         {
             this.dgvChinhSuaThongTinHS.ReadOnly = true;
+            this.txtTong.ReadOnly = true;
             this.LoadData();
         }
 

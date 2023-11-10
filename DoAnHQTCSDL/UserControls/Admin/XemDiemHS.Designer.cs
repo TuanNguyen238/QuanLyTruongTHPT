@@ -105,6 +105,7 @@
             this.btnTimKiem.Size = new System.Drawing.Size(132, 30);
             this.btnTimKiem.TabIndex = 67;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -141,7 +142,6 @@
             this.cbNam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNam.Name = "cbNam";
             this.cbNam.Size = new System.Drawing.Size(110, 36);
-            this.cbNam.StartIndex = 0;
             this.cbNam.TabIndex = 102;
             this.cbNam.SelectedIndexChanged += new System.EventHandler(this.cbNam_SelectedIndexChanged);
             // 

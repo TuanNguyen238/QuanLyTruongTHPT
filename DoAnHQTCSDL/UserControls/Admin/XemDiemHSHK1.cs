@@ -1,4 +1,5 @@
 ﻿using DoAnHQTCSDL.BS.Admin;
+using DoAnHQTCSDL.BS.GiaoVien;
 using DoAnHQTCSDL.DB;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,20 @@ namespace DoAnHQTCSDL.UserControls.Admin
         {
             DataSet ds = new DataSet();
             ds = this.blXemDiemTruongHK.LayDiemTruongHK();
+            DataTable dt = ds.Tables[0];
+            this.dgvXemDiemHSHK1.DataSource = dt;
+            this.dgvXemDiemHSHK1.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvXemDiemHSHK1.Columns[1].HeaderText = "Lớp";
+            this.dgvXemDiemHSHK1.Columns[2].HeaderText = "Họ tên";
+            this.dgvXemDiemHSHK1.Columns[3].HeaderText = "Trung bình môn";
+            this.dgvXemDiemHSHK1.Columns[4].HeaderText = "Hạnh kiểm";
+            this.dgvXemDiemHSHK1.Columns[5].HeaderText = "Danh hiệu";
+        }
+
+        public void TimKiem(string kiTu)
+        {
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemTruongHK.TimDiemTruongHK(kiTu);
             DataTable dt = ds.Tables[0];
             this.dgvXemDiemHSHK1.DataSource = dt;
             this.dgvXemDiemHSHK1.Columns[0].HeaderText = "Mã học sinh";

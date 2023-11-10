@@ -20,5 +20,10 @@ namespace DoAnHQTCSDL.BS.Admin
         {
             return db.ExecuteQueryDataSet("SELECT * FROM XemPhanCong", CommandType.Text);
         }
+
+        public DataSet TimPhanCong(string kiTu)
+        {
+            return db.ExecuteQueryDataSet("SELECT * FROM TimPhanCong(N'" + kiTu + "');", CommandType.Text);
+        }
     }
 }

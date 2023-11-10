@@ -94,6 +94,7 @@
             this.btnTimKiem.Size = new System.Drawing.Size(132, 39);
             this.btnTimKiem.TabIndex = 96;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtMon
             // 

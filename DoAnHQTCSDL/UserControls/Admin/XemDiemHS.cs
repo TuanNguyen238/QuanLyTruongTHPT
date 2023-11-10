@@ -78,5 +78,15 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.namHoc = int.Parse(this.cbNam.SelectedItem.ToString());
             this.PanelXemDiem();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if (rdHK1.Checked)
+                xemDiemHSHK1.TimKiem(this.txtTimKiem.Text);
+            else if (rdHK2.Checked)
+                xemDiemHSHK2.TimKiem(this.txtTimKiem.Text);
+            else if (rdCaNam.Checked)
+                xemDiemHSCaNam.TimKiem(this.txtTimKiem.Text);
+        }
     }
 }
