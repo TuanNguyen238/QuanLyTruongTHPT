@@ -24,6 +24,7 @@ namespace DoAnHQTCSDL
         XemPhanCong xemPhanCong = null;
         XemTKBLop xemTKBLop = null;
         XemThiDuaLop xemThiDuaLop = null;
+        DanhGia danhGia = null;
         BLNguoiDung bLAdmin = null;
         DBMain db = null;
         string maNQL = "";
@@ -92,6 +93,13 @@ namespace DoAnHQTCSDL
             xemPhanCong = new XemPhanCong(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemPhanCong);
+        }
+
+        private void btnDanhGia_Click(object sender, EventArgs e)
+        {
+            danhGia = new DanhGia();
+            this.panelAdmin.Controls.Clear();
+            this.panelAdmin.Controls.Add(danhGia);
         }
     }
 }

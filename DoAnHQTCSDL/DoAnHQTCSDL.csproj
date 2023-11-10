@@ -123,6 +123,12 @@
     <Compile Include="UserControls\Admin\ChinhSuaThongTinHS.Designer.cs">
       <DependentUpon>ChinhSuaThongTinHS.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Admin\DanhGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admin\DanhGia.Designer.cs">
+      <DependentUpon>DanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Admin\DuyetHoSo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\Admin\ChinhSuaThongTinHS.resx">
       <DependentUpon>ChinhSuaThongTinHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admin\DanhGia.resx">
+      <DependentUpon>DanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Admin\DuyetHoSo.resx">
       <DependentUpon>DuyetHoSo.cs</DependentUpon>

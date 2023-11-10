@@ -35,9 +35,9 @@ namespace DoAnHQTCSDL
             dt = ds.Tables[0];
             dgvChiTietNoiQuy.DataSource = dt;
             dgvChiTietNoiQuy.Columns[0].HeaderText = "Mã nội quy";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Điều lệ vi phạm";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Số lần vi phạm";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Tổng số điểm trừ";
+            dgvChiTietNoiQuy.Columns[1].HeaderText = "Điều lệ vi phạm";
+            dgvChiTietNoiQuy.Columns[2].HeaderText = "Số lần vi phạm";
+            dgvChiTietNoiQuy.Columns[3].HeaderText = "Tổng số điểm trừ";
         }
     }
 }
