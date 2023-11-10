@@ -131,29 +131,19 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
         {
             panelTT.Enabled = false;
             string err = "";
-            float diemKTTX, diemKTGK, diemCK;
-            if (float.TryParse(txtDiemKTTX.Text, out diemKTTX) &&
-                float.TryParse(txtDiemKTGK.Text, out diemKTGK) &&
-                float.TryParse(txtDiemCK.Text, out diemCK))
+            if (blXemDiemLopHK.CapNhatDiem(txtMaHS.Text, txtMon.Text,
+                txtDiemKTTX.Text, txtDiemKTGK.Text, txtDiemCK.Text, ref err))
             {
-                if (blXemDiemLopHK.CapNhatDiem(txtMaHS.Text, txtMon.Text,
-                diemKTTX, diemKTGK, diemCK, ref err))
-                {
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    this.txtMaHS.Enabled = true;
-                    this.txtTBM.Enabled = true;
-                    this.txtMon.Enabled = true;
-                    // Thông báo
-                    MessageBox.Show("Đã sửa xong!");
-                }
-                else
-                    MessageBox.Show(err);
+                // Load lại dữ liệu trên DataGridView
+                LoadData();
+                this.txtMaHS.Enabled = true;
+                this.txtTBM.Enabled = true;
+                this.txtMon.Enabled = true;
+                // Thông báo
+                MessageBox.Show("Đã sửa xong!");
             }
             else
-            {
-                MessageBox.Show("Dữ liệu không hợp lệ.");
-            }
+                MessageBox.Show(err);
         }
 
         public void Huy()
