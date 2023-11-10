@@ -31,5 +31,10 @@ namespace DoAnHQTCSDL.BS.Admin
         {
             this.kyHoc = kyHoc;
         }
+
+        public DataSet TimDiemTruongHK(string kiTu)
+        {
+            return db.ExecuteQueryDataSet("SELECT * FROM dbo.TimDiemTruongHocKy(" + this.kyHoc + "," + this.namHoc + ",N'" + kiTu + "');", CommandType.Text);
+        }
     }
 }

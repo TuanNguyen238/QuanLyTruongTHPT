@@ -47,5 +47,21 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvDiemHSCaNam.Columns[6].HeaderText = "Xếp hạng";
             this.dgvDiemHSCaNam.ReadOnly = true;
         }
+
+        public void TimKiem(string kiTu)
+        {
+            DataSet ds = new DataSet();
+            ds = this.blXemDiemTruongCaNam.TimDiemTruongCaNam(kiTu);
+            DataTable dt = ds.Tables[0];
+            this.dgvDiemHSCaNam.DataSource = dt;
+            this.dgvDiemHSCaNam.Columns[0].HeaderText = "Mã học sinh";
+            this.dgvDiemHSCaNam.Columns[1].HeaderText = "Lớp";
+            this.dgvDiemHSCaNam.Columns[2].HeaderText = "Họ tên";
+            this.dgvDiemHSCaNam.Columns[3].HeaderText = "Trung bình môn";
+            this.dgvDiemHSCaNam.Columns[4].HeaderText = "Hạnh kiểm";
+            this.dgvDiemHSCaNam.Columns[5].HeaderText = "Danh hiệu";
+            this.dgvDiemHSCaNam.Columns[6].HeaderText = "Xếp hạng";
+            this.dgvDiemHSCaNam.ReadOnly = true;
+        }
     }
 }

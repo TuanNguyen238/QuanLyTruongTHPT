@@ -18,14 +18,20 @@ namespace DoAnHQTCSDL.DB
         SqlCommand comm = null;
         SqlDataAdapter da = null;
         public DBMain()
-        {
-            ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User Id=admin;Password=123456;";
+        {   //Kết nối DB gốc
+            ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True;";
             conn = new SqlConnection(ConnStr);
             comm = conn.CreateCommand();
         }
 
         public void KetNoiDB(int loaiNguoiDung)
         {
+            if (loaiNguoiDung == 1)
+            {
+                ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User Id=admin;Password=123456;";
+                conn = new SqlConnection(ConnStr);
+                comm = conn.CreateCommand();
+            }
             if (loaiNguoiDung == 2)
             {
                 ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User Id=giaovien;Password=123456;";

@@ -19,6 +19,7 @@ namespace DoAnHQTCSDL
         {
             InitializeComponent();
             this.txtLop.Text = tenLop;
+            this.txtLop.ReadOnly = true;
             bLXemThiDua = new BLXemThiDua(tenLop, db);
         }
 

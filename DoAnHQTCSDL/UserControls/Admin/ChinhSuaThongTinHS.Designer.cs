@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCapNhat = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnTimKiem = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.txtTimKiem = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
@@ -53,6 +53,8 @@
             this.panelThongTin = new System.Windows.Forms.Panel();
             this.btnLuu = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnHuy = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.txtTong = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.blTong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChinhSuaThongTinHS)).BeginInit();
             this.panelThongTin.SuspendLayout();
             this.SuspendLayout();
@@ -118,14 +120,14 @@
             // 
             this.dgvChinhSuaThongTinHS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChinhSuaThongTinHS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChinhSuaThongTinHS.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChinhSuaThongTinHS.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvChinhSuaThongTinHS.Location = new System.Drawing.Point(15, 271);
             this.dgvChinhSuaThongTinHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChinhSuaThongTinHS.Name = "dgvChinhSuaThongTinHS";
@@ -166,7 +168,7 @@
             this.txtDiaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDiaChi.Location = new System.Drawing.Point(499, 85);
+            this.txtDiaChi.Location = new System.Drawing.Point(503, 85);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.PasswordChar = '\0';
@@ -186,7 +188,7 @@
             this.txtLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLop.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLop.Location = new System.Drawing.Point(499, 9);
+            this.txtLop.Location = new System.Drawing.Point(503, 9);
             this.txtLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLop.Name = "txtLop";
             this.txtLop.PasswordChar = '\0';
@@ -206,7 +208,7 @@
             this.txtNamHoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNamHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNamHoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNamHoc.Location = new System.Drawing.Point(499, 47);
+            this.txtNamHoc.Location = new System.Drawing.Point(503, 47);
             this.txtNamHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNamHoc.Name = "txtNamHoc";
             this.txtNamHoc.PasswordChar = '\0';
@@ -321,7 +323,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label6.Location = new System.Drawing.Point(399, 90);
+            this.label6.Location = new System.Drawing.Point(381, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 23);
             this.label6.TabIndex = 75;
@@ -343,7 +345,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label4.Location = new System.Drawing.Point(399, 10);
+            this.label4.Location = new System.Drawing.Point(381, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 23);
             this.label4.TabIndex = 73;
@@ -354,7 +356,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label3.Location = new System.Drawing.Point(396, 49);
+            this.label3.Location = new System.Drawing.Point(378, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 23);
             this.label3.TabIndex = 72;
@@ -384,6 +386,8 @@
             // 
             // panelThongTin
             // 
+            this.panelThongTin.Controls.Add(this.txtTong);
+            this.panelThongTin.Controls.Add(this.blTong);
             this.panelThongTin.Controls.Add(this.txtSoDT);
             this.panelThongTin.Controls.Add(this.txtDiaChi);
             this.panelThongTin.Controls.Add(this.txtLop);
@@ -443,6 +447,37 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // txtTong
+            // 
+            this.txtTong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTong.DefaultText = "";
+            this.txtTong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTong.Location = new System.Drawing.Point(503, 144);
+            this.txtTong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTong.Name = "txtTong";
+            this.txtTong.PasswordChar = '\0';
+            this.txtTong.PlaceholderText = "";
+            this.txtTong.SelectedText = "";
+            this.txtTong.Size = new System.Drawing.Size(208, 30);
+            this.txtTong.TabIndex = 88;
+            // 
+            // blTong
+            // 
+            this.blTong.AutoSize = true;
+            this.blTong.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
+            this.blTong.ForeColor = System.Drawing.Color.CadetBlue;
+            this.blTong.Location = new System.Drawing.Point(381, 149);
+            this.blTong.Name = "blTong";
+            this.blTong.Size = new System.Drawing.Size(109, 23);
+            this.blTong.TabIndex = 87;
+            this.blTong.Text = "Số học sinh:";
+            // 
             // ChinhSuaThongTinHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -491,5 +526,7 @@
         private System.Windows.Forms.Panel panelThongTin;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnLuu;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnHuy;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTong;
+        private System.Windows.Forms.Label blTong;
     }
 }
