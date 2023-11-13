@@ -37,5 +37,11 @@ namespace DoAnHQTCSDL.BS
         {
             return db.ExecuteQueryInt("SELECT dbo.TinhTongHocSinh();", CommandType.Text);
         }
+
+        public bool XoaHocSinh(string maHS, ref string err)
+        {
+            string sqlStr = "EXEC XoaHocSinh '" + maHS + "';";
+            return db.MyExecuteNonQuery(sqlStr, CommandType.Text, ref err);
+        }
     }
 }

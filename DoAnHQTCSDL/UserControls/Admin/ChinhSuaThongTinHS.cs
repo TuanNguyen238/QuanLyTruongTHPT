@@ -16,6 +16,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
     public partial class ChinhSuaThongTinHS : UserControl
     {
         BLChinhSuaThongTinHS blCSTS = null;
+        string err = "";
         public ChinhSuaThongTinHS(DBMain db)
         {
             InitializeComponent();
@@ -170,6 +171,22 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvChinhSuaThongTinHS.Columns[6].HeaderText = "Năm Học";
             this.dgvChinhSuaThongTinHS.Columns[7].HeaderText = "Địa Chỉ";
             this.dgvChinhSuaThongTinHS_CellClick(null, null);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Xác nhận xóa mọi dữ liệu học sinh: " + this.txtMaHS.Text + "!!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                if (this.blCSTS.XoaHocSinh(this.txtMaHS.Text, ref err))
+                {
+                    MessageBox.Show("Xóa dữ liệu học sinh thành công!");
+                    this.LoadData();
+                }
+                else
+                    MessageBox.Show(err);
+                this.LoadData();
+            }
         }
     }
 }
