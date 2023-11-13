@@ -34,5 +34,13 @@ namespace DoAnHQTCSDL.BS
         {
             return this.db;
         }
+
+        public bool KiemTraTonTaiHocSinh()
+        {
+            int status = db.ExecuteQueryInt("SELECT dbo.KiemTraTonTaiHocSinh('" + username + "');", CommandType.Text);
+            if (status == 1)
+                return true;
+            return false;
+        }
     }
 }

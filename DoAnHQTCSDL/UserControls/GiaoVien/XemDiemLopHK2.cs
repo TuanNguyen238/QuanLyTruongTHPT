@@ -135,7 +135,6 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
                 txtDiemKTTX.Text, txtDiemKTGK.Text, txtDiemCK.Text, ref err))
             {
                 // Load lại dữ liệu trên DataGridView
-                LoadData();
                 this.txtMaHS.Enabled = true;
                 this.txtTBM.Enabled = true;
                 this.txtMon.Enabled = true;
@@ -144,6 +143,7 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
             }
             else
                 MessageBox.Show(err);
+            LoadData();
         }
 
         public void Huy()

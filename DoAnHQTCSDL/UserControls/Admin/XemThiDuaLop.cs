@@ -26,8 +26,11 @@ namespace DoAnHQTCSDL.UserControls.Admin
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
-            FormChiTietThiDua formChiTietThiDua = new FormChiTietThiDua(tenLop, db);
-            formChiTietThiDua.ShowDialog();
+            if (tenLop.Length > 0)
+            {
+                FormChiTietThiDua formChiTietThiDua = new FormChiTietThiDua(tenLop, db);
+                formChiTietThiDua.ShowDialog();
+            }
         }
 
         private void XemThiDuaLop_Load(object sender, EventArgs e)

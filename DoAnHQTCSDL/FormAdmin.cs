@@ -18,7 +18,7 @@ namespace DoAnHQTCSDL
     public partial class FormAdmin : Form
     {
         ChinhSuaThongTinHS chinhSuaThongTinHS = null;
-        DuyetHoSo duyetHoSo = new DuyetHoSo();
+        DuyetHoSo duyetHoSo = null;
         NoiQuy noiQuy = null;
         XemDiemHS xemDiemHS = null;
         XemPhanCong xemPhanCong = null;
@@ -33,7 +33,6 @@ namespace DoAnHQTCSDL
             bLAdmin = new BLAdmin(username, db);
             this.db = db;
             this.maNQL = bLAdmin.TraMaNguoiDung();
-            this.btnDuyetHoSo.Hide();
         }
                        
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -83,6 +82,7 @@ namespace DoAnHQTCSDL
 
         private void btnDuyetHoSo_Click(object sender, EventArgs e)
         {
+            duyetHoSo = new DuyetHoSo(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(duyetHoSo);
         }

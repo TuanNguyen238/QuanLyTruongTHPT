@@ -28,5 +28,10 @@ namespace DoAnHQTCSDL.BS.GiaoVien
         {
             return db.ExecuteQueryDataSet("SELECT * FROM dbo.TraDTK_XepHang_ThiDua('" + tenLop + "');", CommandType.Text);
         }
+
+        public DataSet TimKiemChiTietThiDua(string kiTu)
+        {
+            return db.ExecuteQueryDataSet("SELECT * FROM dbo.TimThiDuaLop('" + tenLop + "',N'" + kiTu + "');", CommandType.Text);
+        }
     }
 }

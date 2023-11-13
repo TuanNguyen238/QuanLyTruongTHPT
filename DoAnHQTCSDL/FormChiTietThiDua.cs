@@ -20,6 +20,9 @@ namespace DoAnHQTCSDL
             InitializeComponent();
             this.txtLop.Text = tenLop;
             this.txtLop.ReadOnly = true;
+            this.txtSoDiemTru.ReadOnly = true;
+            this.numSoLanViPham.Minimum = 1;
+            this.numSoLanViPham.Maximum = 20;
             bLXemThiDua = new BLXemThiDua(tenLop, db);
         }
 
@@ -36,9 +39,22 @@ namespace DoAnHQTCSDL
             dt = ds.Tables[0];
             dgvChiTietNoiQuy.DataSource = dt;
             dgvChiTietNoiQuy.Columns[0].HeaderText = "Mã nội quy";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Điều lệ vi phạm";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Số lần vi phạm";
-            dgvChiTietNoiQuy.Columns[0].HeaderText = "Tổng số điểm trừ";
+            dgvChiTietNoiQuy.Columns[1].HeaderText = "Điều lệ vi phạm";
+            dgvChiTietNoiQuy.Columns[2].HeaderText = "Số lần vi phạm";
+            dgvChiTietNoiQuy.Columns[3].HeaderText = "Tổng số điểm trừ";
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            ds = bLXemThiDua.TimKiemChiTietThiDua(this.txtTimKiem.Text);
+            DataTable dt = new DataTable();
+            dt = ds.Tables[0];
+            dgvChiTietNoiQuy.DataSource = dt;
+            dgvChiTietNoiQuy.Columns[0].HeaderText = "Mã nội quy";
+            dgvChiTietNoiQuy.Columns[1].HeaderText = "Điều lệ vi phạm";
+            dgvChiTietNoiQuy.Columns[2].HeaderText = "Số lần vi phạm";
+            dgvChiTietNoiQuy.Columns[3].HeaderText = "Tổng số điểm trừ";
         }
     }
 }

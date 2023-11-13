@@ -125,13 +125,13 @@ namespace DoAnHQTCSDL.UserControls
                 gioiTinh, txtSDT.Text, txtDiaChi.Text, ref err))
             {
                 // Load lại dữ liệu trên DataGridView
-                LoadData();
                 this.txtMaHS.Enabled = true;
                 // Thông báo
                 MessageBox.Show("Đã sửa xong!");
             }
             else
                 MessageBox.Show(err);
+            LoadData();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

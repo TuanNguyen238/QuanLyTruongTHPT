@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BS\Admin\BLDuyetHoSo.cs" />
+    <Compile Include="BS\BLDangKy.cs" />
     <Compile Include="BS\Admin\BLPhanCong.cs" />
     <Compile Include="BS\Admin\BLXemDiemTruongCaNam.cs" />
     <Compile Include="BS\Admin\BLXemDiemTruongHK.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="BS\Admin\BLChinhSuaThongTinHS.cs" />
     <Compile Include="BS\BLDangNhap.cs" />
     <Compile Include="BS\BLNguoiDung.cs" />
+    <Compile Include="BS\BLTuyenSinh.cs" />
     <Compile Include="BS\GiaoVien\BLXemPhanHoi.cs" />
     <Compile Include="BS\GiaoVien\BLXemThiDua.cs" />
     <Compile Include="BS\GiaoVien\BLXemDiemLopCaNam.cs" />
@@ -72,6 +75,8 @@
     <Compile Include="BS\HocSinh\BLXemDiemHK.cs" />
     <Compile Include="BS\HocSinh\BLXemThongTin.cs" />
     <Compile Include="BS\HocSinh\BLXemTKB.cs" />
+    <Compile Include="BS\TuyenSinh\BLCapNhatTT.cs" />
+    <Compile Include="BS\TuyenSinh\BLDangKyTuyenSinh.cs" />
     <Compile Include="DB\DBMain.cs" />
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
@@ -392,8 +397,6 @@
       <DependentUpon>XemThoiKhoaBieuLop.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
