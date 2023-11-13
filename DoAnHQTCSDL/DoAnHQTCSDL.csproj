@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BS\Admin\BLDuyetHoSo.cs" />
+    <Compile Include="BS\BLQuenMK.cs" />
     <Compile Include="BS\BLDangKy.cs" />
     <Compile Include="BS\Admin\BLPhanCong.cs" />
     <Compile Include="BS\Admin\BLXemDiemTruongCaNam.cs" />

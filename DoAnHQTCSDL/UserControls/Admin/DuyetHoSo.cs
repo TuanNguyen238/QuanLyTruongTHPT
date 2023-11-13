@@ -61,7 +61,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
         private void btnThemVaoLop_Click(object sender, EventArgs e)
         {
             string tenLop = cbLop.SelectedValue.ToString();
-            if (!string.IsNullOrEmpty(tenLop))
+            if (!string.IsNullOrEmpty(tenLop) && !string.IsNullOrEmpty(maHoSo))
             {
                 DialogResult rs = MessageBox.Show("Xác nhận đưa học sinh vô lớp: " + tenLop + "!!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (rs == DialogResult.Yes)

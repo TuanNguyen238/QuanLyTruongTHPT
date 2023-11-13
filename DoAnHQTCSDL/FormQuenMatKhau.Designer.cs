@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtfullname = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtCheckPass = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtphonenumber = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtpassword = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtusername = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
@@ -39,36 +39,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnReturn = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtfullname
+            // txtCheckPass
             // 
-            this.txtfullname.BorderRadius = 2;
-            this.txtfullname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtfullname.DefaultText = "";
-            this.txtfullname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtfullname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtfullname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtfullname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtfullname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtfullname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfullname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtfullname.Location = new System.Drawing.Point(803, 532);
-            this.txtfullname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtfullname.Name = "txtfullname";
-            this.txtfullname.PasswordChar = '\0';
-            this.txtfullname.PlaceholderText = "Xác nhận mật khẩu";
-            this.txtfullname.SelectedText = "";
-            this.txtfullname.Size = new System.Drawing.Size(244, 54);
-            this.txtfullname.TabIndex = 66;
+            this.txtCheckPass.BorderRadius = 2;
+            this.txtCheckPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCheckPass.DefaultText = "";
+            this.txtCheckPass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCheckPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCheckPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCheckPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCheckPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCheckPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCheckPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCheckPass.Location = new System.Drawing.Point(714, 426);
+            this.txtCheckPass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCheckPass.Name = "txtCheckPass";
+            this.txtCheckPass.PasswordChar = '\0';
+            this.txtCheckPass.PlaceholderText = "Xác nhận mật khẩu";
+            this.txtCheckPass.SelectedText = "";
+            this.txtCheckPass.Size = new System.Drawing.Size(217, 43);
+            this.txtCheckPass.TabIndex = 66;
             // 
             // txtphonenumber
             // 
@@ -82,13 +82,13 @@
             this.txtphonenumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtphonenumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtphonenumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtphonenumber.Location = new System.Drawing.Point(803, 375);
-            this.txtphonenumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtphonenumber.Location = new System.Drawing.Point(714, 300);
+            this.txtphonenumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtphonenumber.Name = "txtphonenumber";
             this.txtphonenumber.PasswordChar = '\0';
             this.txtphonenumber.PlaceholderText = "Số điện thoại";
             this.txtphonenumber.SelectedText = "";
-            this.txtphonenumber.Size = new System.Drawing.Size(244, 54);
+            this.txtphonenumber.Size = new System.Drawing.Size(217, 43);
             this.txtphonenumber.TabIndex = 65;
             // 
             // txtpassword
@@ -103,13 +103,13 @@
             this.txtpassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtpassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpassword.Location = new System.Drawing.Point(803, 452);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpassword.Location = new System.Drawing.Point(714, 362);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '\0';
             this.txtpassword.PlaceholderText = "Mật khẩu mới";
             this.txtpassword.SelectedText = "";
-            this.txtpassword.Size = new System.Drawing.Size(244, 54);
+            this.txtpassword.Size = new System.Drawing.Size(217, 43);
             this.txtpassword.TabIndex = 64;
             // 
             // txtusername
@@ -124,13 +124,13 @@
             this.txtusername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtusername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtusername.Location = new System.Drawing.Point(803, 299);
-            this.txtusername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtusername.Location = new System.Drawing.Point(714, 239);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtusername.Name = "txtusername";
             this.txtusername.PasswordChar = '\0';
             this.txtusername.PlaceholderText = "Tên đăng nhập";
             this.txtusername.SelectedText = "";
-            this.txtusername.Size = new System.Drawing.Size(244, 54);
+            this.txtusername.Size = new System.Drawing.Size(217, 43);
             this.txtusername.TabIndex = 63;
             // 
             // btnSubmit
@@ -138,9 +138,10 @@
             this.btnSubmit.BackColor = System.Drawing.Color.CadetBlue;
             this.btnSubmit.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSubmit.Location = new System.Drawing.Point(664, 639);
+            this.btnSubmit.Location = new System.Drawing.Point(590, 511);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(286, 75);
+            this.btnSubmit.Size = new System.Drawing.Size(254, 60);
             this.btnSubmit.TabIndex = 62;
             this.btnSubmit.Text = "SUBMIT";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -151,9 +152,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label7.Location = new System.Drawing.Point(545, 546);
+            this.label7.Location = new System.Drawing.Point(484, 437);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(257, 32);
+            this.label7.Size = new System.Drawing.Size(215, 29);
             this.label7.TabIndex = 55;
             this.label7.Text = "Xác nhận mật khẩu";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,9 +164,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label6.Location = new System.Drawing.Point(542, 387);
+            this.label6.Location = new System.Drawing.Point(482, 310);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 32);
+            this.label6.Size = new System.Drawing.Size(154, 29);
             this.label6.TabIndex = 54;
             this.label6.Text = "Số điện thoại";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -175,9 +176,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label5.Location = new System.Drawing.Point(545, 463);
+            this.label5.Location = new System.Drawing.Point(484, 370);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 32);
+            this.label5.Size = new System.Drawing.Size(155, 29);
             this.label5.TabIndex = 53;
             this.label5.Text = "Mật khẩu mới";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -187,9 +188,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label2.Location = new System.Drawing.Point(545, 310);
+            this.label2.Location = new System.Drawing.Point(484, 248);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 32);
+            this.label2.Size = new System.Drawing.Size(175, 29);
             this.label2.TabIndex = 52;
             this.label2.Text = "Tên đăng nhập";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,9 +201,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Stencil", 26F);
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label1.Location = new System.Drawing.Point(558, 181);
+            this.label1.Location = new System.Drawing.Point(496, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(474, 61);
+            this.label1.Size = new System.Drawing.Size(402, 52);
             this.label1.TabIndex = 50;
             this.label1.Text = "FORGOT PASWORD";
             // 
@@ -212,19 +213,31 @@
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(-7, -1);
+            this.panel2.Location = new System.Drawing.Point(-6, -1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(535, 818);
+            this.panel2.Size = new System.Drawing.Size(476, 654);
             this.panel2.TabIndex = 49;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DoAnHQTCSDL.Properties.Resources.koala;
+            this.pictureBox5.Location = new System.Drawing.Point(177, 48);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(145, 113);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Stencil", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(91, 431);
+            this.label4.Location = new System.Drawing.Point(81, 345);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(363, 114);
+            this.label4.Size = new System.Drawing.Size(304, 95);
             this.label4.TabIndex = 3;
             this.label4.Text = "EDUMY";
             // 
@@ -233,31 +246,22 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Stencil", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(3, 285);
+            this.label3.Location = new System.Drawing.Point(3, 228);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(543, 95);
+            this.label3.Size = new System.Drawing.Size(452, 80);
             this.label3.TabIndex = 2;
             this.label3.Text = "Welcome to ";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DoAnHQTCSDL.Properties.Resources.user2;
-            this.pictureBox2.Location = new System.Drawing.Point(701, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(623, 10);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(154, 134);
+            this.pictureBox2.Size = new System.Drawing.Size(137, 107);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 51;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::DoAnHQTCSDL.Properties.Resources.koala;
-            this.pictureBox5.Location = new System.Drawing.Point(199, 60);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(163, 141);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
             // 
             // btnReturn
             // 
@@ -266,9 +270,9 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.CadetBlue;
             this.btnReturn.LinkColor = System.Drawing.Color.CadetBlue;
-            this.btnReturn.Location = new System.Drawing.Point(983, -1);
+            this.btnReturn.Location = new System.Drawing.Point(874, -1);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(77, 22);
+            this.btnReturn.Size = new System.Drawing.Size(62, 18);
             this.btnReturn.TabIndex = 67;
             this.btnReturn.TabStop = true;
             this.btnReturn.Text = "Quay về";
@@ -276,12 +280,12 @@
             // 
             // FormQuenMatKhau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1060, 760);
+            this.ClientSize = new System.Drawing.Size(942, 608);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.txtfullname);
+            this.Controls.Add(this.txtCheckPass);
             this.Controls.Add(this.txtphonenumber);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.txtusername);
@@ -294,19 +298,21 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormQuenMatKhau";
             this.Text = "FormQuenMatKhau";
+            this.Load += new System.EventHandler(this.FormQuenMatKhau_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtfullname;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCheckPass;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtphonenumber;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtpassword;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtusername;
