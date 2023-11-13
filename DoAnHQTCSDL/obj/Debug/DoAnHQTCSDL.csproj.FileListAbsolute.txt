@@ -332,7 +332,6 @@ C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormHocSinh.re
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormTuyenSinh.resources
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.Properties.Resources.resources
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.ChinhSuaThongTinHS.resources
-C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.DanhGia.resources
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.DuyetHoSo.resources
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.NoiQuy.resources
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.Admin.XemDiemHS.resources
@@ -364,3 +363,4 @@ C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CoreCom
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.csproj.CopyComplete
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb
+C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormQuenMatKhau.resources

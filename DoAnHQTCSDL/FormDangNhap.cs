@@ -67,5 +67,13 @@ namespace DoAnHQTCSDL
             else
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
         }
+
+        private void btnForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            FormQuenMatKhau formQuenMatKhau = new FormQuenMatKhau();
+            formQuenMatKhau.ShowDialog();
+
+        }
     }
 }

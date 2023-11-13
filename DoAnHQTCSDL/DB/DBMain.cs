@@ -19,7 +19,7 @@ namespace DoAnHQTCSDL.DB
         SqlDataAdapter da = null;
         public DBMain()
         {
-            ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+            ConnStr = @"Data Source=172.16.3.113;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
             conn = new SqlConnection(ConnStr);
             comm = conn.CreateCommand();
         }
@@ -28,19 +28,19 @@ namespace DoAnHQTCSDL.DB
         {
             if (loaiNguoiDung == 1)
             {
-                ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+                ConnStr = @"Data Source=172.16.3.113;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
                 conn = new SqlConnection(ConnStr);
                 comm = conn.CreateCommand();
             }
             if (loaiNguoiDung == 2)
             {
-                ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+                ConnStr = @"Data Source=172.16.3.113;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
                 conn = new SqlConnection(ConnStr);
                 comm = conn.CreateCommand();
             }
             else if (loaiNguoiDung == 3)
             {
-                ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
+                ConnStr = @"Data Source=172.16.3.113;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
                 conn = new SqlConnection(ConnStr);
                 comm = conn.CreateCommand();
             }

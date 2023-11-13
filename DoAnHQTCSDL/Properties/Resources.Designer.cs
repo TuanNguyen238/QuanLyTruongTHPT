@@ -553,6 +553,16 @@ namespace DoAnHQTCSDL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap return__1_ {
+            get {
+                object obj = ResourceManager.GetObject("return (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_arrows {
             get {
                 object obj = ResourceManager.GetObject("right-arrows", resourceCulture);

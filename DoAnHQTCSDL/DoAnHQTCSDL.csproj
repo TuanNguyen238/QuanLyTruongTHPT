@@ -114,6 +114,12 @@
     <Compile Include="FormHocSinh.Designer.cs">
       <DependentUpon>FormHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQuenMatKhau.Designer.cs">
+      <DependentUpon>FormQuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTuyenSinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHocSinh.resx">
       <DependentUpon>FormHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQuenMatKhau.resx">
+      <DependentUpon>FormQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTuyenSinh.resx">
       <DependentUpon>FormTuyenSinh.cs</DependentUpon>
@@ -591,6 +600,8 @@
   <ItemGroup>
     <None Include="Resources\score %281%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\return %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

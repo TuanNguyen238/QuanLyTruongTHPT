@@ -52,5 +52,12 @@ namespace DoAnHQTCSDL
         {
             this.gioiTinh = "Nữ";
         }
+
+        private void btnReturn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            FormDangNhap formDangNhap = new FormDangNhap();
+            formDangNhap.ShowDialog();
+        }
     }
 }
