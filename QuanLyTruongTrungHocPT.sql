@@ -1,8 +1,16 @@
-﻿CREATE DATABASE QuanLyTruongTrungHocPT
+﻿CREATE LOGIN admin WITH PASSWORD = '123456';
+CREATE LOGIN giaovien WITH PASSWORD = '123456';
+CREATE LOGIN hocsinh WITH PASSWORD = '123456';
+ALTER SERVER ROLE sysadmin ADD MEMBER admin;
+ALTER SERVER ROLE sysadmin ADD MEMBER giaovien;
+ALTER SERVER ROLE sysadmin ADD MEMBER hocsinh;
+
+CREATE DATABASE QuanLyTruongTrungHocPT
 GO
  
 USE QuanLyTruongTrungHocPT
 GO
+
 
 CREATE TABLE Lop (
     TenLop nvarchar(20) PRIMARY KEY,
@@ -656,7 +664,8 @@ CREATE PROCEDURE Them_LoaiNguoiDung
 @NgaySinh date,
 @GioiTinh nvarchar(20),
 @DiaChi nvarchar(100),
-@SoDT varchar(20)
+@SoDT varchar(20),
+@LoaiNguoiDung int
 AS
 BEGIN
 	IF (@SoDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
@@ -672,7 +681,9 @@ BEGIN
 		
 		BEGIN TRANSACTION
 		INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT)
-		VALUES (@MaNguoiDung,@MaUngDung,3,@TenDangNhap,@MatKhau,@HoTen,@NgaySinh,@GioiTinh,@DiaChi,@SoDT);
+		VALUES (@MaNguoiDung,@MaUngDung,@LoaiNguoiDung,@TenDangNhap,@MatKhau,@HoTen,@NgaySinh,@GioiTinh,@DiaChi,@SoDT);
+		IF(@LoaiNguoiDung = 2)
+			INSERT INTO GiaoVien VALUES(@MaNguoiDung, @HoTen, @GioiTinh, @NgaySinh, @SoDT, @DiaChi);
 		COMMIT TRANSACTION
 	END TRY
 	BEGIN CATCH
@@ -717,7 +728,7 @@ BEGIN
 		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
 		RAISERROR(@err, 16, 1);
 	END CATCH					
-END;													
+END;
 GO
 
 CREATE FUNCTION LayNguoiDung(@MaNguoiDung varchar(20))
