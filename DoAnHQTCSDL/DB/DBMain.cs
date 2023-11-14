@@ -19,7 +19,7 @@ namespace DoAnHQTCSDL.DB
         SqlDataAdapter da = null;
         public DBMain()
         {
-            ConnStr = @"Data Source=TUAN-NGUYEN\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
+            ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
             conn = new SqlConnection(ConnStr);
             comm = conn.CreateCommand();
         }

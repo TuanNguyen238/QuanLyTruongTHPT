@@ -22,17 +22,23 @@ namespace DoAnHQTCSDL
         {
             InitializeComponent();
             blDangKy = new BLDangKy();
+            this.cbvaiTro.Items.Add("Giáo viên");
+            this.cbvaiTro.Items.Add("Học sinh");
         }
 
         private void FormDangKy_Load(object sender, EventArgs e)
         {
             this.rdMale.Checked = true;
+            this.cbvaiTro.SelectedIndex = 0;
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            int vaiTro = 2;
+            if (cbvaiTro.SelectedIndex == 1)
+                vaiTro = 3;
             if (blDangKy.KiemTraDangKy(txtusername.Text, txtpassword.Text, txtfullname.Text,
-                gioiTinh, dtdate.Value, txtAddress.Text, txtphonenumber.Text, ref err))
+                gioiTinh, dtdate.Value, txtAddress.Text, txtphonenumber.Text, vaiTro, ref err))
             {
                 MessageBox.Show("Đăng ký thành công!");
                 this.Hide();
