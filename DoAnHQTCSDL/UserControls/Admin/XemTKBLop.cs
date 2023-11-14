@@ -65,5 +65,10 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.kyHoc = 2;
             this.LoadData();
         }
+
+        private void dgvTKB_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
     }
 }

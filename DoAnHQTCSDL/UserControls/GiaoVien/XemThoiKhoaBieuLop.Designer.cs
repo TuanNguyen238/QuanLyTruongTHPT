@@ -57,6 +57,7 @@
             this.dgvTKB.RowTemplate.Height = 28;
             this.dgvTKB.Size = new System.Drawing.Size(724, 451);
             this.dgvTKB.TabIndex = 0;
+            this.dgvTKB.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvTKB_ColumnAdded);
             // 
             // label1
             // 

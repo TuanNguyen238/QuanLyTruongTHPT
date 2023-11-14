@@ -335,28 +335,29 @@ ALTER TABLE DanhGia
 ADD CONSTRAINT FK_DanhGia_TenLop FOREIGN KEY (TenLop) REFERENCES ThiDua(TenLop);
 GO
 
---a. Trigger kiểm tra học sinh
-CREATE TRIGGER KiemTraHocSinh
+CREATE TRIGGER ThayDoiSiSoLop
 ON HocSinh
-AFTER INSERT
+FOR INSERT, DELETE
 AS
 BEGIN
-	Declare @newLop varchar(20)
-	SELECT  @newLop = new.TenLop
-	FROM inserted new
-	IF NOT EXISTS(
-	SELECT * FROM LOP WHERE LOP.TenLop = @newLop)
-	BEGIN
-	RAISERROR('Học sinh đó không thuộc lớp nào', 16, 1)
-		ROLLBACK;
-	END;
-	ELSE
-	BEGIN
-		UPDATE Lop
-		SET SiSoLop = SiSoLop + 1 Where TenLop = @newLop;
-	END;
+	DECLARE @Lop varchar(20);
+    IF EXISTS (SELECT * FROM inserted)
+    BEGIN
+        SELECT @Lop = TenLop FROM inserted;
+        UPDATE Lop
+        SET SiSoLop = SiSoLop + 1
+        WHERE TenLop = @Lop;
+    END
+    IF EXISTS (SELECT * FROM deleted)
+    BEGIN
+        SELECT @Lop = TenLop FROM deleted;
+        UPDATE Lop
+        SET SiSoLop = SiSoLop - 1
+        WHERE TenLop = @Lop AND SiSoLop > 0;
+    END
 END
 GO
+
 --b. Trigger đưa lớp vào danh sách thi đua của trường 
 CREATE TRIGGER Them_ThiDua
 ON Lop
@@ -380,28 +381,21 @@ GO
 --c.Trigger tính điểm thi đua của lớp
 CREATE TRIGGER TinhDiem_ThiDua
 ON DanhGia
-AFTER INSERT, UPDATE
+AFTER INSERT
 AS
 BEGIN
 	Declare @newMaNQ varchar(20), @newLop nvarchar(20), @newSLVP int;
 	Select @newMaNQ = new.MaNQ, @newLop = new.TenLop, @newSLVP = new.SoLanViPham
 	From inserted new
-	IF EXISTS(SELECT * FROM NoiQuy Where MaNQ = @newMaNQ)
-	BEGIN
-		Declare @diemTru int;
-		SELECT @diemTru = NoiQuy.SoDiemTru
-		FROM NoiQuy
-		WHERE @newMaNQ = NoiQuy.MaNQ;
-		UPDATE ThiDua
-		SET DiemTongKet = DiemTongKet - @diemTru*@newSLVP Where @newLop = ThiDua.TenLop;
-	END;
-	ELSE
-	BEGIN
-		RAISERROR('Mã bạn vừa nhập không tồn tại trong bảng Nội Quy.', 16, 1)
-		ROLLBACK;
-	END;
+	Declare @diemTru int;
+	SELECT @diemTru = NoiQuy.SoDiemTru
+	FROM NoiQuy
+	WHERE @newMaNQ = NoiQuy.MaNQ;
+	UPDATE ThiDua
+	SET DiemTongKet = DiemTongKet - @diemTru*@newSLVP Where @newLop = ThiDua.TenLop;
 End;
 GO
+
 -- d.Trigger cho phép update tính điểm thi đua của lớp
 CREATE TRIGGER TinhDiem_ThiDua_CapNhat
 ON DanhGia
@@ -486,21 +480,6 @@ BEGIN
 	WHERE MaHS = @maHS AND NamHoc = @namHoc;
 END;
 GO
---h. Trigger kiểm tra điểm tuyển sinh (Đạt)
-CREATE TRIGGER KiemTra_DiemTuyenSinh
-ON TuyenSinh
-FOR INSERT
-AS
-BEGIN
-	DECLARE @Diem int;
-	SELECT @Diem = ne.DiemTuyenSinh
-	from inserted ne;
-	IF(@Diem < 26)
-	BEGIN
-		RAISERROR('Không đủ điều kiện nhập học', 16, 1)
-	END;
-END;
-GO
 
 CREATE PROCEDURE ThemDiem_DanhHieu
 @MaHS varchar(20),
@@ -538,13 +517,13 @@ BEGIN
 	EXEC ThemDiem_DanhHieu @newMaHS, @newNamHoc;
 END;
 GO
---j. Trigger Tự động xếp hạng danh hiệu (Đạt)
+
 CREATE TRIGGER TuDong_XepHangDanhHieu
 ON DanhHieu
-AFTER UPDATE
+FOR UPDATE
 AS
 BEGIN
-    UPDATE dh
+	UPDATE dh
     SET XepHang = RankedDanhHieu.NewXepHang
     FROM DanhHieu dh
     INNER JOIN (
@@ -576,36 +555,61 @@ BEGIN
 END;
 GO
 
---k. Trigger kiểm tra trùng số điện thoại
-CREATE TRIGGER KiemTra_SDT
-ON NguoiDung
-FOR INSERT
+CREATE TRIGGER XephangDanhHieu
+ON DanhHieu
+FOR INSERT, DELETE
 AS
 BEGIN
-	DECLARE @newSDT varchar(20), @newMaNguoiDung varchar(20);
-	SELECT @newSDT = new.SoDT, @newMaNguoiDung = MaNguoiDung
-	FROM inserted new;
-	IF EXISTS(SELECT * FROM NguoiDung WHERE SoDT = @newSDT AND MaNguoiDung <> @newMaNguoiDung)
-	BEGIN
-		RAISERROR('Số điện thoại đã có người đăng ký', 16, 1);
-		ROLLBACK;
-	END;
+	UPDATE dh
+    SET XepHang = RankedDanhHieu.NewXepHang
+    FROM DanhHieu dh
+    INNER JOIN (
+        SELECT MaHS, DENSE_RANK() OVER (ORDER BY DiemCaNam DESC) AS NewXepHang
+        FROM DanhHieu
+    ) AS RankedDanhHieu
+    ON dh.MaHS = RankedDanhHieu.MaHS;
 END;
 GO
 
---l. Trigger kiểm tra trùng tên đăng nhập
-CREATE TRIGGER KiemTra_TenDN
+CREATE TRIGGER KiemTra_NguoiDung
 ON NguoiDung
-FOR INSERT
+FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @newTenDN varchar(20), @newMaNguoiDung varchar(20);
-	SELECT @newTenDN = new.TenDangNhap, @newMaNguoiDung = new.MaNguoiDung
-	FROM inserted new;
+	DECLARE @newSDT varchar(20), @newMaNguoiDung varchar(20), @newTenDN varchar(20), @newMK varchar(20),
+			@newHoTen nvarchar(50), @newDiaChi nvarchar(100)
+	SELECT @newSDT = SoDT, @newMaNguoiDung = MaNguoiDung, @newTenDN = TenDangNhap, @newMK = MatKhau,
+	@newHoTen = HoTen, @newDiaChi = DiaChi
+	FROM inserted;
+	IF RTRIM(LTRIM(@newTenDN)) = ''
+	BEGIN
+		RAISERROR('Tên đăng nhập không được để trống', 16, 1);
+		RETURN;
+	END;
 	IF EXISTS(SELECT * FROM NguoiDung WHERE TenDangNhap = @newTenDN AND MaNguoiDung <> @newMaNguoiDung)
 	BEGIN
 		RAISERROR('Tên đăng nhập đã có người sử dụng', 16, 1);
-		ROLLBACK;
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@newMK)) = ''
+	BEGIN
+		RAISERROR('Mật khẩu không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF EXISTS(SELECT * FROM NguoiDung WHERE SoDT = @newSDT AND MaNguoiDung <> @newMaNguoiDung)
+	BEGIN
+		RAISERROR('Số điện thoại đã có người đăng ký', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@newHoTen)) = ''
+	BEGIN
+		RAISERROR('Họ tên không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@newDiaChi)) = ''
+	BEGIN
+		RAISERROR('Địa chỉ không được để trống', 16, 1);
+		RETURN;
 	END;
 END;
 GO
@@ -646,20 +650,84 @@ END;
 GO
 
 CREATE PROCEDURE Them_LoaiNguoiDung
-@MaNguoiDung varchar(20),
-@MaUngDung varchar(20),
 @TenDangNhap varchar(20),
 @MatKhau varchar(20),
-@HoTen nvarchar(20),
+@HoTen nvarchar(50),
 @NgaySinh date,
 @GioiTinh nvarchar(20),
 @DiaChi nvarchar(100),
 @SoDT varchar(20)
 AS
 BEGIN
-	INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT)
-	VALUES (@MaNguoiDung,@MaUngDung,3,@TenDangNhap,@MatKhau,@HoTen,@NgaySinh,@GioiTinh,@DiaChi,@SoDT);														
+	IF (@SoDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+	BEGIN
+		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		RETURN;
+	END
+	DECLARE @MaNguoiDung varchar(20), @STT INT, @MaUngDung varchar(20);
+	SELECT @STT = COUNT(*) + 1 FROM NguoiDung;
+	SET @MaNguoiDung = 'ND' + RIGHT('0000' + CAST(@STT AS varchar(4)), 4);
+	SELECT @MaUngDung = MaUD FROM UngDung WHERE PhienBan = (SELECT COUNT(*) FROM UngDung)
+	BEGIN TRY
+		
+		BEGIN TRANSACTION
+		INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT)
+		VALUES (@MaNguoiDung,@MaUngDung,3,@TenDangNhap,@MatKhau,@HoTen,@NgaySinh,@GioiTinh,@DiaChi,@SoDT);
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		DECLARE @Err nvarchar(MAX)
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+	END CATCH					
 END;													
+GO
+
+CREATE PROCEDURE CapNhatNguoiDung
+@MaNguoiDung varchar(20),
+@TenDangNhap varchar(20),
+@MatKhau varchar(20),
+@HoTen nvarchar(50),
+@NgaySinh date,
+@GioiTinh nvarchar(20),
+@DiaChi nvarchar(100),
+@SoDT varchar(20)
+AS
+BEGIN
+	IF (@SoDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+	BEGIN
+		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		RETURN;
+	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		UPDATE NguoiDung
+		SET TenDangNhap = @TenDangNhap, MatKhau = @MatKhau, HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, DiaChi = @DiaChi, SoDT = @SoDT
+		WHERE MaNguoiDung = @MaNguoiDung
+		IF EXISTS(SELECT * FROM TuyenSinh WHERE MaHoSo = @MaNguoiDung)
+			UPDATE TuyenSinh
+			SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, DiaChi = @DiaChi, SoDT = @SoDT
+			WHERE MaHoSo = @MaNguoiDung
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		DECLARE @Err nvarchar(MAX)
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+	END CATCH					
+END;													
+GO
+
+CREATE FUNCTION LayNguoiDung(@MaNguoiDung varchar(20))
+RETURNS TABLE
+AS
+RETURN(
+	SELECT HoTen, NgaySinh, GioiTinh, SoDT, TenDangNhap, MatKhau, DiaChi
+	FROM NguoiDung
+	WHERE MaNguoiDung = @MaNguoiDung
+);
 GO
 
 -- Trả mã người dùng dựa trên tên đăng nhập
@@ -829,7 +897,7 @@ RETURN(
 GO
 
 -- Trả tất cả học sinh dựa trên kí tự tìm kiếm
-CREATE FUNCTION TimHocSinh(@KiTu nvarchar(20))
+CREATE FUNCTION TimHocSinh(@KiTu nvarchar(100))
 RETURNS TABLE
 AS
 RETURN(
@@ -852,7 +920,7 @@ RETURN(
 GO
 
 -- Tìm học sinh trong lớp với kí tự tìm kiếm
-CREATE FUNCTION TimHocSinhTrongLop(@MaGV varchar(20), @KiTu nvarchar(20))
+CREATE FUNCTION TimHocSinhTrongLop(@MaGV varchar(20), @KiTu nvarchar(100))
 RETURNS TABLE
 AS
 RETURN(
@@ -877,7 +945,7 @@ GO
 CREATE FUNCTION XemDiemLopHocKy(@TenLop varchar(20), @HocKy int, @NamHoc int)
 RETURNS @BangDiemLop TABLE(
 MaHS varchar(20),
-HoTen nvarchar(20),
+HoTen nvarchar(50),
 TenMonHoc nvarchar(20),
 KTThuongXuyen float,
 KTGiuaKy float,
@@ -935,7 +1003,7 @@ GO
 CREATE FUNCTION XemThiDuaLop(@TenLop varchar(20))
 RETURNS @ThiDuaLop TABLE(
 MaNQ varchar(20),
-DieuLe nvarchar(20),
+DieuLe nvarchar(50),
 SoLanViPham int,
 TongDiemBiTru int
 )
@@ -958,13 +1026,16 @@ GO
 CREATE VIEW XemNoiQuy
 AS
 SELECT
-	QuyDinh.MaNQL AS NguoiDeXuat,
+	QuyDinh.MaNQL,
+	NguoiQuanLy.HoTen,
 	NoiQuy.DieuLe,
 	NoiQuy.SoDiemTru,
 	QuyDinh.NgayBanHanh
 FROM NoiQuy
 INNER JOIN QuyDinh
-ON NoiQuy.MaNQ = QuyDinh.MaNQ;
+ON NoiQuy.MaNQ = QuyDinh.MaNQ
+INNER JOIN NguoiQuanLy
+ON QuyDinh.MaNQL  = NguoiQuanLy.MaNQL
 GO
 
 CREATE FUNCTION XemDiemTruongHocKy(@HocKy int, @NamHoc int)
@@ -1032,7 +1103,7 @@ GO
 CREATE PROCEDURE GuiPhanHoi
 @MaHS varchar(20),
 @MaGV varchar(20),
-@NoiDung nvarchar(20)
+@NoiDung nvarchar(50)
 AS
 BEGIN
 	IF EXISTS(SELECT * FROM PhanHoi WHERE MaHS = @MaHS AND MaGV = @MaGV)
@@ -1069,31 +1140,38 @@ GO
 
 CREATE PROCEDURE CapNhatHocSinh
 @MaHS varchar(20),
-@HoTen nvarchar(20),
+@HoTen nvarchar(50),
 @NgaySinh date,
 @GioiTinh nvarchar(20),
 @SoDienThoai varchar(20),
-@DiaChi nvarchar(20)
+@DiaChi nvarchar(100)
 AS
 BEGIN
 	BEGIN TRANSACTION
 	BEGIN TRY
-		UPDATE HocSinh
-		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SoDienThoai, DiaChi = @DiaChi
-		WHERE MaHS = @MaHS;
-		UPDATE TuyenSinh
-		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SoDienThoai, DiaChi = @DiaChi
-		WHERE MaHoSo = @MaHS;
+		IF (RTRIM(LTRIM(@SoDienThoai)) = '')
+		BEGIN
+			RAISERROR('Số điện thoại học sinh không được để trống', 16, 1);
+		END
+		IF (@SoDienThoai NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+		BEGIN
+			RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		END
 		UPDATE NguoiDung
 		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SoDienThoai, DiaChi = @DiaChi
 		WHERE MaNguoiDung = @MaHS;
+		UPDATE TuyenSinh
+		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SoDienThoai, DiaChi = @DiaChi
+		WHERE MaHoSo = @MaHS;
+		UPDATE HocSinh
+		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SoDienThoai, DiaChi = @DiaChi
+		WHERE MaHS = @MaHS;
 		COMMIT TRAN
 	END TRY
-	
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
 		DECLARE @Err nvarchar(MAX)
-		SET @Err = N'ERROR: ' + ERROR_MESSAGE();
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
 		RAISERROR(@err, 16, 1);
 	END CATCH
 END;
@@ -1109,20 +1187,7 @@ BEGIN
 	IF EXISTS(SELECT * FROM inserted WHERE RTRIM(LTRIM(HoTen)) = '')
 	BEGIN
 		RAISERROR('Họ Tên học sinh không được để trống', 16, 1);
-		ROLLBACK TRANSACTION
 		RETURN
-	END
-	IF (RTRIM(LTRIM(@SDT)) = '')
-	BEGIN
-		RAISERROR('Số điện thoại học sinh không được để trống', 16, 1);
-		ROLLBACK TRANSACTION
-		RETURN
-	END
-	IF (@SDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
-	BEGIN
-		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
-		ROLLBACK TRANSACTION;
-		RETURN;
 	END
 	IF EXISTS(SELECT * FROM NguoiDung WHERE SoDT = @SDT AND MaNguoiDung <> @MaHS)
 	BEGIN
@@ -1132,16 +1197,15 @@ BEGIN
 	IF (RTRIM(LTRIM((SELECT DiaChi FROM inserted))) = '')
 	BEGIN
 		RAISERROR('Địa chỉ học sinh không được để trống', 16, 1);
-		ROLLBACK TRANSACTION
 		RETURN
 	END
 END;
 GO
 
-CREATE FUNCTION TimDiemLopHocKy(@TenLop varchar(20), @KiTu nvarchar(20), @KyHoc int, @NamHoc int)
+CREATE FUNCTION TimDiemLopHocKy(@TenLop varchar(20), @KiTu nvarchar(50), @KyHoc int, @NamHoc int)
 RETURNS @BangDiem TABLE(
 MaHS varchar(20),
-HoTen nvarchar(20),
+HoTen nvarchar(50),
 TenMonHoc nvarchar(20),
 KTThuongXuyen float,
 KTGiuaKy float,
@@ -1177,7 +1241,7 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION TimDiemLopCaNam(@TenLop varchar(20), @NamHoc int, @KiTu nvarchar(20))
+CREATE FUNCTION TimDiemLopCaNam(@TenLop varchar(20), @NamHoc int, @KiTu nvarchar(50))
 RETURNS TABLE
 AS
 RETURN(
@@ -1193,19 +1257,49 @@ RETURN(
     GROUP BY MonHoc.TenMonHoc, HocSinh.MaHS, HocSinh.HoTen
     HAVING CONCAT(HocSinh.MaHS, HocSinh.HoTen, MonHoc.TenMonHoc, ROUND(AVG(Diem.DiemTBMon), 1)) LIKE '%' + @KiTu + '%'
 );
+GO
 
 CREATE PROCEDURE CapNhatDiemHocKy
 @MaHS varchar(20),
 @TenMon nvarchar(20),
 @HocKy int,
 @NamHoc int,
-@ThuongXuyen float,
-@GiuaKy float,
-@CuoiKy float
+@ThuongXuyen varchar(20),
+@GiuaKy varchar(20),
+@CuoiKy varchar(20)
 AS
 BEGIN
-	DECLARE @MaMH varchar(20)
-	SELECT @MaMH = MaMonHoc FROM MonHoc WHERE TenMonHoc = @TenMon
+	DECLARE @MaMH varchar(20), @TXF float, @GKF float, @CKF float;
+	SELECT @MaMH = MaMonHoc FROM MonHoc WHERE TenMonHoc = @TenMon;
+	BEGIN TRY
+		IF RTRIM(LTRIM(@ThuongXuyen)) = ''
+			RAISERROR('Kiểm tra thường xuyên không được để trống', 16, 1);
+		SET @TXF = TRY_CONVERT(FLOAT, @ThuongXuyen);
+		IF (@TXF IS NULL)
+		BEGIN
+			RAISERROR('Kiểm tra thường xuyên không đúng định dạng', 16, 1);
+		END
+		IF RTRIM(LTRIM(@GiuaKy)) = ''
+			RAISERROR('Giữa kỳ không được để trống', 16, 1);
+		SET @GKF = TRY_CONVERT(FLOAT, @GiuaKy);
+		IF (@GKF IS NULL)
+		BEGIN
+			RAISERROR('Giữa kỳ không đúng định dạng', 16, 1);
+		END
+		IF RTRIM(LTRIM(@GiuaKy)) = ''
+			RAISERROR('Giữa kỳ không được để trống', 16, 1);
+		SET @CKF = TRY_CONVERT(FLOAT, @CuoiKy);
+		IF (@CKF IS NULL)
+		BEGIN
+			RAISERROR('Cuối kỳ không đúng định dạng', 16, 1);
+		END
+	END TRY
+	BEGIN CATCH
+		DECLARE @Err nvarchar(MAX)
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+		RETURN;
+	END CATCH
 	BEGIN TRANSACTION
 	BEGIN TRY
 		UPDATE Diem
@@ -1215,58 +1309,9 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
-		DECLARE @Err nvarchar(MAX)
-		SET @Err = N'ERROR: ' + ERROR_MESSAGE();
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
 		RAISERROR(@err, 16, 1);
 	END CATCH
-END;
-GO
-
-CREATE TRIGGER KiemTraCapNhatDiem
-ON Diem
-FOR UPDATE
-AS
-BEGIN
-    DECLARE @ThuongXuyen float, @GK float, @CK float;
-    SELECT @ThuongXuyen = new.KTThuongXuyen, @GK = new.KTGiuaKy, @CK = new.KTCuoiKy
-    FROM inserted new
-
-    IF @ThuongXuyen IS NULL
-    BEGIN
-        RAISERROR('Kiểm tra thường xuyên không được trống', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
-    IF (CAST(@ThuongXuyen AS FLOAT) <> @ThuongXuyen)
-    BEGIN
-        RAISERROR('Kiểm tra thường xuyên không đúng định dạng', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
-    IF @GK IS NULL
-    BEGIN
-        RAISERROR('Giữa kỳ không được trống', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
-    IF (CAST(@GK AS FLOAT) <> @GK)
-    BEGIN
-        RAISERROR('Giữa kỳ không đúng định dạng', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
-    IF @CK IS NULL
-    BEGIN
-        RAISERROR('Cuối kỳ không được trống', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
-    IF (CAST(@CK AS FLOAT) <> @CK)
-    BEGIN
-        RAISERROR('Cuối kỳ không đúng định dạng', 16, 1);
-        ROLLBACK TRANSACTION
-        RETURN
-    END
 END;
 GO
 
@@ -1276,6 +1321,625 @@ CREATE PROCEDURE XoaPhanHoi
 AS
 BEGIN
 	DELETE FROM PhanHoi WHERE MaGV = @MaGV AND MaHS = @MaHS;
+END;
+GO
+
+CREATE FUNCTION TinhTongHocSinh()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Tong INT;
+	SET @Tong = (SELECT COUNT(*) FROM HocSinh);
+	RETURN @Tong;
+END;
+GO
+
+CREATE FUNCTION TimDiemTruongHocKy(@HocKy int, @NamHoc int, @KiTu nvarchar(20))
+RETURNS TABLE
+AS
+RETURN(
+	SELECT
+		DanhHieu.MaHS,
+		HocSinh.TenLop,
+		HocSinh.HoTen,
+		CASE
+		WHEN @HocKy = 1 THEN DanhHieu.DiemHK1
+		WHEN @HocKy = 2 THEN DanhHieu.DiemHK2
+		END AS TrungBinhMon,
+		CASE
+		WHEN @HocKy = 1 THEN DanhHieu.HanhKiemHK1
+		WHEN @HocKy = 2 THEN DanhHieu.HanhKiemHK2
+		END AS HanhKiem,
+		CASE
+		WHEN @HocKy = 1 THEN DanhHieu.HK1
+		WHEN @HocKy = 2 THEN DanhHieu.HK2
+		END AS DanhHieu
+	FROM DanhHieu
+	INNER JOIN HocSinh
+	ON HocSinh.MaHS = DanhHieu.MaHS
+	WHERE
+		CONCAT(DanhHieu.MaHS,
+               HocSinh.TenLop,
+               HocSinh.HoTen,
+               CASE
+                   WHEN @HocKy = 1 THEN DanhHieu.DiemHK1
+                   WHEN @HocKy = 2 THEN DanhHieu.DiemHK2
+               END,
+               CASE
+                   WHEN @HocKy = 1 THEN DanhHieu.HanhKiemHK1
+                   WHEN @HocKy = 2 THEN DanhHieu.HanhKiemHK2
+               END,
+               CASE
+                   WHEN @HocKy = 1 THEN DanhHieu.HK1
+                   WHEN @HocKy = 2 THEN DanhHieu.HK2
+               END
+        ) LIKE '%' + @KiTu + '%'
+		AND DanhHieu.NamHoc = @NamHoc
+);
+GO
+
+CREATE FUNCTION TimDiemTruongCaNam(@NamHoc int, @KiTu nvarchar(20))
+RETURNS TABLE
+AS
+RETURN(
+	SELECT 
+		DanhHieu.MaHS,
+		HocSinh.TenLop,
+		HocSinh.HoTen,
+		DanhHieu.DiemCaNam,
+		DanhHieu.HanhKiemCaNam,
+		DanhHieu.CaNam,
+		DanhHieu.XepHang
+	FROM DanhHieu
+	INNER JOIN HocSinh
+	ON HocSinh.MaHS = DanhHieu.MaHS
+	WHERE CONCAT(DanhHieu.MaHS,
+		HocSinh.TenLop,
+		HocSinh.HoTen,
+		DanhHieu.DiemCaNam,
+		DanhHieu.HanhKiemCaNam,
+		DanhHieu.CaNam,
+		DanhHieu.XepHang
+		) LIKE '%' + @KiTu + '%'
+		AND DanhHieu.NamHoc = @NamHoc
+);
+GO
+
+CREATE FUNCTION TimPhanCong(@KiTu nvarchar(50))
+RETURNS TABLE
+AS
+RETURN(
+SELECT Day.MaGV, GiaoVien.HoTen, Day.MaMonHoc, MonHoc.TenMonHoc
+FROM Day INNER JOIN GiaoVien
+ON Day.MaGV = GiaoVien.MaGV
+INNER JOIN MonHoc ON day.MaMonHoc = MonHoc.MaMonHoc
+WHERE CONCAT(Day.MaGV, GiaoVien.HoTen, Day.MaMonHoc, MonHoc.TenMonHoc)
+LIKE '%' + @KiTu + '%'
+);
+GO
+
+CREATE FUNCTION TimThiDuaLop(@TenLop varchar(20), @KiTu nvarchar(50))
+RETURNS @ThiDuaLop TABLE(
+MaNQ varchar(20),
+DieuLe nvarchar(20),
+SoLanViPham int,
+TongDiemBiTru int
+)
+AS
+BEGIN
+	INSERT INTO @ThiDuaLop
+	SELECT
+		DanhGia.MaNQ,
+		NoiQuy.DieuLe,
+		DanhGia.SoLanViPham,
+		(NoiQuy.SoDiemTru * DanhGia.SoLanViPham) AS TongDiembiTru
+	FROM DanhGia
+	INNER JOIN NoiQuy
+	ON DanhGia.MaNQ = NoiQuy.MaNQ
+	WHERE DanhGia.TenLop = @TenLop
+	AND CONCAT( DanhGia.MaNQ,
+		NoiQuy.DieuLe,
+		DanhGia.SoLanViPham,
+		(NoiQuy.SoDiemTru * DanhGia.SoLanViPham))
+		LIKE '%' + @KiTu + '%'
+	RETURN;
+END;
+GO
+
+CREATE FUNCTION TimNoiQuy(@KiTu nvarchar(50))
+RETURNS TABLE
+AS
+RETURN(
+SELECT
+	QuyDinh.MaNQL,
+	NguoiQuanLy.HoTen,
+	NoiQuy.DieuLe,
+	NoiQuy.SoDiemTru,
+	QuyDinh.NgayBanHanh
+FROM NoiQuy
+INNER JOIN QuyDinh
+ON NoiQuy.MaNQ = QuyDinh.MaNQ
+INNER JOIN NguoiQuanLy
+ON QuyDinh.MaNQL  = NguoiQuanLy.MaNQL
+WHERE CONCAT(
+	QuyDinh.MaNQL,
+	NguoiQuanLy.HoTen,
+	NoiQuy.DieuLe,
+	NoiQuy.SoDiemTru,
+	QuyDinh.NgayBanHanh)
+	LIKE '%' + @KiTu + '%'
+);
+GO
+
+CREATE PROCEDURE ThemNoiQuy
+@MaNQL varchar(20),
+@MaNQ varchar(20),
+@DieuLe nvarchar(50),
+@SoDiemTru varchar(20),
+@NgayBanHanh date
+AS
+BEGIN
+	BEGIN TRY
+		IF EXISTS(SELECT * FROM NoiQuy WHERE MaNQ = @MaNQ)
+			RAISERROR('Mã nội quy đã tồn tại', 16, 1);
+		DECLARE @SDTru int
+		SET @SDTru = TRY_CONVERT(INT, @SoDiemTru);
+		IF (@SDTru IS NULL)
+		BEGIN
+			RAISERROR('Số điểm trừ không đúng định dạng', 16, 1);
+		END
+	END TRY
+	BEGIN CATCH
+		DECLARE @Err nvarchar(MAX)
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+		RETURN;
+	END CATCH
+	BEGIN TRANSACTION
+	BEGIN TRY
+		INSERT INTO NoiQuy VALUES(@MaNQ, @DieuLe, @SDTru, 2023);
+		INSERT INTO QuyDinh VALUES(@MaNQL, @MaNQ, @NgayBanHanh);
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION;
+		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE TRIGGER KiemTraNoiQuy
+ON NoiQuy
+FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @DieuLe nvarchar(20), @MaNQ varchar(20), @SoDiemTru int
+	SELECT @DieuLe = DieuLe, @MaNQ = MaNQ, @SoDiemTru = SoDiemTru FROM inserted
+	IF EXISTS(SELECT * FROM NoiQuy WHERE DieuLe = @DieuLe AND MaNQ <> @MaNQ)
+	BEGIN
+		RAISERROR('Điều lệ đã tồn tại', 16, 1);
+		RETURN;
+	END;
+	IF (@MaNQ NOT LIKE 'NQ[0-9][0-9]')
+	BEGIN
+		RAISERROR('Mã nội quy không hợp lệ', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DieuLe)) = ''
+	BEGIN
+		RAISERROR('Điều lệ không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@SoDiemTru)) = ''
+	BEGIN
+		RAISERROR('Số điểm trừ không được để trống', 16, 1);
+		RETURN;
+	END;
+END;
+GO
+
+CREATE PROCEDURE CapNhatNoiQuy
+@MaNguoiSua varchar(20),
+@MaNQ varchar(20),
+@DieuLe nvarchar(50),
+@SoDiemTru varchar(20),
+@NgayBanHanh date
+AS
+BEGIN
+	BEGIN TRY
+		DECLARE @SDTru int
+		SET @SDTru = TRY_CONVERT(INT, @SoDiemTru);
+		IF (@SDTru IS NULL)
+		BEGIN
+			RAISERROR('Số điểm trừ không đúng định dạng', 16, 1);
+		END
+	END TRY
+	BEGIN CATCH
+		DECLARE @Err nvarchar(MAX)
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+		RETURN;
+	END CATCH
+	BEGIN TRY
+		BEGIN TRANSACTION
+		UPDATE NoiQuy
+		SET DieuLe = @DieuLe, SoDiemTru = @SoDiemTru
+		WHERE MaNQ = @MaNQ
+		UPDATE QuyDinh
+		SET MaNQL = @MaNguoiSua WHERE MaNQ = @MaNQ
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE PROCEDURE CapNhatNoiQuyLanDau
+@MaNguoiSua varchar(20),
+@MaNQL varchar(20),
+@MaNQ varchar(20),
+@DieuLe nvarchar(50),
+@SoDiemTru varchar(20),
+@NgayBanHanh date
+AS
+BEGIN
+	IF(@MaNguoiSua <> @MaNQL)
+	BEGIN
+		RAISERROR('Lỗi: Nội Quy này là do Admin khác ban hành, bạn có chắc muốn sửa?',16, 1);
+		RETURN;
+	END;
+	EXEC CapNhatNoiQuy @MaNguoiSua, @MaNQ, @DieuLe, @SoDiemTru, @NgayBanHanh;
+END;
+GO
+
+CREATE PROCEDURE CapNhatThiDua
+@SoDiemTru int,
+@MaNQ varchar(20)
+AS
+BEGIN
+	DECLARE @BangTD TABLE(
+	STT int,
+	TenLop varchar(20),
+	SoLanViPham int
+	);
+	INSERT INTO @BangTD
+	SELECT 
+    ROW_NUMBER() OVER (ORDER BY TenLop) AS STT,
+    TenLop, 
+    SoLanViPham 
+	FROM DanhGia 
+	WHERE MaNQ = @MaNQ;
+	DECLARE @STT int = 1, @TenLop varchar(20), @SoLanViPham int;
+	WHILE @STT <= (SELECT COUNT(*) FROM @BangTD)
+	BEGIN
+		SELECT @TenLop = TenLop, @SoLanViPham = SoLanViPham
+		FROM @BangTD WHERE STT = @STT
+		UPDATE ThiDua
+		SET DiemTongKet = DiemTongKet - @SoDiemTru * @SoLanViPham
+		WHERE TenLop = @TenLop
+		SET @STT = @STT + 1
+	END;
+END;
+GO
+
+CREATE TRIGGER KiemTraCapNhatNoiQuy
+ON NoiQuy
+FOR UPDATE
+AS
+BEGIN
+	DECLARE @DieuLe nvarchar(20), @NewSoDiemTru int, @MaNQ varchar(20), @OldSoDiemTru int
+	SELECT @DieuLe = ne.DieuLe, @NewSoDiemTru = ne.SoDiemTru, @MaNQ = ne.MaNQ, @OldSoDiemTru = de.SoDiemTru
+	FROM inserted ne, deleted de
+	
+	IF @NewSoDiemTru <> @OldSoDiemTru
+	BEGIN
+		DECLARE @SoDiemTru int =  @NewSoDiemTru - @OldSoDiemTru;
+		EXEC CapNhatThiDua @SoDiemTru, @MaNQ;
+	END;
+END;
+GO
+
+CREATE PROCEDURE XoaNoiQuy
+@MaNQ varchar(20)
+AS
+BEGIN
+	IF EXISTS(SELECT * FROM DanhGia WHERE MaNQ = @MaNQ)
+	BEGIN
+		RAISERROR('Lỗi: Đang có lớp bị vi phạm lỗi này', 16, 1);
+		RETURN;
+	END;
+	DELETE FROM QuyDinh WHERE MaNQ = @MaNQ;
+	DELETE FROM NoiQuy WHERE MaNQ = @MaNQ;
+END;
+GO
+
+CREATE FUNCTION LayNoiQuyTuDieule(@DieuLe nvarchar(50))
+RETURNS varchar(20)
+AS
+BEGIN
+	DECLARE @MaNQ varchar(20)
+	SELECT @MaNQ = MaNQ FROM NoiQuy WHERE DieuLe = @DieuLe
+	RETURN @MaNQ;
+END;
+GO
+
+CREATE FUNCTION KiemTraTonTaiHocSinh(@TenDN varchar(20))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Status INT = 0, @MaNguoiDung varchar(20);
+	SET @MaNguoiDung = dbo.TraMaNguoiDung(@TenDN);
+	IF EXISTS (SELECT * FROM HocSinh WHERE MaHS = @MaNguoiDung)
+		SET @Status = 1;
+	RETURN @Status;
+END;
+GO
+
+CREATE PROCEDURE XoaNguoiDung
+@MaNguoiDung varchar(20)
+AS
+BEGIN
+	IF EXISTS(SELECT * FROM TuyenSinh WHERE MaHoSo = @MaNguoiDung)
+	BEGIN
+		RAISERROR('Vui lòng xóa hồ sơ đã gửi', 16, 1);
+		RETURN;
+	END;
+	DELETE FROM NguoiDung WHERE MaNguoiDung = @MaNguoiDung;
+END;
+GO
+
+CREATE FUNCTION KiemTraTenNguoiDung(@TenDN varchar(20))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Status INT = 0;
+	IF EXISTS(SELECT * FROM NguoiDung WHERE TenDangNhap = @TenDN)
+		SET @Status = 1;
+	RETURN @Status;
+END;
+GO
+
+CREATE FUNCTION KiemTraTuyenSinh(@MaHoSo varchar(20))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Status INT = 0;
+	IF EXISTS(SELECT * FROM TuyenSinh WHERE MaHoSo = @MaHoSo)
+		SET @Status = 1;
+	RETURN @Status;
+END;
+GO
+
+CREATE PROCEDURE KiemTraDiemTS
+@MaHoSo varchar(20)
+AS
+BEGIN
+	DECLARE @Err nvarchar(100) = N'Hồ sơ không đủ điều kiện nhập học. Lý do: Điểm ', @Diem FLOAT;
+	SELECT @Diem = DiemTuyenSinh FROM TuyenSinh WHERE MaHoSo = @MaHoSo;
+	IF (@Diem < 26)
+	BEGIN
+		SET @Err = @Err + CONVERT(nvarchar(50), @Diem) + N' < 26';
+		RAISERROR(@Err, 16, 1);
+		RETURN;
+	END;
+END;
+GO
+
+CREATE PROCEDURE XoaHoSo
+@MaHoSo varchar(20)
+AS
+BEGIN
+	DECLARE @Err nvarchar(MAX);
+	IF NOT EXISTS(SELECT * FROM TuyenSinh WHERE MaHoSo = @MaHoSo)
+	BEGIN
+		SET @Err = N'Chưa có hồ sơ nào được gửi';
+		RAISERROR(@Err, 16, 1);
+		RETURN;
+	END;
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DELETE FROM TuyenSinh WHERE MaHoSo = @MaHoSo;
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		SET @Err = 'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE PROCEDURE GuiTuyenSinh
+@MaHoSo varchar(20),
+@DiemToan varchar(20),
+@DiemVan varchar(20),
+@DiemAnh varchar(20),
+@TruongHocCu nvarchar(20)
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM TuyenSinh WHERE MaHoSo = @MaHoSo)
+	BEGIN
+		RAISERROR('Bạn đã gửi hồ sơ trước đó', 16, 1);
+		RETURN;
+	END;
+	DECLARE @HoTen nvarchar(50), @GioiTinh nvarchar(20), @NgaySinh date, @SDT varchar(20),
+	@DiaChi nvarchar(100), @DiemT FLOAT, @DiemV FLOAT, @DiemA FLOAT, @DiemTuyenSinh FLOAT
+	SELECT @HoTen = HoTen, @GioiTinh = GioiTinh, @NgaySinh = NgaySinh, @SDT = SoDT, @DiaChi = DiaChi
+	FROM NguoiDung WHERE MaNguoiDung = @MaHoSo;
+	IF RTRIM(LTRIM(@DiemToan)) = ''
+	BEGIN
+		RAISERROR('Điểm Toán không được để trống', 16, 1);
+		RETURN;
+	END;
+	SET @DiemT = TRY_CONVERT(FLOAT, @DiemToan);
+	IF (@DiemT IS NULL)
+	BEGIN
+		RAISERROR('Điểm Toán không đúng định dạng', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DiemVan)) = ''
+	BEGIN
+		RAISERROR('Điểm Văn không được để trống', 16, 1);
+		RETURN;
+	END;
+	SET @DiemV = TRY_CONVERT(FLOAT, @DiemVan);
+	IF (@DiemV IS NULL)
+	BEGIN
+		RAISERROR('Điểm Văn không đúng định dạng', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DiemAnh)) = ''
+	BEGIN
+		RAISERROR('Điểm Anh không được để trống', 16, 1);
+		RETURN;
+	END;
+	SET @DiemA = TRY_CONVERT(FLOAT, @DiemAnh);
+	IF (@DiemA IS NULL)
+	BEGIN
+		RAISERROR('Điểm Anh không đúng định dạng', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@TruongHocCu)) = ''
+	BEGIN
+		RAISERROR('Trường học không được để trống', 16, 1);
+		RETURN;
+	END;
+	SET @DiemTuyenSinh = @DiemT * 2 + @DiemV * 2 + @DiemA;
+	INSERT INTO TuyenSinh VALUES(@MaHoSo, @HoTen, @GioiTinh, @NgaySinh, @SDT, @DiemTuyenSinh, @TruongHocCu, @DiaChi);
+END;
+GO
+
+CREATE VIEW XemDanhSachLopNhapHoc
+AS
+SELECT TenLop FROM Lop WHERE TenLop LIKE '%10A%';
+GO
+
+CREATE VIEW XemDanhSachNhapHoc
+AS
+SELECT MaHoSo, HoTen, TruongHocCu, DiemTuyenSinh
+FROM TuyenSinh
+WHERE DiemTuyenSinh >= 26 AND MaHoSo NOT IN (SELECT MaHS FROM HocSinh)
+GO
+
+CREATE PROCEDURE ThemHocSinhVaoLop
+@MaHS varchar(20),
+@TenLop varchar(20),
+@NamHoc int
+AS
+BEGIN
+	DECLARE @HoTen nvarchar(50), @NgaySinh date, @GioiTinh nvarchar(20), @SoDT varchar(20), @DiaChi nvarchar(100);
+	SELECT @HoTen = HoTen, @NgaySinh = NgaySinh, @GioiTinh = GioiTinh, @SoDT = SoDT, @DiaChi = DiaChi
+	FROM TuyenSinh WHERE MaHoSo = @MaHS;
+	BEGIN TRY
+		BEGIN TRANSACTION
+		INSERT INTO HocSinh VALUES(@MaHS, @HoTen, @NgaySinh, @GioiTinh, @TenLop, @SoDT, @DiaChi, @NamHoc);
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		DECLARE @Err nvarchar(MAX);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE VIEW LayNoiQuy
+AS
+SELECT DieuLe
+FROM NoiQuy
+GO
+
+CREATE FUNCTION LayDiemTuDieuLe(@DieuLe nvarchar(50))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Diem INT = (SELECT SoDiemTru FROM NoiQuy WHERE DieuLe = @DieuLe)
+	RETURN @Diem;
+END;
+GO
+
+CREATE PROCEDURE SuaDanhGia
+@TenLop varchar(20),
+@MaNQ varchar(20),
+@SLVP INT
+AS
+BEGIN
+	UPDATE DanhGia
+	SET SoLanViPham = @SLVP
+	WHERE MaNQ = @MaNQ AND TenLop = @TenLop;
+END;
+GO
+
+CREATE PROCEDURE ThemDanhGia
+@TenLop varchar(20),
+@MaNQ varchar(20)
+AS
+BEGIN
+	IF EXISTS(SELECT * FROM DanhGia WHERE MaNQ = @MaNQ AND TenLop = @TenLop)
+	BEGIN
+		DECLARE @SoLanViPham INT = (SELECT SoLanViPham FROM DanhGia WHERE MaNQ = @MaNQ AND TenLop = @TenLop) + 1;
+		EXEC SuaDanhGia @TenLop, @MaNQ, @SoLanViPham;
+	END;
+	ELSE
+		INSERT INTO DanhGia VALUES(@MaNQ, @TenLop, 1);
+END;
+GO
+
+CREATE PROCEDURE XoaDanhGia
+@TenLop varchar(20),
+@MaNQ varchar(20)
+AS
+BEGIN
+	DELETE FROM DanhGia WHERE TenLop = @TenLop AND MaNQ = @MaNQ;
+END;
+GO
+
+CREATE PROCEDURE DoiMatKhau
+@TenDangNhap varchar(20),
+@SoDT varchar (10),
+@MatKhau varchar(20),
+@XacNhanMatKhau varchar(20)
+AS
+BEGIN
+	IF NOT EXISTS(SELECT * FROM NguoiDung WHERE TenDangNhap = @TenDangNhap AND SoDT = @SoDT)
+	BEGIN
+		RAISERROR('Số điện thoại và tên đăng nhập không trùng khớp', 16, 1);
+		RETURN
+	END
+	IF @MatKhau <> @XacNhanMatKhau
+	BEGIN
+        RAISERROR('Mật khẩu không khớp.', 16, 1);
+		RETURN
+	END
+    UPDATE NguoiDung
+    SET MatKhau = @MatKhau
+    WHERE TenDangNhap = @TenDangNhap;
+END;
+GO
+
+CREATE PROCEDURE XoaHocSinh
+@MaHS varchar(20)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+		DELETE FROM DanhHieu WHERE MaHS = @MaHS;
+		DELETE FROM Diem WHERE MaHS = @MaHS;
+		DELETE FROM HocSinh WHERE MaHS = @MaHS;
+		DELETE FROM TuyenSinh WHERE MaHoSo = @MaHS;
+		DELETE FROM NguoiDung WHERE MaNguoiDung = @MaHS;
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		DECLARE @Err nvarchar(100);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
 END;
 GO
 
@@ -2008,6 +2672,7 @@ INSERT INTO DanhGia(MaNQ,TenLop,SoLanViPham) VALUES ('NQ03',N'12A1',2);
 INSERT INTO DanhGia(MaNQ,TenLop,SoLanViPham) VALUES ('NQ04',N'12A2',1);				
 INSERT INTO DanhGia(MaNQ,TenLop,SoLanViPham) VALUES ('NQ03',N'10A1',2);
 GO
+
 UPDATE Diem SET SoLanKTThuongXuyen = 4,KTThuongXuyen = 40,KTGiuaKy = 9.5,KTCuoiKy = 9.8 WHERE NamHoc= 2023 AND HocKy= 1 AND MaHS= 'ND0007' AND MaMH= 'MH01';
 UPDATE Diem SET SoLanKTThuongXuyen = 4,KTThuongXuyen = 32,KTGiuaKy = 9.1,KTCuoiKy = 9 WHERE NamHoc= 2023 AND HocKy= 1 AND MaHS= 'ND0007' AND MaMH= 'MH02';
 UPDATE Diem SET SoLanKTThuongXuyen = 4,KTThuongXuyen = 20,KTGiuaKy = 9,KTCuoiKy = 9 WHERE NamHoc= 2023 AND HocKy= 1 AND MaHS= 'ND0007' AND MaMH= 'MH03';

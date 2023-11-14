@@ -53,5 +53,10 @@ namespace DoAnHQTCSDL.UserControls.HocSinh
         {
             this.LoadData();
         }
+
+        private void dgvXemTKB_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
     }
 }
