@@ -63,7 +63,7 @@
             this.btnHuy.Location = new System.Drawing.Point(549, 577);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(126, 29);
+            this.btnHuy.Size = new System.Drawing.Size(126, 49);
             this.btnHuy.TabIndex = 98;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -81,7 +81,7 @@
             this.btnLuu.Location = new System.Drawing.Point(300, 577);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(127, 28);
+            this.btnLuu.Size = new System.Drawing.Size(127, 48);
             this.btnLuu.TabIndex = 97;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -99,7 +99,7 @@
             this.btnCapNhat.Location = new System.Drawing.Point(73, 577);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(126, 28);
+            this.btnCapNhat.Size = new System.Drawing.Size(126, 48);
             this.btnCapNhat.TabIndex = 96;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -153,7 +153,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label1.Location = new System.Drawing.Point(44, 97);
+            this.label1.Location = new System.Drawing.Point(44, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 28);
             this.label1.TabIndex = 66;
@@ -209,7 +209,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label5.Location = new System.Drawing.Point(44, 270);
+            this.label5.Location = new System.Drawing.Point(44, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 28);
             this.label5.TabIndex = 69;
@@ -346,6 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnCapNhat);

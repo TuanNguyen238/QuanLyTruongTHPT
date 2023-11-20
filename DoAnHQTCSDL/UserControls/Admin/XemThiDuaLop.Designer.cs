@@ -43,7 +43,7 @@
             this.dgvXemThiDua.Name = "dgvXemThiDua";
             this.dgvXemThiDua.RowHeadersWidth = 62;
             this.dgvXemThiDua.RowTemplate.Height = 28;
-            this.dgvXemThiDua.Size = new System.Drawing.Size(746, 373);
+            this.dgvXemThiDua.Size = new System.Drawing.Size(704, 373);
             this.dgvXemThiDua.TabIndex = 0;
             this.dgvXemThiDua.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThiDua_CellClick);
             // 

@@ -73,7 +73,7 @@
             this.btnCaNhan.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnCaNhan.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnCaNhan.CheckedState.ForeColor = System.Drawing.Color.Teal;
-            this.btnCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.search__2_;
+            this.btnCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.exam2;
             this.btnCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -81,11 +81,11 @@
             this.btnCaNhan.FillColor = System.Drawing.Color.CadetBlue;
             this.btnCaNhan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaNhan.ForeColor = System.Drawing.Color.White;
-            this.btnCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.search__1_;
+            this.btnCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.exam__1_2;
             this.btnCaNhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCaNhan.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnCaNhan.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnCaNhan.Location = new System.Drawing.Point(-5, 374);
+            this.btnCaNhan.Location = new System.Drawing.Point(-1, 130);
             this.btnCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCaNhan.Name = "btnCaNhan";
             this.btnCaNhan.Size = new System.Drawing.Size(382, 46);
@@ -170,7 +170,7 @@
             this.btnPhanHoi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPhanHoi.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnPhanHoi.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnPhanHoi.Location = new System.Drawing.Point(-2, 324);
+            this.btnPhanHoi.Location = new System.Drawing.Point(-1, 386);
             this.btnPhanHoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPhanHoi.Name = "btnPhanHoi";
             this.btnPhanHoi.Size = new System.Drawing.Size(382, 46);
@@ -201,7 +201,7 @@
             this.btnXemThiDua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemThiDua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemThiDua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemThiDua.Location = new System.Drawing.Point(-2, 273);
+            this.btnXemThiDua.Location = new System.Drawing.Point(-1, 335);
             this.btnXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemThiDua.Name = "btnXemThiDua";
             this.btnXemThiDua.Size = new System.Drawing.Size(382, 46);
@@ -232,7 +232,7 @@
             this.btnXemTKB.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemTKB.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemTKB.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemTKB.Location = new System.Drawing.Point(-2, 222);
+            this.btnXemTKB.Location = new System.Drawing.Point(-1, 284);
             this.btnXemTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTKB.Name = "btnXemTKB";
             this.btnXemTKB.Size = new System.Drawing.Size(382, 46);
@@ -261,7 +261,7 @@
             this.btnXemDiem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemDiem.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemDiem.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemDiem.Location = new System.Drawing.Point(-2, 169);
+            this.btnXemDiem.Location = new System.Drawing.Point(-1, 231);
             this.btnXemDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDiem.Name = "btnXemDiem";
             this.btnXemDiem.Size = new System.Drawing.Size(382, 50);
@@ -292,7 +292,7 @@
             this.btnChinhSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnChinhSua.Location = new System.Drawing.Point(-2, 118);
+            this.btnChinhSua.Location = new System.Drawing.Point(-1, 180);
             this.btnChinhSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChinhSua.Name = "btnChinhSua";
             this.btnChinhSua.Size = new System.Drawing.Size(382, 46);

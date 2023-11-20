@@ -292,7 +292,7 @@
             this.btnHuy.Location = new System.Drawing.Point(579, 590);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(126, 29);
+            this.btnHuy.Size = new System.Drawing.Size(132, 45);
             this.btnHuy.TabIndex = 94;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -307,10 +307,10 @@
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.IndicateFocus = true;
-            this.btnLuu.Location = new System.Drawing.Point(330, 590);
+            this.btnLuu.Location = new System.Drawing.Point(344, 590);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(127, 28);
+            this.btnLuu.Size = new System.Drawing.Size(133, 44);
             this.btnLuu.TabIndex = 93;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -328,7 +328,7 @@
             this.btnCapNhat.Location = new System.Drawing.Point(103, 590);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(126, 28);
+            this.btnCapNhat.Size = new System.Drawing.Size(132, 44);
             this.btnCapNhat.TabIndex = 92;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -352,9 +352,9 @@
             this.panelThongTin.Controls.Add(this.txtHoTen);
             this.panelThongTin.Controls.Add(this.txtSDT);
             this.panelThongTin.Controls.Add(this.txtLop);
-            this.panelThongTin.Location = new System.Drawing.Point(103, 63);
+            this.panelThongTin.Location = new System.Drawing.Point(65, 63);
             this.panelThongTin.Name = "panelThongTin";
-            this.panelThongTin.Size = new System.Drawing.Size(602, 504);
+            this.panelThongTin.Size = new System.Drawing.Size(676, 499);
             this.panelThongTin.TabIndex = 95;
             // 
             // cbMonHoc
@@ -376,12 +376,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.panelThongTin);
             this.Name = "ChinhSuaThongTinGiaoVien";
-            this.Size = new System.Drawing.Size(961, 677);
+            this.Size = new System.Drawing.Size(768, 673);
             this.Load += new System.EventHandler(this.ChinhSuaThongTinGiaoVien_Load);
             this.panelThongTin.ResumeLayout(false);
             this.panelThongTin.PerformLayout();

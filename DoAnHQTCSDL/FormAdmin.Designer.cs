@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelAdmin = new System.Windows.Forms.Panel();
+            this.btnThemAdmin = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnChinhSuaTTCaNhan = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangXuat = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -41,7 +42,6 @@
             this.btnXemTKB = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnXemDiemHS = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnChinhSuaTT = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.btnThemAdmin = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,37 @@
             this.panelAdmin.Size = new System.Drawing.Size(749, 658);
             this.panelAdmin.TabIndex = 6;
             // 
+            // btnThemAdmin
+            // 
+            this.btnThemAdmin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnThemAdmin.BorderColor = System.Drawing.Color.White;
+            this.btnThemAdmin.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnThemAdmin.CheckedState.BorderColor = System.Drawing.Color.Chartreuse;
+            this.btnThemAdmin.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnThemAdmin.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnThemAdmin.CheckedState.ForeColor = System.Drawing.Color.Teal;
+            this.btnThemAdmin.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.add_user__1_;
+            this.btnThemAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemAdmin.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnThemAdmin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnThemAdmin.Image = global::DoAnHQTCSDL.Properties.Resources.add_user;
+            this.btnThemAdmin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThemAdmin.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btnThemAdmin.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnThemAdmin.Location = new System.Drawing.Point(-2, 531);
+            this.btnThemAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemAdmin.Name = "btnThemAdmin";
+            this.btnThemAdmin.Size = new System.Drawing.Size(382, 46);
+            this.btnThemAdmin.TabIndex = 12;
+            this.btnThemAdmin.Text = "Thêm quản trị viên";
+            this.btnThemAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThemAdmin.TextOffset = new System.Drawing.Point(15, 0);
+            this.btnThemAdmin.Click += new System.EventHandler(this.btnThemAdmin_Click);
+            // 
             // btnChinhSuaTTCaNhan
             // 
             this.btnChinhSuaTTCaNhan.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -96,7 +127,7 @@
             this.btnChinhSuaTTCaNhan.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.btnChinhSuaTTCaNhan.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnChinhSuaTTCaNhan.CheckedState.ForeColor = System.Drawing.Color.Teal;
-            this.btnChinhSuaTTCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.search__2_;
+            this.btnChinhSuaTTCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.exam2;
             this.btnChinhSuaTTCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnChinhSuaTTCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChinhSuaTTCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -104,11 +135,11 @@
             this.btnChinhSuaTTCaNhan.FillColor = System.Drawing.Color.CadetBlue;
             this.btnChinhSuaTTCaNhan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChinhSuaTTCaNhan.ForeColor = System.Drawing.Color.White;
-            this.btnChinhSuaTTCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.search__1_;
+            this.btnChinhSuaTTCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.exam__1_2;
             this.btnChinhSuaTTCaNhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSuaTTCaNhan.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSuaTTCaNhan.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnChinhSuaTTCaNhan.Location = new System.Drawing.Point(-2, 476);
+            this.btnChinhSuaTTCaNhan.Location = new System.Drawing.Point(3, 121);
             this.btnChinhSuaTTCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChinhSuaTTCaNhan.Name = "btnChinhSuaTTCaNhan";
             this.btnChinhSuaTTCaNhan.Size = new System.Drawing.Size(382, 46);
@@ -182,7 +213,7 @@
             this.btnDuyetHoSo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDuyetHoSo.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnDuyetHoSo.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnDuyetHoSo.Location = new System.Drawing.Point(-2, 426);
+            this.btnDuyetHoSo.Location = new System.Drawing.Point(-2, 481);
             this.btnDuyetHoSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDuyetHoSo.Name = "btnDuyetHoSo";
             this.btnDuyetHoSo.Size = new System.Drawing.Size(382, 46);
@@ -213,7 +244,7 @@
             this.btnNoiQuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNoiQuy.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnNoiQuy.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnNoiQuy.Location = new System.Drawing.Point(3, 374);
+            this.btnNoiQuy.Location = new System.Drawing.Point(3, 429);
             this.btnNoiQuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNoiQuy.Name = "btnNoiQuy";
             this.btnNoiQuy.Size = new System.Drawing.Size(382, 46);
@@ -244,7 +275,7 @@
             this.btnXemThiDua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemThiDua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemThiDua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemThiDua.Location = new System.Drawing.Point(3, 324);
+            this.btnXemThiDua.Location = new System.Drawing.Point(3, 379);
             this.btnXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemThiDua.Name = "btnXemThiDua";
             this.btnXemThiDua.Size = new System.Drawing.Size(382, 46);
@@ -275,7 +306,7 @@
             this.btnXemPhanCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemPhanCong.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemPhanCong.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemPhanCong.Location = new System.Drawing.Point(3, 272);
+            this.btnXemPhanCong.Location = new System.Drawing.Point(3, 327);
             this.btnXemPhanCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemPhanCong.Name = "btnXemPhanCong";
             this.btnXemPhanCong.Size = new System.Drawing.Size(382, 46);
@@ -306,7 +337,7 @@
             this.btnXemTKB.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemTKB.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemTKB.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemTKB.Location = new System.Drawing.Point(3, 220);
+            this.btnXemTKB.Location = new System.Drawing.Point(3, 275);
             this.btnXemTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTKB.Name = "btnXemTKB";
             this.btnXemTKB.Size = new System.Drawing.Size(382, 46);
@@ -335,7 +366,7 @@
             this.btnXemDiemHS.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemDiemHS.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemDiemHS.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemDiemHS.Location = new System.Drawing.Point(3, 167);
+            this.btnXemDiemHS.Location = new System.Drawing.Point(3, 222);
             this.btnXemDiemHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDiemHS.Name = "btnXemDiemHS";
             this.btnXemDiemHS.Size = new System.Drawing.Size(382, 50);
@@ -366,7 +397,7 @@
             this.btnChinhSuaTT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSuaTT.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSuaTT.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnChinhSuaTT.Location = new System.Drawing.Point(3, 116);
+            this.btnChinhSuaTT.Location = new System.Drawing.Point(3, 171);
             this.btnChinhSuaTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChinhSuaTT.Name = "btnChinhSuaTT";
             this.btnChinhSuaTT.Size = new System.Drawing.Size(382, 46);
@@ -375,37 +406,6 @@
             this.btnChinhSuaTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSuaTT.TextOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSuaTT.Click += new System.EventHandler(this.btnChinhSuaTT_Click);
-            // 
-            // btnThemAdmin
-            // 
-            this.btnThemAdmin.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThemAdmin.BorderColor = System.Drawing.Color.White;
-            this.btnThemAdmin.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnThemAdmin.CheckedState.BorderColor = System.Drawing.Color.Chartreuse;
-            this.btnThemAdmin.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.btnThemAdmin.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnThemAdmin.CheckedState.ForeColor = System.Drawing.Color.Teal;
-            this.btnThemAdmin.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.megaphone__1_;
-            this.btnThemAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemAdmin.FillColor = System.Drawing.Color.CadetBlue;
-            this.btnThemAdmin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnThemAdmin.Image = global::DoAnHQTCSDL.Properties.Resources.megaphone;
-            this.btnThemAdmin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnThemAdmin.ImageOffset = new System.Drawing.Point(15, 0);
-            this.btnThemAdmin.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnThemAdmin.Location = new System.Drawing.Point(-2, 526);
-            this.btnThemAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThemAdmin.Name = "btnThemAdmin";
-            this.btnThemAdmin.Size = new System.Drawing.Size(382, 46);
-            this.btnThemAdmin.TabIndex = 12;
-            this.btnThemAdmin.Text = "Thêm Người Quản Trị";
-            this.btnThemAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnThemAdmin.TextOffset = new System.Drawing.Point(15, 0);
-            this.btnThemAdmin.Click += new System.EventHandler(this.btnThemAdmin_Click);
             // 
             // FormAdmin
             // 
