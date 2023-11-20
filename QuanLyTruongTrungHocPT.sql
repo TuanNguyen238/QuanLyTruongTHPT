@@ -1926,6 +1926,23 @@ BEGIN
 END;
 GO
 
+CREATE TRIGGER KiemTraMatKhau
+ON NguoiDung
+FOR UPDATE
+AS
+BEGIN
+	DECLARE @newPass varchar(20), @oldPass varchar(20), @tenDN varchar(20);
+	SELECT @newPass = new.MatKhau, @tenDN = new.TenDangNhap FROM inserted new;
+	SELECT @oldPass = del.MatKhau FROM deleted del;
+	IF(@newPass <> @oldPass)
+	BEGIN
+		DECLARE @sqlStr varchar(MAX);
+		SET @sqlStr = 'ALTER LOGIN ' + QUOTENAME(@tenDN) + 'WITH PASSWORD = ''' + @newPass + '''';
+		EXEC(@sqlStr);
+	END;
+END;
+GO
+
 CREATE PROCEDURE XoaHocSinh
 @MaHS varchar(20)
 AS
@@ -2379,8 +2396,8 @@ GO
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD001',N'Quản Lý Học Sinh','1',10.5);						
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD002',N'Quản Lý Học Sinh','2',12);						
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD003',N'Quản Lý THPT','3',8.5);						
-INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD004',N'Quản Lý THPT','4',13.2);						
---INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0074','UD004',1,'admin3','admin4',N'Nguyễn Ngọc Linh','1980/02/03',N'Nữ',N'Thủ Đức','0369731085');
+INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD004',N'Quản Lý THPT','4',13.2);
+
 --NguoiDung
 INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0001','UD004',1,'admin1','admin1',N'Nguyễn Ngọc Linh','1980/02/03',N'Nữ',N'Thủ Đức','0369731086');														
 INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0002','UD004',1,'admin2','admin2',N'Trần Văn Nam','1980/03/25',N'Nam',N'Quận 9','0909876543');														
