@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DoAnHQTCSDL.DB
 {
@@ -19,31 +18,16 @@ namespace DoAnHQTCSDL.DB
         SqlDataAdapter da = null;
         public DBMain()
         {
-            ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
+            ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;Integrated Security=True";
             conn = new SqlConnection(ConnStr);
             comm = conn.CreateCommand();
         }
 
-        public void KetNoiDB(int loaiNguoiDung)
+        public void KetNoiDB(int loaiNguoiDung, string tenDN, string matKhau)
         {
-            if (loaiNguoiDung == 1)
-            {
-                ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
-                conn = new SqlConnection(ConnStr);
-                comm = conn.CreateCommand();
-            }
-            if (loaiNguoiDung == 2)
-            {
-                ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
-                conn = new SqlConnection(ConnStr);
-                comm = conn.CreateCommand();
-            }
-            else if (loaiNguoiDung == 3)
-            {
-                ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=hocsinh;Password=123456";
-                conn = new SqlConnection(ConnStr);
-                comm = conn.CreateCommand();
-            }
+            ConnStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyTruongTrungHocPT;User ID=" + tenDN + ";Password=" + matKhau;
+            conn = new SqlConnection(ConnStr);
+            comm = conn.CreateCommand();
         }
 
         public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct)

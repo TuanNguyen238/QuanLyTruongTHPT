@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DoAnHQTCSDL.BS
 {
@@ -26,7 +27,7 @@ namespace DoAnHQTCSDL.BS
         {
             string queryStr = "SELECT dbo.KiemTra_LoaiNguoiDung('" + this.username + "', '" + this.password + "');";
             int loaiNguoiDung = this.db.ExecuteQueryInt(queryStr, CommandType.Text);
-            this.db.KetNoiDB(loaiNguoiDung);
+            this.db.KetNoiDB(loaiNguoiDung, username, password);
             return loaiNguoiDung;
         }
 

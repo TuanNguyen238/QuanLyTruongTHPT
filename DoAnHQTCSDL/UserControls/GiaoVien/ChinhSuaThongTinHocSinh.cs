@@ -36,6 +36,8 @@ namespace DoAnHQTCSDL.UserControls
         private void ChinhSuaThongTinHocSinh_Load(object sender, EventArgs e)
         {
             dgvChinhSuaThongTin.ReadOnly = true;
+            this.txtSiSo.Text = blXemThongTinLop.SiSoLop().ToString();
+            this.txtSiSo.ReadOnly = true;
             LoadData();
         }
 

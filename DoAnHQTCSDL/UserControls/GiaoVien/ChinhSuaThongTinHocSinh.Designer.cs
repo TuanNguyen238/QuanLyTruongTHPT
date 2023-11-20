@@ -53,6 +53,8 @@
             this.panelChinhSua = new System.Windows.Forms.Panel();
             this.btnLuu = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnHuy = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.txtSiSo = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChinhSuaThongTin)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelChinhSua.SuspendLayout();
@@ -70,7 +72,7 @@
             this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimKiem.IconLeft = global::DoAnHQTCSDL.Properties.Resources.search__3_;
-            this.txtTimKiem.Location = new System.Drawing.Point(236, 10);
+            this.txtTimKiem.Location = new System.Drawing.Point(274, 9);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PasswordChar = '\0';
@@ -89,7 +91,7 @@
             this.btnTimKiem.FillColor = System.Drawing.Color.CadetBlue;
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(496, 12);
+            this.btnTimKiem.Location = new System.Drawing.Point(534, 11);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(132, 30);
@@ -447,12 +449,45 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // txtSiSo
+            // 
+            this.txtSiSo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSiSo.DefaultText = "";
+            this.txtSiSo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSiSo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSiSo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSiSo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSiSo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSiSo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSiSo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSiSo.Location = new System.Drawing.Point(113, 11);
+            this.txtSiSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSiSo.Name = "txtSiSo";
+            this.txtSiSo.PasswordChar = '\0';
+            this.txtSiSo.PlaceholderText = "";
+            this.txtSiSo.SelectedText = "";
+            this.txtSiSo.Size = new System.Drawing.Size(115, 30);
+            this.txtSiSo.TabIndex = 70;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label1.Location = new System.Drawing.Point(15, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 23);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Sĩ Số Lớp:";
+            // 
             // ChinhSuaThongTinHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtSiSo);
             this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCapNhat);
@@ -467,6 +502,7 @@
             this.panelChinhSua.ResumeLayout(false);
             this.panelChinhSua.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -496,5 +532,7 @@
         private System.Windows.Forms.Panel panelChinhSua;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnLuu;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnHuy;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtSiSo;
+        private System.Windows.Forms.Label label1;
     }
 }

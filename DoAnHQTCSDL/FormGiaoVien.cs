@@ -1,6 +1,7 @@
 ﻿using DoAnHQTCSDL.BS;
 using DoAnHQTCSDL.DB;
 using DoAnHQTCSDL.UserControls;
+using DoAnHQTCSDL.UserControls.GiaoVien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace DoAnHQTCSDL
         XemThoiKhoaBieuLop xemThoiKhoaBieuLop = null;
         XemThiDua xemThiDua = null;
         XemPhanHoi xemPhanHoi = null;
+        ChinhSuaThongTinGiaoVien chinhSuaGiaoVien = null;
         BLNguoiDung blGiaoVien = null;
         string maGV = "", tenLop = "";
         DBMain db = null;
@@ -65,6 +67,13 @@ namespace DoAnHQTCSDL
             xemPhanHoi = new XemPhanHoi(maGV, db);
             this.panelGiaoVien.Controls.Clear();
             this.panelGiaoVien.Controls.Add(xemPhanHoi);
+        }
+
+        private void btnCaNhan_Click(object sender, EventArgs e)
+        {
+            chinhSuaGiaoVien = new ChinhSuaThongTinGiaoVien(maGV, db);
+            this.panelGiaoVien.Controls.Clear();
+            this.panelGiaoVien.Controls.Add(chinhSuaGiaoVien);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)

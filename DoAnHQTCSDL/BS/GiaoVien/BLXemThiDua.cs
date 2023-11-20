@@ -36,7 +36,7 @@ namespace DoAnHQTCSDL.BS.GiaoVien
 
         public DataSet LayNoiQuy()
         {
-            return db.ExecuteQueryDataSet("SELECT * FROM LayNoiQuy", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM dbo.LayNoiQuy", CommandType.Text);
         }
 
         public int LaySoDiemTru(string dieuLe)

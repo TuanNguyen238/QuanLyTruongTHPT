@@ -300,6 +300,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormQuenMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormQuenMatKhau";
             this.Load += new System.EventHandler(this.FormQuenMatKhau_Load);
             this.panel2.ResumeLayout(false);

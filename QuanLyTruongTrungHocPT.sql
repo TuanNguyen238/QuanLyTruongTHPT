@@ -1,11 +1,4 @@
-﻿CREATE LOGIN admin WITH PASSWORD = '123456';
-CREATE LOGIN giaovien WITH PASSWORD = '123456';
-CREATE LOGIN hocsinh WITH PASSWORD = '123456';
-ALTER SERVER ROLE sysadmin ADD MEMBER admin;
-ALTER SERVER ROLE sysadmin ADD MEMBER giaovien;
-ALTER SERVER ROLE sysadmin ADD MEMBER hocsinh;
-
-CREATE DATABASE QuanLyTruongTrungHocPT
+﻿CREATE DATABASE QuanLyTruongTrungHocPT
 GO
  
 USE QuanLyTruongTrungHocPT
@@ -1954,12 +1947,224 @@ BEGIN
 END;
 GO
 
+CREATE FUNCTION TraSiSoLop(@MaGV varchar(20))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @SiSo INT;
+	SET @SiSo = (SELECT SiSoLop FROM Lop WHERE MaGVCN = @MaGV);
+	RETURN @SiSo;
+END;
+GO
+
+CREATE FUNCTION TraTTGiaoVien(@MaGV varchar(20))
+RETURNS @Bang TABLE(
+    MaGV varchar(20),
+    HoTen nvarchar(50),
+    NgaySinh date,
+	GioiTinh nvarchar(20),
+    SDT varchar(20),
+    TenLop nvarchar(20),
+    TenMon nvarchar(20),
+    DiaChi nvarchar(100)
+)
+AS
+BEGIN
+    DECLARE @Lop nvarchar(20) = '';
+    IF EXISTS(SELECT * FROM Lop WHERE MaGVCN = @MaGV)
+        SET @Lop = (SELECT TenLop FROM Lop WHERE MaGVCN = @MaGV);
+    INSERT INTO @Bang
+    SELECT G.MaGV, G.HoTen, G.NgaySinh, G.GioiTinh, G.SDT, @Lop AS TenLop, X.TenMonHoc, G.DiaChi 
+    FROM GiaoVien AS G
+    INNER JOIN XemPhanCong AS X ON G.MaGV = X.MaGV
+    WHERE G.MaGV = @MaGV;
+    RETURN;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM sys.database_principals WHERE name = 'GiaoVien' AND type = 'R')
+BEGIN
+	CREATE ROLE GiaoVien
+	GRANT SELECT, REFERENCES ON ChiTietTKB TO GiaoVien
+	GRANT SELECT, REFERENCES ON DanhGia TO GiaoVien
+	GRANT SELECT, UPDATE, REFERENCES ON DanhHieu TO GiaoVien
+	GRANT SELECT, UPDATE, REFERENCES ON Diem TO GiaoVien
+	GRANT SELECT, UPDATE, REFERENCES ON HocSinh TO GiaoVien
+	GRANT SELECT, REFERENCES ON Lop TO GiaoVien
+	GRANT SELECT, REFERENCES ON MonHoc TO GiaoVien
+	GRANT SELECT, REFERENCES ON NamHoc TO GiaoVien
+	GRANT SELECT, REFERENCES ON NguoiDung TO GiaoVien
+	GRANT SELECT, REFERENCES ON NoiQuy TO GiaoVien
+	GRANT SELECT, DELETE, REFERENCES ON PhanHoi TO GiaoVien
+	GRANT SELECT, REFERENCES ON ThiDua TO GiaoVien
+	GRANT SELECT, REFERENCES ON ThoiKhoaBieu TO GiaoVien
+	GRANT SELECT, REFERENCES ON UngDung TO GiaoVien
+
+	GRANT EXECUTE ON CapNhatDiemHocKy TO GiaoVien
+	GRANT EXECUTE ON CapNhatHocSinh TO GiaoVien
+	GRANT EXECUTE ON DoiMatKhau TO GiaoVien
+	GRANT EXECUTE ON XemTKB TO GiaoVien
+	GRANT EXECUTE ON XoaPhanHoi TO GiaoVien
+
+	GRANT SELECT ON dbo.TimDiemLopCaNam TO GiaoVien
+	GRANT SELECT ON dbo.TimDiemLopHocKy TO GiaoVien
+	GRANT SELECT ON dbo.TimHocSinh TO GiaoVien
+	GRANT SELECT ON dbo.TimHocSinhTrongLop TO GiaoVien
+	GRANT SELECT ON dbo.TraDTK_XepHang_ThiDua TO GiaoVien
+	GRANT SELECT ON dbo.XemDanhHieuCaNhanHocKy TO GiaoVien
+	GRANT SELECT ON dbo.XemDanhHieuCaNhanCaNam TO GiaoVien
+	GRANT SELECT ON dbo.XemDiemLopCaNam TO GiaoVien
+	GRANT SELECT ON dbo.XemDiemLopHocKy TO GiaoVien
+	GRANT SELECT ON dbo.XemPhanHoi TO GiaoVien
+	GRANT SELECT ON dbo.XemThiDuaLop TO GiaoVien
+	GRANT SELECT ON dbo.XemTTLop TO GiaoVien
+	GRANT SELECT ON dbo.TraTTGiaoVien TO GiaoVien
+
+	GRANT EXECUTE ON dbo.LopCuaGiaoVien TO GiaoVien
+	GRANT EXECUTE ON dbo.TraLop TO GiaoVien
+	GRANT EXECUTE ON dbo.TraMaNguoiDung TO GiaoVien
+	GRANT EXECUTE ON dbo.TraTKB TO GiaoVien
+	GRANT EXECUTE ON dbo.TraSiSoLop TO GiaoVien
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM sys.database_principals WHERE name = 'HocSinh' AND type = 'R')
+BEGIN
+	CREATE ROLE HocSinh
+	GRANT SELECT, REFERENCES ON ChiTietTKB TO HocSinh
+	GRANT SELECT, REFERENCES ON DanhHieu TO HocSinh
+	GRANT SELECT, REFERENCES ON Diem TO HocSinh
+	GRANT SELECT, REFERENCES ON GiaoVien TO HocSinh
+	GRANT SELECT, REFERENCES ON HocSinh TO HocSinh
+	GRANT SELECT, REFERENCES ON Lop TO HocSinh
+	GRANT SELECT, REFERENCES ON MonHoc TO HocSinh
+	GRANT SELECT, REFERENCES ON NamHoc TO HocSinh
+	GRANT SELECT, REFERENCES ON NguoiDung TO HocSinh
+	GRANT SELECT, INSERT, REFERENCES ON PhanHoi TO HocSinh
+	GRANT SELECT, REFERENCES ON ThoiKhoaBieu TO HocSinh
+	GRANT SELECT, REFERENCES ON TuyenSinh TO HocSinh
+	GRANT SELECT, REFERENCES ON UngDung TO HocSinh
+
+	GRANT EXECUTE ON CapNhatNguoiDung TO HocSinh
+	GRANT EXECUTE ON DoiMatKhau TO HocSinh
+	GRANT EXECUTE ON GuiPhanHoi TO HocSinh
+	GRANT EXECUTE ON GuiTuyenSinh TO HocSinh
+	GRANT EXECUTE ON KiemTraDiemTS TO HocSinh
+	GRANT EXECUTE ON ThemDiem_DanhHieu TO HocSinh
+	GRANT EXECUTE ON XemTKB TO HocSinh
+	GRANT EXECUTE ON XoaHoSo TO HocSinh
+	GRANT EXECUTE ON XoaNguoiDung TO HocSinh
+
+	GRANT SELECT ON LayNguoiDung TO HocSinh
+	GRANT SELECT ON XemDanhHieuCaNhanCaNam TO HocSinh
+	GRANT SELECT ON XemDanhHieuCaNhanHocKy TO HocSinh
+	GRANT SELECT ON XemDiemCaNhanCaNam TO HocSinh
+	GRANT SELECT ON XemDiemCaNhanHocKy TO HocSinh
+	GRANT SELECT ON XemTTCaNhan TO HocSinh
+
+	GRANT EXECUTE ON dbo.KiemTraTenNguoiDung TO HocSinh
+	GRANT EXECUTE ON dbo.KiemTraTonTaiHocSinh TO HocSinh
+	GRANT EXECUTE ON dbo.TraTKB TO HocSinh
+	GRANT EXECUTE ON dbo.TraLop TO HocSinh
+	GRANT EXECUTE ON dbo.TraMaNguoiDung TO HocSinh
+	GRANT EXECUTE ON dbo.KiemTraTuyenSinh TO HocSinh
+END;
+GO
+
+CREATE TRIGGER Them_NguoiDung
+ON NguoiDung
+FOR INSERT
+AS
+BEGIN
+	DECLARE @newMaND varchar(20), @newTenDN varchar(50), @newPass varchar(20), @sqlStr nvarchar(MAX), @LoaiNguoiDung INT;
+	SELECT @newMaND = MaNguoiDung, @newTenDN = TenDangNhap, @newPass = MatKhau, @LoaiNguoiDung = new.LoaiNguoiDung FROM inserted new;
+	IF EXISTS(SELECT * FROM sys.database_principals WHERE type_desc IN ('SQL_USER', 'WINDOWS_USER', 'WINDOWS_GROUP') AND name = @newTenDN)
+	BEGIN
+		SET @sqlStr = 'DROP USER ' + @newTenDN;
+		EXEC (@sqlStr);
+	END;
+	IF EXISTS(SELECT * FROM sys.sql_logins WHERE name = @newTenDN)
+	BEGIN
+		SET @sqlStr = 'DROP LOGIN ' + @newTenDN;
+		EXEC (@sqlStr);
+	END;
+	SET @sqlStr = 'CREATE LOGIN [' + @newTenDN +'] WITH PASSWORD='''+ @newPass
+	+''', DEFAULT_DATABASE=[QuanLyTruongTrungHocPT], CHECK_EXPIRATION=OFF,
+	CHECK_POLICY=OFF';
+	EXEC (@sqlStr);
+	SET @sqlStr = 'CREATE USER ' + @newTenDN + ' FOR LOGIN ' + @newTenDN;
+	EXEC(@sqlStr);
+	IF(@LoaiNguoiDung = 1)
+	BEGIN
+		SET @sqlStr = 'ALTER SERVER ROLE sysadmin ADD MEMBER ' + QUOTENAME(@newTenDN);
+		EXEC(@sqlStr);
+	END;
+	ELSE IF(@LoaiNguoiDung = 2)
+	BEGIN
+		SET @sqlStr = 'ALTER ROLE GiaoVien ADD MEMBER ' + QUOTENAME(@newTenDN);
+		EXEC(@sqlStr);
+	END;
+	ELSE IF(@LoaiNguoiDung = 3)
+	BEGIN
+		SET @sqlStr = 'ALTER  ROLE HocSinh ADD MEMBER ' + QUOTENAME(@newTenDN);
+		EXEC(@sqlStr);
+	END;
+END;
+GO
+
+CREATE TRIGGER Xoa_NguoiDung
+ON NguoiDung
+FOR DELETE
+AS
+BEGIN
+	DECLARE @newTenDN varchar(20), @sqlStr nvarchar(MAX);
+	SELECT @newTenDN = old.TenDangNhap FROM deleted old;
+	IF EXISTS(SELECT * FROM sys.database_principals WHERE type_desc IN ('SQL_USER', 'WINDOWS_USER', 'WINDOWS_GROUP') AND name = @newTenDN)
+	BEGIN
+		SET @sqlStr = 'DROP USER ' + @newTenDN;
+		EXEC (@sqlStr);
+	END;
+	IF EXISTS(SELECT * FROM sys.sql_logins WHERE name = @newTenDN)
+	BEGIN
+		SET @sqlStr = 'DROP LOGIN ' + @newTenDN;
+		EXEC (@sqlStr);
+	END;
+END;
+GO
+
+CREATE PROCEDURE XoaMoiDuLieu
+AS
+BEGIN
+	DECLARE @STT INT = 1, @TenDN varchar(20), @sqlStr varchar(100);
+	DECLARE @BangDN TABLE(
+	STT INT, TenDN varchar(20)
+	);
+	INSERT INTO @BangDN 
+	SELECT ROW_NUMBER() OVER (ORDER BY MaNguoiDung) AS STT, TenDangNhap FROM NguoiDung;
+	WHILE @STT <= (SELECT COUNT(*) FROM @BangDN)
+	BEGIN
+		SET @TenDN = (SELECT TenDN FROM @BangDN WHERE STT = @STT);
+		IF EXISTS(SELECT * FROM sys.database_principals WHERE type_desc IN ('SQL_USER', 'WINDOWS_USER', 'WINDOWS_GROUP') AND name = @TenDN)
+		BEGIN
+			SET @sqlStr = 'DROP USER ' + @TenDN;
+			EXEC (@sqlStr);
+		END;
+		IF EXISTS(SELECT * FROM sys.sql_logins WHERE name = @TenDN)
+		BEGIN
+			SET @sqlStr = 'DROP LOGIN ' + @TenDN;
+			EXEC (@sqlStr);
+		END;
+		SET @STT = @STT + 1;
+	END;
+END;
+GO
+
 --UngDung
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD001',N'Quản Lý Học Sinh','1',10.5);						
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD002',N'Quản Lý Học Sinh','2',12);						
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD003',N'Quản Lý THPT','3',8.5);						
 INSERT INTO UngDung(MaUD,TenUngDung,PhienBan,DungLuong) VALUES ('UD004',N'Quản Lý THPT','4',13.2);						
-
+--INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0074','UD004',1,'admin3','admin4',N'Nguyễn Ngọc Linh','1980/02/03',N'Nữ',N'Thủ Đức','0369731085');
 --NguoiDung
 INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0001','UD004',1,'admin1','admin1',N'Nguyễn Ngọc Linh','1980/02/03',N'Nữ',N'Thủ Đức','0369731086');														
 INSERT INTO NguoiDung(MaNguoiDung,MaUngDung,LoaiNguoiDung,TenDangNhap,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,SoDT) VALUES ('ND0002','UD004',1,'admin2','admin2',N'Trần Văn Nam','1980/03/25',N'Nam',N'Quận 9','0909876543');														
@@ -2234,18 +2439,8 @@ INSERT INTO ThoiKhoaBieu(MaTKB,TenLop,HocKy,Nam) VALUES ('TKB15',N'11A3',2,2023)
 INSERT INTO ThoiKhoaBieu(MaTKB,TenLop,HocKy,Nam) VALUES ('TKB16',N'12A1',2,2023);
 INSERT INTO ThoiKhoaBieu(MaTKB,TenLop,HocKy,Nam) VALUES ('TKB17',N'12A2',2,2023);
 INSERT INTO ThoiKhoaBieu(MaTKB,TenLop,HocKy,Nam) VALUES ('TKB18',N'12A3',2,2023);
---ChiTietThoiKhoaBieu
 
--- Khởi tạo bảng ChiTietTKB (nếu chưa có)
--- CREATE TABLE ChiTietTKB (
---     MaTKB NVARCHAR(5),
---     MaMonHoc NVARCHAR(5),
---     TenMon NVARCHAR(255),
---     Thu NVARCHAR(255),
---     TietBatDau INT,
---     TietKetThuc INT
--- );
-
+--ChiTietTKB
 INSERT INTO ChiTietTKB(MaTKB,MaMonHoc,TenMon,Thu,TietBatDau,TietKetThuc) VALUES ('TKB01','MH01',N'Toán',N'Thứ 2',1,2);
 INSERT INTO ChiTietTKB(MaTKB,MaMonHoc,TenMon,Thu,TietBatDau,TietKetThuc) VALUES ('TKB01','MH01',N'Toán',N'Thứ 5',3,4);
 INSERT INTO ChiTietTKB(MaTKB,MaMonHoc,TenMon,Thu,TietBatDau,TietKetThuc) VALUES ('TKB01','MH02',N'Ngữ Văn',N'Thứ 3',1,2);

@@ -365,3 +365,4 @@ C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.exe
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.pdb
 C:\Users\phann\QuanLyTruongTHPT\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormQuenMatKhau.resources
 C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.FormQuenMatKhau.resources
+C:\Users\Admin\Downloads\Hệ quản trị cơ sở dữ liệu\Đồ án\DoAnHQTCSDL\DoAnHQTCSDL\obj\Debug\DoAnHQTCSDL.UserControls.GiaoVien.ChinhSuaThongTinGiaoVien.resources

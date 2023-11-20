@@ -58,18 +58,20 @@
             this.panel1.Controls.Add(this.btnXemTKB);
             this.panel1.Controls.Add(this.btnXemDiemHS);
             this.panel1.Controls.Add(this.btnChinhSuaTT);
-            this.panel1.Location = new System.Drawing.Point(-6, -3);
+            this.panel1.Location = new System.Drawing.Point(-5, -2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 840);
+            this.panel1.Size = new System.Drawing.Size(367, 672);
             this.panel1.TabIndex = 5;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Image = global::DoAnHQTCSDL.Properties.Resources.koala;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 20);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(69, 54);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -79,9 +81,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 37);
+            this.label1.Location = new System.Drawing.Point(101, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 55);
+            this.label1.Size = new System.Drawing.Size(165, 46);
             this.label1.TabIndex = 9;
             this.label1.Text = "Edumy";
             // 
@@ -106,9 +108,10 @@
             this.btnDangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangXuat.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnDangXuat.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnDangXuat.Location = new System.Drawing.Point(-2, 746);
+            this.btnDangXuat.Location = new System.Drawing.Point(-2, 597);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(446, 71);
+            this.btnDangXuat.Size = new System.Drawing.Size(396, 57);
             this.btnDangXuat.TabIndex = 6;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -136,11 +139,12 @@
             this.btnDuyetHoSo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDuyetHoSo.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnDuyetHoSo.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnDuyetHoSo.Location = new System.Drawing.Point(-2, 532);
+            this.btnDuyetHoSo.Location = new System.Drawing.Point(-2, 426);
+            this.btnDuyetHoSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDuyetHoSo.Name = "btnDuyetHoSo";
-            this.btnDuyetHoSo.Size = new System.Drawing.Size(430, 58);
+            this.btnDuyetHoSo.Size = new System.Drawing.Size(382, 46);
             this.btnDuyetHoSo.TabIndex = 5;
-            this.btnDuyetHoSo.Text = "Duyệt Hồ Sơ";
+            this.btnDuyetHoSo.Text = "Duyệt hồ sơ";
             this.btnDuyetHoSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDuyetHoSo.TextOffset = new System.Drawing.Point(15, 0);
             this.btnDuyetHoSo.Click += new System.EventHandler(this.btnDuyetHoSo_Click);
@@ -166,9 +170,10 @@
             this.btnNoiQuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNoiQuy.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnNoiQuy.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnNoiQuy.Location = new System.Drawing.Point(3, 468);
+            this.btnNoiQuy.Location = new System.Drawing.Point(3, 374);
+            this.btnNoiQuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNoiQuy.Name = "btnNoiQuy";
-            this.btnNoiQuy.Size = new System.Drawing.Size(430, 58);
+            this.btnNoiQuy.Size = new System.Drawing.Size(382, 46);
             this.btnNoiQuy.TabIndex = 4;
             this.btnNoiQuy.Text = "Nội quy";
             this.btnNoiQuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -196,9 +201,10 @@
             this.btnXemThiDua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemThiDua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemThiDua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemThiDua.Location = new System.Drawing.Point(3, 405);
+            this.btnXemThiDua.Location = new System.Drawing.Point(3, 324);
+            this.btnXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemThiDua.Name = "btnXemThiDua";
-            this.btnXemThiDua.Size = new System.Drawing.Size(430, 58);
+            this.btnXemThiDua.Size = new System.Drawing.Size(382, 46);
             this.btnXemThiDua.TabIndex = 2;
             this.btnXemThiDua.Text = "Xem thi đua";
             this.btnXemThiDua.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -226,9 +232,10 @@
             this.btnXemPhanCong.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemPhanCong.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemPhanCong.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemPhanCong.Location = new System.Drawing.Point(3, 340);
+            this.btnXemPhanCong.Location = new System.Drawing.Point(3, 272);
+            this.btnXemPhanCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemPhanCong.Name = "btnXemPhanCong";
-            this.btnXemPhanCong.Size = new System.Drawing.Size(430, 58);
+            this.btnXemPhanCong.Size = new System.Drawing.Size(382, 46);
             this.btnXemPhanCong.TabIndex = 3;
             this.btnXemPhanCong.Text = "Xem phân công";
             this.btnXemPhanCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -256,9 +263,10 @@
             this.btnXemTKB.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemTKB.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemTKB.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemTKB.Location = new System.Drawing.Point(3, 275);
+            this.btnXemTKB.Location = new System.Drawing.Point(3, 220);
+            this.btnXemTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTKB.Name = "btnXemTKB";
-            this.btnXemTKB.Size = new System.Drawing.Size(430, 58);
+            this.btnXemTKB.Size = new System.Drawing.Size(382, 46);
             this.btnXemTKB.TabIndex = 3;
             this.btnXemTKB.Text = "Xem thời khóa biểu";
             this.btnXemTKB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -284,9 +292,10 @@
             this.btnXemDiemHS.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemDiemHS.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemDiemHS.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemDiemHS.Location = new System.Drawing.Point(3, 209);
+            this.btnXemDiemHS.Location = new System.Drawing.Point(3, 167);
+            this.btnXemDiemHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDiemHS.Name = "btnXemDiemHS";
-            this.btnXemDiemHS.Size = new System.Drawing.Size(430, 62);
+            this.btnXemDiemHS.Size = new System.Drawing.Size(382, 50);
             this.btnXemDiemHS.TabIndex = 2;
             this.btnXemDiemHS.Text = "Xem điểm học sinh";
             this.btnXemDiemHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -314,9 +323,10 @@
             this.btnChinhSuaTT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSuaTT.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSuaTT.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnChinhSuaTT.Location = new System.Drawing.Point(3, 145);
+            this.btnChinhSuaTT.Location = new System.Drawing.Point(3, 116);
+            this.btnChinhSuaTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChinhSuaTT.Name = "btnChinhSuaTT";
-            this.btnChinhSuaTT.Size = new System.Drawing.Size(430, 58);
+            this.btnChinhSuaTT.Size = new System.Drawing.Size(382, 46);
             this.btnChinhSuaTT.TabIndex = 1;
             this.btnChinhSuaTT.Text = "Chỉnh sửa thông tin học sinh";
             this.btnChinhSuaTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -325,19 +335,21 @@
             // 
             // panelAdmin
             // 
-            this.panelAdmin.Location = new System.Drawing.Point(404, -3);
+            this.panelAdmin.Location = new System.Drawing.Point(359, -2);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(843, 822);
+            this.panelAdmin.Size = new System.Drawing.Size(749, 658);
             this.panelAdmin.TabIndex = 6;
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 814);
+            this.ClientSize = new System.Drawing.Size(1107, 651);
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";

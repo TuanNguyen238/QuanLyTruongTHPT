@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCaNhan = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangXuat = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -47,6 +48,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnCaNhan);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnDangXuat);
@@ -56,19 +58,51 @@
             this.panel1.Controls.Add(this.btnXemDiem);
             this.panel1.Controls.Add(this.btnChinhSua);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-18, -3);
+            this.panel1.Location = new System.Drawing.Point(-16, -2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 834);
+            this.panel1.Size = new System.Drawing.Size(382, 668);
             this.panel1.TabIndex = 4;
+            // 
+            // btnCaNhan
+            // 
+            this.btnCaNhan.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCaNhan.BorderColor = System.Drawing.Color.White;
+            this.btnCaNhan.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCaNhan.CheckedState.BorderColor = System.Drawing.Color.Chartreuse;
+            this.btnCaNhan.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnCaNhan.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnCaNhan.CheckedState.ForeColor = System.Drawing.Color.Teal;
+            this.btnCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.search__2_;
+            this.btnCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCaNhan.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnCaNhan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaNhan.ForeColor = System.Drawing.Color.White;
+            this.btnCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.search__1_;
+            this.btnCaNhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCaNhan.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btnCaNhan.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnCaNhan.Location = new System.Drawing.Point(-5, 374);
+            this.btnCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCaNhan.Name = "btnCaNhan";
+            this.btnCaNhan.Size = new System.Drawing.Size(382, 46);
+            this.btnCaNhan.TabIndex = 9;
+            this.btnCaNhan.Text = "Chỉnh sửa thông tin cá nhân";
+            this.btnCaNhan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCaNhan.TextOffset = new System.Drawing.Point(15, 0);
+            this.btnCaNhan.Click += new System.EventHandler(this.btnCaNhan_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(147, 35);
+            this.label2.Location = new System.Drawing.Point(131, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 55);
+            this.label2.Size = new System.Drawing.Size(165, 46);
             this.label2.TabIndex = 8;
             this.label2.Text = "Edumy";
             // 
@@ -76,9 +110,10 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Image = global::DoAnHQTCSDL.Properties.Resources.koala;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(105, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(93, 74);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -104,9 +139,10 @@
             this.btnDangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangXuat.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnDangXuat.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnDangXuat.Location = new System.Drawing.Point(-2, 763);
+            this.btnDangXuat.Location = new System.Drawing.Point(-2, 610);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(416, 71);
+            this.btnDangXuat.Size = new System.Drawing.Size(370, 57);
             this.btnDangXuat.TabIndex = 5;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -134,9 +170,10 @@
             this.btnPhanHoi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPhanHoi.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnPhanHoi.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnPhanHoi.Location = new System.Drawing.Point(-2, 405);
+            this.btnPhanHoi.Location = new System.Drawing.Point(-2, 324);
+            this.btnPhanHoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPhanHoi.Name = "btnPhanHoi";
-            this.btnPhanHoi.Size = new System.Drawing.Size(430, 58);
+            this.btnPhanHoi.Size = new System.Drawing.Size(382, 46);
             this.btnPhanHoi.TabIndex = 4;
             this.btnPhanHoi.Text = "Phản hồi";
             this.btnPhanHoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -164,9 +201,10 @@
             this.btnXemThiDua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemThiDua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemThiDua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemThiDua.Location = new System.Drawing.Point(-2, 341);
+            this.btnXemThiDua.Location = new System.Drawing.Point(-2, 273);
+            this.btnXemThiDua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemThiDua.Name = "btnXemThiDua";
-            this.btnXemThiDua.Size = new System.Drawing.Size(430, 58);
+            this.btnXemThiDua.Size = new System.Drawing.Size(382, 46);
             this.btnXemThiDua.TabIndex = 2;
             this.btnXemThiDua.Text = "Xem thi đua";
             this.btnXemThiDua.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -194,9 +232,10 @@
             this.btnXemTKB.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemTKB.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemTKB.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemTKB.Location = new System.Drawing.Point(-2, 277);
+            this.btnXemTKB.Location = new System.Drawing.Point(-2, 222);
+            this.btnXemTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTKB.Name = "btnXemTKB";
-            this.btnXemTKB.Size = new System.Drawing.Size(430, 58);
+            this.btnXemTKB.Size = new System.Drawing.Size(382, 46);
             this.btnXemTKB.TabIndex = 3;
             this.btnXemTKB.Text = "Xem thời khóa biểu";
             this.btnXemTKB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -222,9 +261,10 @@
             this.btnXemDiem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXemDiem.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnXemDiem.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXemDiem.Location = new System.Drawing.Point(-2, 211);
+            this.btnXemDiem.Location = new System.Drawing.Point(-2, 169);
+            this.btnXemDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(430, 62);
+            this.btnXemDiem.Size = new System.Drawing.Size(382, 50);
             this.btnXemDiem.TabIndex = 2;
             this.btnXemDiem.Text = "Xem điểm học sinh";
             this.btnXemDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -252,9 +292,10 @@
             this.btnChinhSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnChinhSua.ImageOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnChinhSua.Location = new System.Drawing.Point(-2, 147);
+            this.btnChinhSua.Location = new System.Drawing.Point(-2, 118);
+            this.btnChinhSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChinhSua.Name = "btnChinhSua";
-            this.btnChinhSua.Size = new System.Drawing.Size(430, 58);
+            this.btnChinhSua.Size = new System.Drawing.Size(382, 46);
             this.btnChinhSua.TabIndex = 1;
             this.btnChinhSua.Text = "Chỉnh sửa thông tin học sinh";
             this.btnChinhSua.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -266,26 +307,28 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 23);
+            this.label1.Location = new System.Drawing.Point(101, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 54);
+            this.label1.Size = new System.Drawing.Size(0, 46);
             this.label1.TabIndex = 0;
             // 
             // panelGiaoVien
             // 
-            this.panelGiaoVien.Location = new System.Drawing.Point(403, -3);
+            this.panelGiaoVien.Location = new System.Drawing.Point(358, -2);
+            this.panelGiaoVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelGiaoVien.Name = "panelGiaoVien";
-            this.panelGiaoVien.Size = new System.Drawing.Size(847, 835);
+            this.panelGiaoVien.Size = new System.Drawing.Size(753, 668);
             this.panelGiaoVien.TabIndex = 5;
             // 
             // FormGiaoVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 831);
+            this.ClientSize = new System.Drawing.Size(1111, 665);
             this.Controls.Add(this.panelGiaoVien);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormGiaoVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGiaoVien";
@@ -309,5 +352,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnDangXuat;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnCaNhan;
     }
 }

@@ -34,5 +34,10 @@ namespace DoAnHQTCSDL.BS.GiaoVien
         {
             return db.ExecuteQueryDataSet("SELECT * FROM dbo.TimHocSinhTrongLop('" + maGV + "',N'" + kiTu + "');", CommandType.Text);
         }
+
+        public int SiSoLop()
+        {
+            return db.ExecuteQueryInt("SELECT dbo.TraSiSoLop('" + maGV + "');", CommandType.Text);
+        }
     }
 }
