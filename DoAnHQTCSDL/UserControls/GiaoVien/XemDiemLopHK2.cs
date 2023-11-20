@@ -68,7 +68,6 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
             this.dgvHK2.Columns[4].HeaderText = "Điểm kiểm tra giữa kỳ";
             this.dgvHK2.Columns[5].HeaderText = "Điểm kiểm tra cuối kỳ";
             this.dgvHK2.Columns[6].HeaderText = "Điểm trung bình môn";
-            this.dgvHK2_CellClick(null, null);
         }
 
         private void dgvHK2_CellClick(object sender, DataGridViewCellEventArgs e)

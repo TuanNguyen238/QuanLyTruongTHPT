@@ -92,7 +92,6 @@ namespace DoAnHQTCSDL.UserControls.GiaoVien
             this.dgvCaNam.Columns[2].HeaderText = "Tên môn học";
             this.dgvCaNam.Columns[3].HeaderText = "Điểm trung bình môn";
             this.dgvCaNam.ReadOnly = true;
-            this.dgvCaNam_CellClick(null, null);
         }
     }
 }

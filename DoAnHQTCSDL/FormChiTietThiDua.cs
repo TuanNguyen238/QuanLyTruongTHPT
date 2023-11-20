@@ -36,6 +36,7 @@ namespace DoAnHQTCSDL
 
         private void FormChiTietThiDua_Load(object sender, EventArgs e)
         {
+            this.dgvChiTietNoiQuy.ReadOnly = true;
             this.LoadData();
         }
 
@@ -64,6 +65,7 @@ namespace DoAnHQTCSDL
             cbDieuLe.SelectedIndex = 0;
             cbDieuLe_SelectedIndexChanged(cbDieuLe, EventArgs.Empty);
             numSoLanViPham.Enabled = true;
+            this.dgvChiTietNoiQuy_CellClick(null, null);
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -81,7 +83,8 @@ namespace DoAnHQTCSDL
 
         private void cbDieuLe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.txtSoDiemTru.Text = bLXemThiDua.LaySoDiemTru(cbDieuLe.SelectedValue.ToString()).ToString();
+            if(cbDieuLe.SelectedValue != null)
+                this.txtSoDiemTru.Text = bLXemThiDua.LaySoDiemTru(cbDieuLe.SelectedValue.ToString()).ToString();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -92,6 +95,7 @@ namespace DoAnHQTCSDL
             this.btnXoa.Enabled = false;
             this.btnLuu.Enabled = true;
             this.btnHuy.Enabled = true;
+            this.numSoLanViPham.Value = 1;
             this.numSoLanViPham.Enabled = false;
         }
 
@@ -159,8 +163,11 @@ namespace DoAnHQTCSDL
                     // Chuyển thông tin lên panel
                     this.cbDieuLe.SelectedValue =
                     dgvChiTietNoiQuy.Rows[r].Cells[1].Value.ToString();
-                    this.numSoLanViPham.Value =
-                    decimal.Parse(dgvChiTietNoiQuy.Rows[r].Cells[2].Value.ToString());
+                    string slvp = dgvChiTietNoiQuy.Rows[r].Cells[2].Value.ToString();
+                    if (slvp != null && slvp.Length > 0)
+                        this.numSoLanViPham.Value = decimal.Parse(slvp);
+                    else
+                        this.numSoLanViPham.Value = 1;
                 }
             }
         }

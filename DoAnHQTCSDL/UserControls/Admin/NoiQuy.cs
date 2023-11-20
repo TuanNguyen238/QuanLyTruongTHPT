@@ -29,6 +29,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
         private void NoiQuy_Load(object sender, EventArgs e)
         {
             dgvNoiQuy.ReadOnly = true;
+            this.dtNgayBanHanh.Enabled = false;
             this.LoadData();
         }
 
@@ -98,7 +99,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             dgvNoiQuy.Columns[2].HeaderText = "Điều lệ";
             dgvNoiQuy.Columns[3].HeaderText = "Số điểm trừ";
             dgvNoiQuy.Columns[4].HeaderText = "Ngày ban hành";
-            dgvNoiQuy_CellClick(null, null);
         }
 
         private void btnThem_Click(object sender, EventArgs e)

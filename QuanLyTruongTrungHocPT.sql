@@ -683,7 +683,7 @@ BEGIN
 		ROLLBACK TRANSACTION
 		DECLARE @Err nvarchar(MAX)
 		SET @Err = N'Lỗi:  ' + ERROR_MESSAGE();
-		RAISERROR(@err, 16, 1);
+		RAISERROR(@Err, 16, 1);
 	END CATCH					
 END;													
 GO
@@ -905,7 +905,8 @@ CREATE FUNCTION TimHocSinh(@KiTu nvarchar(100))
 RETURNS TABLE
 AS
 RETURN(
-	SELECT * FROM HocSinh
+	SELECT MaHS, HoTen, NgaySinh, GioiTinh, SoDT, TenLop, NamHoc, DiaChi
+	FROM HocSinh
 	WHERE
 		CONCAT(MaHS, HoTen, NgaySinh, GioiTinh, TenLop, SoDT, DiaChi, NamHoc) LIKE '%' + @KiTu + '%' 
 );
@@ -1951,8 +1952,9 @@ CREATE FUNCTION TraSiSoLop(@MaGV varchar(20))
 RETURNS INT
 AS
 BEGIN
-	DECLARE @SiSo INT;
-	SET @SiSo = (SELECT SiSoLop FROM Lop WHERE MaGVCN = @MaGV);
+	DECLARE @SiSo INT = 0;
+	IF EXISTS(SELECT * FROM Lop WHERE MaGVCN = @MaGV)
+		SET @SiSo = (SELECT SiSoLop FROM Lop WHERE MaGVCN = @MaGV);
 	RETURN @SiSo;
 END;
 GO
@@ -1970,15 +1972,222 @@ RETURNS @Bang TABLE(
 )
 AS
 BEGIN
-    DECLARE @Lop nvarchar(20) = '';
+    DECLARE @Lop nvarchar(20) = '', @MonHoc nvarchar(20) = '';
     IF EXISTS(SELECT * FROM Lop WHERE MaGVCN = @MaGV)
         SET @Lop = (SELECT TenLop FROM Lop WHERE MaGVCN = @MaGV);
+	IF EXISTS(SELECT * FROM Day WHERE MaGV = @MaGV)
+		SET @MonHoc = (SELECT TenMonHoc FROM MonHoc WHERE MaMonHoc = (SELECT MaMonHoc FROM Day WHERE MaGV = @MaGV));
     INSERT INTO @Bang
-    SELECT G.MaGV, G.HoTen, G.NgaySinh, G.GioiTinh, G.SDT, @Lop AS TenLop, X.TenMonHoc, G.DiaChi 
-    FROM GiaoVien AS G
-    INNER JOIN XemPhanCong AS X ON G.MaGV = X.MaGV
-    WHERE G.MaGV = @MaGV;
+    SELECT MaGV, HoTen, NgaySinh, GioiTinh, SDT, @Lop AS TenLop, @MonHoc AS TenMon, DiaChi
+    FROM GiaoVien
+    WHERE MaGV = @MaGV;
     RETURN;
+END;
+GO
+
+CREATE PROCEDURE CapNhatGiaoVien
+@MaGV varchar(20),
+@HoTen nvarchar(50),
+@NgaySinh date,
+@GioiTinh nvarchar(20),
+@SDT varchar(20),
+@MonHoc nvarchar(20),
+@DiaChi nvarchar(100)
+AS
+BEGIN
+	DECLARE @MaMon varchar(20);
+	SELECT @MaMon = MaMonHoc FROM MonHoc WHERE TenMonHoc = @MonHoc;
+	IF (@SDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+	BEGIN
+		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		RETURN;
+	END;
+	BEGIN TRY
+		BEGIN TRANSACTION
+		UPDATE GiaoVien
+		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SDT = @SDT, DiaChi = @DiaChi
+		WHERE MaGV = @MaGV;
+		UPDATE Day
+		SET MaMonHoc = @MaMon WHERE MaGV = @MaGV;
+		UPDATE NguoiDung
+		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SDT, DiaChi = @DiaChi
+		WHERE MaNguoiDung = @MaGV;
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION;
+		DECLARE @Err nvarchar(MAX);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE TRIGGER KiemTraCapNhatGiaoVien
+ON GiaoVien
+FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @MaGV varchar(20),
+			@HoTen nvarchar(50),
+			@SDT varchar(20),
+			@DiaChi nvarchar(100);
+	SELECT @HoTen = new.HoTen, @SDT = new.HoTen, @DiaChi = new.DiaChi FROM inserted new;
+	IF RTRIM(LTRIM(@HoTen)) = ''
+	BEGIN
+		RAISERROR('Họ tên không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF EXISTS(SELECT * FROM NguoiDung WHERE SoDT = @SDT AND MaNguoiDung <> @MaGV)
+	BEGIN
+		RAISERROR('Số điện thoại đã có người đăng ký', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DiaChi)) = ''
+	BEGIN
+		RAISERROR('Địa chỉ không được để trống', 16, 1);
+		RETURN;
+	END;
+END;
+GO
+
+CREATE VIEW TraDanhSachMon AS
+SELECT TenMonHoc FROM MonHoc
+GO
+
+CREATE PROCEDURE ChonMonDay
+@MaGV varchar(20),
+@TenMon nvarchar(20)
+AS
+BEGIN
+	BEGIN TRY
+		INSERT INTO Day VALUES(@MaGV, (SELECT MaMonHoc FROM MonHoc WHERE TenMonHoc =@TenMon));
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		DECLARE @Err nvarchar(MAX);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE FUNCTION XemAdmin(@MaNQL varchar(20))
+RETURNS TABLE
+AS
+RETURN(
+	SELECT MaNQL, HoTen, NgaySinh, GioiTinh, SDT, ChucVu, DiaChi
+	FROM NguoiQuanLy WHERE MaNQL = @MaNQL
+);
+GO
+
+CREATE PROCEDURE CapNhatAdmin
+@MaNQL varchar(20),
+@HoTen nvarchar(50),
+@NgaySinh date,
+@GioiTinh nvarchar(20),
+@SDT varchar(20),
+@DiaChi nvarchar(100)
+AS
+BEGIN
+	IF (@SDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+	BEGIN
+		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		RETURN;
+	END;
+	BEGIN TRY
+		BEGIN TRANSACTION
+			UPDATE NguoiQuanLy
+			SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SDT = @SDT, DiaChi = @DiaChi
+			WHERE MaNQL = @MaNQL;
+			UPDATE NguoiDung
+			SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SoDT = @SDT, DiaChi = @DiaChi
+			WHERE MaNguoiDung = @MaNQL;
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		DECLARE @Err nvarchar(MAX);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
+END;
+GO
+
+CREATE TRIGGER KiemTraCapNhatAdmin
+ON NguoiQuanLy
+FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @MaNQL varchar(20),
+			@HoTen nvarchar(50),
+			@SDT varchar(20),
+			@DiaChi nvarchar(100);
+	SELECT @HoTen = new.HoTen, @SDT = new.HoTen, @DiaChi = new.DiaChi FROM inserted new;
+	IF RTRIM(LTRIM(@HoTen)) = ''
+	BEGIN
+		RAISERROR('Họ tên không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF EXISTS(SELECT * FROM NguoiDung WHERE SoDT = @SDT AND MaNguoiDung <> @MaNQL)
+	BEGIN
+		RAISERROR('Số điện thoại đã có người đăng ký', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DiaChi)) = ''
+	BEGIN
+		RAISERROR('Địa chỉ không được để trống', 16, 1);
+		RETURN;
+	END;
+END;
+GO
+
+CREATE PROCEDURE ThemAdmin
+@TenDN varchar(20),
+@MatKhau varchar(20),
+@HoTen nvarchar(50),
+@NgaySinh date,
+@GioiTinh nvarchar(20),
+@DiaChi nvarchar(100),
+@SDT varchar(20)
+AS
+BEGIN
+	IF RTRIM(LTRIM(@TenDN)) = ''
+	BEGIN
+		RAISERROR('Tên đăng nhập không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@MatKhau)) = ''
+	BEGIN
+		RAISERROR('Mật khẩu không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@HoTen)) = ''
+	BEGIN
+		RAISERROR('Họ tên không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF RTRIM(LTRIM(@DiaChi)) = ''
+	BEGIN
+		RAISERROR('Địa chỉ không được để trống', 16, 1);
+		RETURN;
+	END;
+	IF (@SDT NOT LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+	BEGIN
+		RAISERROR('Số điện thoại không hợp lệ', 16, 1);
+		RETURN;
+	END
+	BEGIN TRY
+		EXEC Them_LoaiNguoiDung @TenDN, @MatKhau, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @SDT, 1;
+		DECLARE @MaNQL varchar(20) = '';
+		SET @MaNQL = (SELECT MaNguoiDung FROM NguoiDung WHERE TenDangNhap = @TenDN);
+		INSERT INTO NguoiQuanLy VALUES(@MaNQL, @HoTen, @GioiTinh, @NgaySinh, @SDT, @DiaChi, N'Ban Giám Hiệu');
+	END TRY
+	BEGIN CATCH
+		DECLARE @Err nvarchar(MAX);
+		SET @Err = N'Lỗi: ' + ERROR_MESSAGE();
+		RAISERROR(@Err, 16, 1);
+	END CATCH
 END;
 GO
 
@@ -1987,21 +2196,26 @@ BEGIN
 	CREATE ROLE GiaoVien
 	GRANT SELECT, REFERENCES ON ChiTietTKB TO GiaoVien
 	GRANT SELECT, REFERENCES ON DanhGia TO GiaoVien
+	GRANT SELECT, INSERT, UPDATE, REFERENCES ON Day TO GiaoVien
 	GRANT SELECT, UPDATE, REFERENCES ON DanhHieu TO GiaoVien
 	GRANT SELECT, UPDATE, REFERENCES ON Diem TO GiaoVien
 	GRANT SELECT, UPDATE, REFERENCES ON HocSinh TO GiaoVien
-	GRANT SELECT, REFERENCES ON Lop TO GiaoVien
+	GRANT SELECT, UPDATE, REFERENCES ON Lop TO GiaoVien
 	GRANT SELECT, REFERENCES ON MonHoc TO GiaoVien
 	GRANT SELECT, REFERENCES ON NamHoc TO GiaoVien
-	GRANT SELECT, REFERENCES ON NguoiDung TO GiaoVien
+	GRANT SELECT, UPDATE, REFERENCES ON NguoiDung TO GiaoVien
 	GRANT SELECT, REFERENCES ON NoiQuy TO GiaoVien
 	GRANT SELECT, DELETE, REFERENCES ON PhanHoi TO GiaoVien
 	GRANT SELECT, REFERENCES ON ThiDua TO GiaoVien
 	GRANT SELECT, REFERENCES ON ThoiKhoaBieu TO GiaoVien
 	GRANT SELECT, REFERENCES ON UngDung TO GiaoVien
 
+	GRANT SELECT ON dbo.TraDanhSachMon TO GiaoVien
+
 	GRANT EXECUTE ON CapNhatDiemHocKy TO GiaoVien
+	GRANT EXECUTE ON CapNhatGiaoVien TO GiaoVien
 	GRANT EXECUTE ON CapNhatHocSinh TO GiaoVien
+	GRANT EXECUTE ON ChonMonDay TO GiaoVien
 	GRANT EXECUTE ON DoiMatKhau TO GiaoVien
 	GRANT EXECUTE ON XemTKB TO GiaoVien
 	GRANT EXECUTE ON XoaPhanHoi TO GiaoVien
@@ -2054,6 +2268,8 @@ BEGIN
 	GRANT EXECUTE ON XemTKB TO HocSinh
 	GRANT EXECUTE ON XoaHoSo TO HocSinh
 	GRANT EXECUTE ON XoaNguoiDung TO HocSinh
+
+	GRANT SELECT ON TraGiaoVien TO HocSinh
 
 	GRANT SELECT ON LayNguoiDung TO HocSinh
 	GRANT SELECT ON XemDanhHieuCaNhanCaNam TO HocSinh

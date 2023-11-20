@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelAdmin = new System.Windows.Forms.Panel();
+            this.btnChinhSuaTTCaNhan = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangXuat = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnDuyetHoSo = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnNoiQuy = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -39,7 +41,7 @@
             this.btnXemTKB = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnXemDiemHS = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnChinhSuaTT = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.panelAdmin = new System.Windows.Forms.Panel();
+            this.btnThemAdmin = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnThemAdmin);
+            this.panel1.Controls.Add(this.btnChinhSuaTTCaNhan);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnDangXuat);
@@ -64,6 +68,56 @@
             this.panel1.Size = new System.Drawing.Size(367, 672);
             this.panel1.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(101, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 46);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Edumy";
+            // 
+            // panelAdmin
+            // 
+            this.panelAdmin.Location = new System.Drawing.Point(359, -2);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(749, 658);
+            this.panelAdmin.TabIndex = 6;
+            // 
+            // btnChinhSuaTTCaNhan
+            // 
+            this.btnChinhSuaTTCaNhan.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChinhSuaTTCaNhan.BorderColor = System.Drawing.Color.White;
+            this.btnChinhSuaTTCaNhan.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnChinhSuaTTCaNhan.CheckedState.BorderColor = System.Drawing.Color.Chartreuse;
+            this.btnChinhSuaTTCaNhan.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnChinhSuaTTCaNhan.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnChinhSuaTTCaNhan.CheckedState.ForeColor = System.Drawing.Color.Teal;
+            this.btnChinhSuaTTCaNhan.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.search__2_;
+            this.btnChinhSuaTTCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChinhSuaTTCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChinhSuaTTCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChinhSuaTTCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChinhSuaTTCaNhan.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnChinhSuaTTCaNhan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChinhSuaTTCaNhan.ForeColor = System.Drawing.Color.White;
+            this.btnChinhSuaTTCaNhan.Image = global::DoAnHQTCSDL.Properties.Resources.search__1_;
+            this.btnChinhSuaTTCaNhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnChinhSuaTTCaNhan.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btnChinhSuaTTCaNhan.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnChinhSuaTTCaNhan.Location = new System.Drawing.Point(-2, 476);
+            this.btnChinhSuaTTCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChinhSuaTTCaNhan.Name = "btnChinhSuaTTCaNhan";
+            this.btnChinhSuaTTCaNhan.Size = new System.Drawing.Size(382, 46);
+            this.btnChinhSuaTTCaNhan.TabIndex = 11;
+            this.btnChinhSuaTTCaNhan.Text = "Chỉnh sửa thông tin cá nhân";
+            this.btnChinhSuaTTCaNhan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnChinhSuaTTCaNhan.TextOffset = new System.Drawing.Point(15, 0);
+            this.btnChinhSuaTTCaNhan.Click += new System.EventHandler(this.btnChinhSuaTTCaNhan_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -75,17 +129,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(101, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 46);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Edumy";
             // 
             // btnDangXuat
             // 
@@ -333,13 +376,36 @@
             this.btnChinhSuaTT.TextOffset = new System.Drawing.Point(15, 0);
             this.btnChinhSuaTT.Click += new System.EventHandler(this.btnChinhSuaTT_Click);
             // 
-            // panelAdmin
+            // btnThemAdmin
             // 
-            this.panelAdmin.Location = new System.Drawing.Point(359, -2);
-            this.panelAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(749, 658);
-            this.panelAdmin.TabIndex = 6;
+            this.btnThemAdmin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnThemAdmin.BorderColor = System.Drawing.Color.White;
+            this.btnThemAdmin.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnThemAdmin.CheckedState.BorderColor = System.Drawing.Color.Chartreuse;
+            this.btnThemAdmin.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnThemAdmin.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnThemAdmin.CheckedState.ForeColor = System.Drawing.Color.Teal;
+            this.btnThemAdmin.CheckedState.Image = global::DoAnHQTCSDL.Properties.Resources.megaphone__1_;
+            this.btnThemAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemAdmin.FillColor = System.Drawing.Color.CadetBlue;
+            this.btnThemAdmin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnThemAdmin.Image = global::DoAnHQTCSDL.Properties.Resources.megaphone;
+            this.btnThemAdmin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThemAdmin.ImageOffset = new System.Drawing.Point(15, 0);
+            this.btnThemAdmin.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnThemAdmin.Location = new System.Drawing.Point(-2, 526);
+            this.btnThemAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemAdmin.Name = "btnThemAdmin";
+            this.btnThemAdmin.Size = new System.Drawing.Size(382, 46);
+            this.btnThemAdmin.TabIndex = 12;
+            this.btnThemAdmin.Text = "Thêm Người Quản Trị";
+            this.btnThemAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThemAdmin.TextOffset = new System.Drawing.Point(15, 0);
+            this.btnThemAdmin.Click += new System.EventHandler(this.btnThemAdmin_Click);
             // 
             // FormAdmin
             // 
@@ -374,5 +440,7 @@
         private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnChinhSuaTTCaNhan;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnThemAdmin;
     }
 }

@@ -45,7 +45,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvDiemHSCaNam.Columns[4].HeaderText = "Hạnh kiểm";
             this.dgvDiemHSCaNam.Columns[5].HeaderText = "Danh hiệu";
             this.dgvDiemHSCaNam.Columns[6].HeaderText = "Xếp hạng";
-            this.dgvDiemHSCaNam.ReadOnly = true;
         }
 
         public void TimKiem(string kiTu)
@@ -61,7 +60,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvDiemHSCaNam.Columns[4].HeaderText = "Hạnh kiểm";
             this.dgvDiemHSCaNam.Columns[5].HeaderText = "Danh hiệu";
             this.dgvDiemHSCaNam.Columns[6].HeaderText = "Xếp hạng";
-            this.dgvDiemHSCaNam.ReadOnly = true;
         }
     }
 }

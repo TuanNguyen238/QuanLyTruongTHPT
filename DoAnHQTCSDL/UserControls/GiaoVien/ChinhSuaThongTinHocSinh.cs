@@ -166,7 +166,6 @@ namespace DoAnHQTCSDL.UserControls
             this.dgvChinhSuaThongTin.Columns[5].HeaderText = "Tên Lớp";
             this.dgvChinhSuaThongTin.Columns[6].HeaderText = "Năm Học";
             this.dgvChinhSuaThongTin.Columns[7].HeaderText = "Địa Chỉ";
-            this.dgvChinhSuaThongTin_CellClick(null, null);
         }
     }
 }

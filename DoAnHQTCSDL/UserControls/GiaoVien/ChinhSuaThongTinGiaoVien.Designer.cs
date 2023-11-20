@@ -34,7 +34,6 @@
             this.rdNam = new System.Windows.Forms.RadioButton();
             this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtMonHoc = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtSDT = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtHoTen = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
@@ -49,6 +48,7 @@
             this.btnLuu = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnCapNhat = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panelThongTin = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.cbMonHoc = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.panelThongTin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,26 +141,6 @@
             this.txtDiaChi.SelectedText = "";
             this.txtDiaChi.Size = new System.Drawing.Size(276, 36);
             this.txtDiaChi.TabIndex = 76;
-            // 
-            // txtMonHoc
-            // 
-            this.txtMonHoc.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMonHoc.DefaultText = "";
-            this.txtMonHoc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMonHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMonHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMonHoc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMonHoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonHoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMonHoc.Location = new System.Drawing.Point(268, 391);
-            this.txtMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMonHoc.Name = "txtMonHoc";
-            this.txtMonHoc.PasswordChar = '\0';
-            this.txtMonHoc.PlaceholderText = "";
-            this.txtMonHoc.SelectedText = "";
-            this.txtMonHoc.Size = new System.Drawing.Size(276, 36);
-            this.txtMonHoc.TabIndex = 75;
             // 
             // txtLop
             // 
@@ -309,7 +289,7 @@
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.IndicateFocus = true;
-            this.btnHuy.Location = new System.Drawing.Point(661, 602);
+            this.btnHuy.Location = new System.Drawing.Point(579, 590);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(126, 29);
@@ -327,7 +307,7 @@
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.IndicateFocus = true;
-            this.btnLuu.Location = new System.Drawing.Point(412, 602);
+            this.btnLuu.Location = new System.Drawing.Point(330, 590);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(127, 28);
@@ -345,7 +325,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
             this.btnCapNhat.IndicateFocus = true;
-            this.btnCapNhat.Location = new System.Drawing.Point(185, 602);
+            this.btnCapNhat.Location = new System.Drawing.Point(103, 590);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(126, 28);
@@ -355,6 +335,7 @@
             // 
             // panelThongTin
             // 
+            this.panelThongTin.Controls.Add(this.cbMonHoc);
             this.panelThongTin.Controls.Add(this.label8);
             this.panelThongTin.Controls.Add(this.label2);
             this.panelThongTin.Controls.Add(this.label1);
@@ -369,13 +350,27 @@
             this.panelThongTin.Controls.Add(this.label7);
             this.panelThongTin.Controls.Add(this.txtDiaChi);
             this.panelThongTin.Controls.Add(this.txtHoTen);
-            this.panelThongTin.Controls.Add(this.txtMonHoc);
             this.panelThongTin.Controls.Add(this.txtSDT);
             this.panelThongTin.Controls.Add(this.txtLop);
-            this.panelThongTin.Location = new System.Drawing.Point(185, 75);
+            this.panelThongTin.Location = new System.Drawing.Point(103, 63);
             this.panelThongTin.Name = "panelThongTin";
             this.panelThongTin.Size = new System.Drawing.Size(602, 504);
             this.panelThongTin.TabIndex = 95;
+            // 
+            // cbMonHoc
+            // 
+            this.cbMonHoc.BackColor = System.Drawing.Color.Transparent;
+            this.cbMonHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbMonHoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbMonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbMonHoc.ItemHeight = 30;
+            this.cbMonHoc.Location = new System.Drawing.Point(268, 391);
+            this.cbMonHoc.Name = "cbMonHoc";
+            this.cbMonHoc.Size = new System.Drawing.Size(276, 36);
+            this.cbMonHoc.TabIndex = 82;
             // 
             // ChinhSuaThongTinGiaoVien
             // 
@@ -402,7 +397,6 @@
         private System.Windows.Forms.RadioButton rdNam;
         private System.Windows.Forms.DateTimePicker dtNgaySinh;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDiaChi;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMonHoc;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLop;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtSDT;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtHoTen;
@@ -417,5 +411,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnLuu;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnCapNhat;
         private Siticone.Desktop.UI.WinForms.SiticonePanel panelThongTin;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbMonHoc;
     }
 }

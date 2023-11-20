@@ -23,6 +23,7 @@ namespace DoAnHQTCSDL.UserControls.Admin
 
         private void XemPhanCong_Load(object sender, EventArgs e)
         {
+            this.dgvPhanCong.ReadOnly = true;
             DataSet ds = new DataSet();
             ds = blPhanCong.XemPhanCong();
             DataTable dt = ds.Tables[0];
@@ -62,7 +63,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             dgvPhanCong.Columns[1].HeaderText = "Họ tên";
             dgvPhanCong.Columns[2].HeaderText = "Mã môn";
             dgvPhanCong.Columns[3].HeaderText = "Tên môn";
-            dgvPhanCong_CellClick(null, null);
             panelDay.Enabled = false;
         }
     }

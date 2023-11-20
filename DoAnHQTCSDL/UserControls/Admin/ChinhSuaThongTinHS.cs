@@ -170,7 +170,6 @@ namespace DoAnHQTCSDL.UserControls.Admin
             this.dgvChinhSuaThongTinHS.Columns[5].HeaderText = "Lớp";
             this.dgvChinhSuaThongTinHS.Columns[6].HeaderText = "Năm Học";
             this.dgvChinhSuaThongTinHS.Columns[7].HeaderText = "Địa Chỉ";
-            this.dgvChinhSuaThongTinHS_CellClick(null, null);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

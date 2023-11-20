@@ -17,7 +17,7 @@ namespace DoAnHQTCSDL.BS.Admin
 
         public bool KiemTraDangKy(string tenDN, string matKhau, string hoTen, string gioiTinh, DateTime ngaySinh, string diaChi, string sdt, int vaiTro, ref string err)
         {
-            string sqlStr = "EXEC Them_LoaiNguoiDung '" + tenDN + "','" + matKhau + "',N'" + hoTen + "','" + ngaySinh + "',N'" + gioiTinh + "','" + diaChi + "','" + sdt + "'," + vaiTro + ";" ;
+            string sqlStr = "EXEC Them_LoaiNguoiDung '" + tenDN + "','" + matKhau + "',N'" + hoTen + "','" + ngaySinh + "',N'" + gioiTinh + "',N'" + diaChi + "','" + sdt + "'," + vaiTro + ";" ;
             return db.MyExecuteNonQuery(sqlStr, CommandType.Text, ref err);
         }
     }

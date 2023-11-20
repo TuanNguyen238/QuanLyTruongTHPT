@@ -24,6 +24,8 @@ namespace DoAnHQTCSDL
         XemPhanCong xemPhanCong = null;
         XemTKBLop xemTKBLop = null;
         XemThiDuaLop xemThiDuaLop = null;
+        ChinhSuaThongTinAdmin chinhSuaThongTinAdmin = null;
+        ThemAdmin themAdmin = null;
         BLNguoiDung bLAdmin = null;
         DBMain db = null;
         string maNQL = "";
@@ -92,6 +94,20 @@ namespace DoAnHQTCSDL
             xemPhanCong = new XemPhanCong(db);
             this.panelAdmin.Controls.Clear();
             this.panelAdmin.Controls.Add(xemPhanCong);
+        }
+
+        private void btnChinhSuaTTCaNhan_Click(object sender, EventArgs e)
+        {
+            chinhSuaThongTinAdmin = new ChinhSuaThongTinAdmin(maNQL, db);
+            this.panelAdmin.Controls.Clear();
+            this.panelAdmin.Controls.Add(chinhSuaThongTinAdmin);
+        }
+
+        private void btnThemAdmin_Click(object sender, EventArgs e)
+        {
+            themAdmin = new ThemAdmin(db);
+            this.panelAdmin.Controls.Clear();
+            this.panelAdmin.Controls.Add(themAdmin);
         }
     }
 }
