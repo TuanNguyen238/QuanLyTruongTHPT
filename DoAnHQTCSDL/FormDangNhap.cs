@@ -29,7 +29,7 @@ namespace DoAnHQTCSDL
             this.Hide();
             FormDangKy formDangKy = new FormDangKy();
             formDangKy.ShowDialog();
-            
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
