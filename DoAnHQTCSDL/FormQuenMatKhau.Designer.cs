@@ -203,9 +203,9 @@
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
             this.label1.Location = new System.Drawing.Point(496, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(402, 52);
+            this.label1.Size = new System.Drawing.Size(427, 52);
             this.label1.TabIndex = 50;
-            this.label1.Text = "FORGOT PASWORD";
+            this.label1.Text = "FORGOT PASSWORD";
             // 
             // panel2
             // 

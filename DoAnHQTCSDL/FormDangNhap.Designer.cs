@@ -134,7 +134,7 @@
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.Location = new System.Drawing.Point(604, 277);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "Tên đăng nhập";
@@ -155,7 +155,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Location = new System.Drawing.Point(604, 318);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "Mật khẩu";
@@ -232,10 +232,10 @@
             this.btnForgot.LinkColor = System.Drawing.Color.CadetBlue;
             this.btnForgot.Location = new System.Drawing.Point(600, 494);
             this.btnForgot.Name = "btnForgot";
-            this.btnForgot.Size = new System.Drawing.Size(182, 24);
+            this.btnForgot.Size = new System.Drawing.Size(193, 24);
             this.btnForgot.TabIndex = 28;
             this.btnForgot.TabStop = true;
-            this.btnForgot.Text = "FORGOT PASWORD";
+            this.btnForgot.Text = "FORGOT PASSWORD";
             this.btnForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnForgot_LinkClicked);
             // 
             // btnThoat

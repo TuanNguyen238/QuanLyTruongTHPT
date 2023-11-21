@@ -4,7 +4,6 @@ GO
 USE QuanLyTruongTrungHocPT
 GO
 
-
 CREATE TABLE Lop (
     TenLop nvarchar(20) PRIMARY KEY,
     MaGVCN varchar(20),
