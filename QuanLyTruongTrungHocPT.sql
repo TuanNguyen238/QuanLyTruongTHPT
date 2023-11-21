@@ -690,8 +690,6 @@ GO
 
 CREATE PROCEDURE CapNhatNguoiDung
 @MaNguoiDung varchar(20),
-@TenDangNhap varchar(20),
-@MatKhau varchar(20),
 @HoTen nvarchar(50),
 @NgaySinh date,
 @GioiTinh nvarchar(20),
@@ -707,7 +705,7 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 		UPDATE NguoiDung
-		SET TenDangNhap = @TenDangNhap, MatKhau = @MatKhau, HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, DiaChi = @DiaChi, SoDT = @SoDT
+		SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, DiaChi = @DiaChi, SoDT = @SoDT
 		WHERE MaNguoiDung = @MaNguoiDung
 		IF EXISTS(SELECT * FROM TuyenSinh WHERE MaHoSo = @MaNguoiDung)
 			UPDATE TuyenSinh
@@ -1948,6 +1946,15 @@ CREATE PROCEDURE XoaHocSinh
 AS
 BEGIN
 	BEGIN TRY
+		DECLARE @TenDN varchar(20), @sqlStr varchar(MAX), @SessionID INT;
+		SELECT @TenDN = TenDangNhap FROM NguoiDung WHERE MaNguoiDung = @MaHS;
+		SET NOCOUNT ON;
+		SELECT @SessionID = session_id FROM sys.dm_exec_sessions WHERE login_name = @TenDN;
+		IF @SessionID IS NOT NULL
+		BEGIN
+			SET @sqlStr = 'kill ' + CONVERT(NVARCHAR(20), @SessionID);
+			EXEC(@sqlStr);
+		END;
 		BEGIN TRANSACTION
 		DELETE FROM DanhHieu WHERE MaHS = @MaHS;
 		DELETE FROM Diem WHERE MaHS = @MaHS;
@@ -2252,8 +2259,8 @@ BEGIN
 	GRANT SELECT ON dbo.TraTTGiaoVien TO GiaoVien
 
 	GRANT EXECUTE ON dbo.LopCuaGiaoVien TO GiaoVien
-	GRANT EXECUTE ON dbo.TraLop TO GiaoVien
 	GRANT EXECUTE ON dbo.TraMaNguoiDung TO GiaoVien
+	GRANT EXECUTE ON dbo.TraLop TO GiaoVien
 	GRANT EXECUTE ON dbo.TraTKB TO GiaoVien
 	GRANT EXECUTE ON dbo.TraSiSoLop TO GiaoVien
 END;
@@ -2297,9 +2304,9 @@ BEGIN
 
 	GRANT EXECUTE ON dbo.KiemTraTenNguoiDung TO HocSinh
 	GRANT EXECUTE ON dbo.KiemTraTonTaiHocSinh TO HocSinh
+	GRANT EXECUTE ON dbo.TraMaNguoiDung TO HocSinh
 	GRANT EXECUTE ON dbo.TraTKB TO HocSinh
 	GRANT EXECUTE ON dbo.TraLop TO HocSinh
-	GRANT EXECUTE ON dbo.TraMaNguoiDung TO HocSinh
 	GRANT EXECUTE ON dbo.KiemTraTuyenSinh TO HocSinh
 END;
 GO

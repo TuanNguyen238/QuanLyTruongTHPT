@@ -42,7 +42,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnForgot = new System.Windows.Forms.LinkLabel();
-            this.siticoneControlBox1 = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
+            this.btnThoat = new Siticone.Desktop.UI.WinForms.SiticoneControlBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -55,9 +55,10 @@
             this.btnLogin.BackColor = System.Drawing.Color.CadetBlue;
             this.btnLogin.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(680, 471);
+            this.btnLogin.Location = new System.Drawing.Point(604, 377);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(246, 58);
+            this.btnLogin.Size = new System.Drawing.Size(219, 46);
             this.btnLogin.TabIndex = 19;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -69,9 +70,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Stencil", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label1.Location = new System.Drawing.Point(680, 235);
+            this.label1.Location = new System.Drawing.Point(604, 188);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 85);
+            this.label1.Size = new System.Drawing.Size(201, 71);
             this.label1.TabIndex = 13;
             this.label1.Text = "LOGIN";
             // 
@@ -81,17 +82,19 @@
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(-22, -17);
+            this.panel2.Location = new System.Drawing.Point(-20, -14);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(530, 831);
+            this.panel2.Size = new System.Drawing.Size(471, 665);
             this.panel2.TabIndex = 23;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::DoAnHQTCSDL.Properties.Resources.koala;
-            this.pictureBox5.Location = new System.Drawing.Point(186, 58);
+            this.pictureBox5.Location = new System.Drawing.Point(165, 46);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(164, 146);
+            this.pictureBox5.Size = new System.Drawing.Size(146, 117);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
@@ -101,9 +104,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Stencil", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(96, 422);
+            this.label4.Location = new System.Drawing.Point(85, 338);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(363, 114);
+            this.label4.Size = new System.Drawing.Size(304, 95);
             this.label4.TabIndex = 3;
             this.label4.Text = "EDUMY";
             // 
@@ -112,9 +115,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Stencil", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(15, 263);
+            this.label3.Location = new System.Drawing.Point(13, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(543, 95);
+            this.label3.Size = new System.Drawing.Size(452, 80);
             this.label3.TabIndex = 2;
             this.label3.Text = "Welcome to ";
             // 
@@ -130,13 +133,13 @@
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Location = new System.Drawing.Point(680, 346);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(6);
+            this.txtUsername.Location = new System.Drawing.Point(604, 277);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "Tên đăng nhập";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(246, 37);
+            this.txtUsername.Size = new System.Drawing.Size(219, 30);
             this.txtUsername.TabIndex = 24;
             // 
             // txtPassword
@@ -151,13 +154,13 @@
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Location = new System.Drawing.Point(680, 398);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
+            this.txtPassword.Location = new System.Drawing.Point(604, 318);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "Mật khẩu";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.Size = new System.Drawing.Size(246, 37);
+            this.txtPassword.Size = new System.Drawing.Size(219, 30);
             this.txtPassword.TabIndex = 25;
             // 
             // label2
@@ -165,9 +168,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGray;
-            this.label2.Location = new System.Drawing.Point(633, 566);
+            this.label2.Location = new System.Drawing.Point(563, 453);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 29);
+            this.label2.Size = new System.Drawing.Size(164, 24);
             this.label2.TabIndex = 21;
             this.label2.Text = "New to Edumy?";
             // 
@@ -178,9 +181,9 @@
             this.btnClick.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClick.ForeColor = System.Drawing.Color.CadetBlue;
             this.btnClick.LinkColor = System.Drawing.Color.CadetBlue;
-            this.btnClick.Location = new System.Drawing.Point(846, 566);
+            this.btnClick.Location = new System.Drawing.Point(752, 453);
             this.btnClick.Name = "btnClick";
-            this.btnClick.Size = new System.Drawing.Size(104, 29);
+            this.btnClick.Size = new System.Drawing.Size(86, 24);
             this.btnClick.TabIndex = 26;
             this.btnClick.TabStop = true;
             this.btnClick.Text = "Sign Up";
@@ -189,9 +192,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DoAnHQTCSDL.Properties.Resources.unlock;
-            this.pictureBox3.Location = new System.Drawing.Point(898, 405);
+            this.pictureBox3.Location = new System.Drawing.Point(798, 324);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 25);
+            this.pictureBox3.Size = new System.Drawing.Size(23, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 18;
             this.pictureBox3.TabStop = false;
@@ -199,9 +203,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DoAnHQTCSDL.Properties.Resources.user2;
-            this.pictureBox2.Location = new System.Drawing.Point(740, 92);
+            this.pictureBox2.Location = new System.Drawing.Point(658, 74);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(114, 117);
+            this.pictureBox2.Size = new System.Drawing.Size(101, 94);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
@@ -210,9 +215,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Snow;
             this.pictureBox1.Image = global::DoAnHQTCSDL.Properties.Resources.account;
-            this.pictureBox1.Location = new System.Drawing.Point(898, 352);
+            this.pictureBox1.Location = new System.Drawing.Point(798, 282);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -224,34 +230,36 @@
             this.btnForgot.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForgot.ForeColor = System.Drawing.Color.CadetBlue;
             this.btnForgot.LinkColor = System.Drawing.Color.CadetBlue;
-            this.btnForgot.Location = new System.Drawing.Point(675, 618);
+            this.btnForgot.Location = new System.Drawing.Point(600, 494);
             this.btnForgot.Name = "btnForgot";
-            this.btnForgot.Size = new System.Drawing.Size(220, 29);
+            this.btnForgot.Size = new System.Drawing.Size(182, 24);
             this.btnForgot.TabIndex = 28;
             this.btnForgot.TabStop = true;
             this.btnForgot.Text = "FORGOT PASWORD";
             this.btnForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnForgot_LinkClicked);
             // 
-            // siticoneControlBox1
+            // btnThoat
             // 
-            this.siticoneControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.siticoneControlBox1.BackColor = System.Drawing.Color.Violet;
-            this.siticoneControlBox1.FillColor = System.Drawing.Color.White;
-            this.siticoneControlBox1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.siticoneControlBox1.IconColor = System.Drawing.Color.CadetBlue;
-            this.siticoneControlBox1.Location = new System.Drawing.Point(1016, 0);
-            this.siticoneControlBox1.Name = "siticoneControlBox1";
-            this.siticoneControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.siticoneControlBox1.TabIndex = 29;
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.BackColor = System.Drawing.Color.Violet;
+            this.btnThoat.FillColor = System.Drawing.Color.White;
+            this.btnThoat.ForeColor = System.Drawing.Color.CadetBlue;
+            this.btnThoat.IconColor = System.Drawing.Color.CadetBlue;
+            this.btnThoat.Location = new System.Drawing.Point(903, 0);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(40, 23);
+            this.btnThoat.TabIndex = 29;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // FormDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1060, 760);
-            this.Controls.Add(this.siticoneControlBox1);
+            this.ClientSize = new System.Drawing.Size(942, 608);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnForgot);
             this.Controls.Add(this.btnClick);
             this.Controls.Add(this.panel2);
@@ -265,6 +273,7 @@
             this.Controls.Add(this.txtPassword);
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimizeBox = false;
             this.Name = "FormDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -296,7 +305,7 @@
         private System.Windows.Forms.LinkLabel btnClick;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel btnForgot;
-        private Siticone.Desktop.UI.WinForms.SiticoneControlBox siticoneControlBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneControlBox btnThoat;
     }
 }
 

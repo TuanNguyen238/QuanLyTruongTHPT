@@ -34,6 +34,8 @@ namespace DoAnHQTCSDL.UserControls
 
         private void CapNhatThongTin_Load(object sender, EventArgs e)
         {
+            this.txtTenDangNhap.ReadOnly = true;
+            this.txtMatKhau.ReadOnly = true;
             this.LoadData();
         }
 
@@ -66,7 +68,7 @@ namespace DoAnHQTCSDL.UserControls
             string gioiTinh = "Nam";
             if (this.rdNu.Checked)
                 gioiTinh = "Nữ";
-            if (this.blCapNhat.CapNhatTT(txtTenDangNhap.Text, txtMatKhau.Text, txtHoTen.Text, dtNgaySinh.Value, gioiTinh, txtDiaChi.Text, txtSDT.Text, ref err))
+            if (this.blCapNhat.CapNhatTT(txtHoTen.Text, dtNgaySinh.Value, gioiTinh, txtDiaChi.Text, txtSDT.Text, ref err))
                 MessageBox.Show("Cập nhật thành công");
             else
                 MessageBox.Show(err);

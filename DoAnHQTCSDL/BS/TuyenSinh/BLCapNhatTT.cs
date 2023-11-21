@@ -19,9 +19,9 @@ namespace DoAnHQTCSDL.BS.TuyenSinh
             this.db = db;
         }
 
-        public bool CapNhatTT(string tenDN, string matKhau, string hoTen, DateTime ngaySinh, string gioiTinh, string diaChi, string soDT, ref string err)
+        public bool CapNhatTT(string hoTen, DateTime ngaySinh, string gioiTinh, string diaChi, string soDT, ref string err)
         {
-            string sqlStr = "EXEC CapNhatNguoiDung '" + this.maHoSo + "','" + tenDN + "','" + matKhau + "',N'" + hoTen + "','" + ngaySinh + "',N'" + gioiTinh + "',N'" + diaChi + "','" + soDT + "';";
+            string sqlStr = "EXEC CapNhatNguoiDung '" + this.maHoSo + "',N'" + hoTen + "','" + ngaySinh + "',N'" + gioiTinh + "',N'" + diaChi + "','" + soDT + "';";
             return db.MyExecuteNonQuery(sqlStr, CommandType.Text, ref err);
         }
 
